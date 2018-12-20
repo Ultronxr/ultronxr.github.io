@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2018-12-20T11:38:12.243Z</updated>
+  <updated>2018-12-20T12:53:59.768Z</updated>
   <id>/</id>
   
   <author>
@@ -17,53 +17,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>my new blog 2</title>
-    <link href="/2018/12/20/my-new-blog-2/"/>
-    <id>/2018/12/20/my-new-blog-2/</id>
-    <published>2018-12-20T11:34:51.000Z</published>
-    <updated>2018-12-20T11:38:12.243Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="未分类" scheme="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/"/>
-    
-    
-      <category term="uncategorized" scheme="/tags/uncategorized/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>my new blog</title>
-    <link href="/2018/12/20/my-new-blog/"/>
-    <id>/2018/12/20/my-new-blog/</id>
-    <published>2018-12-20T11:33:06.000Z</published>
-    <updated>2018-12-20T11:38:15.818Z</updated>
-    
-    <content type="html"><![CDATA[<p>—这里是文章摘要—</p><a id="more"></a><h1 id="标题1"><a href="#标题1" class="headerlink" title="标题1"></a>标题1</h1><h2 id="标题2"><a href="#标题2" class="headerlink" title="标题2"></a>标题2</h2><p>正文正文正文正文正文正文正文<br>正文正文正文正文正文正文正文<br>正文正文正文正文正文正文正文<br>正文正文正文正文正文正文正文</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;—这里是文章摘要—&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="未分类" scheme="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/"/>
-    
-    
-      <category term="uncategorized" scheme="/tags/uncategorized/"/>
-    
-  </entry>
-  
-  <entry>
     <title>test</title>
     <link href="/2018/12/20/test/"/>
     <id>/2018/12/20/test/</id>
     <published>2018-12-20T02:48:17.000Z</published>
-    <updated>2018-12-20T11:38:35.242Z</updated>
+    <updated>2018-12-20T12:53:59.768Z</updated>
     
-    <content type="html"><![CDATA[<p>—这里是文章摘要—</p><a id="more"></a><h1 id="标题1"><a href="#标题1" class="headerlink" title="标题1"></a>标题1</h1><h2 id="标题2"><a href="#标题2" class="headerlink" title="标题2"></a>标题2</h2><p>正文正文正文正文正文正文正文<br>正文正文正文正文正文正文正文<br>正文正文正文正文正文正文正文<br>正文正文正文正文正文正文正文</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>—这里是文章摘要—</p><a id="more"></a><h1 id="标题1"><a href="#标题1" class="headerlink" title="标题1"></a>标题1</h1><h2 id="标题2"><a href="#标题2" class="headerlink" title="标题2"></a>标题2</h2><p>正文正文正文正文正文正文正文<br>正文正文正文正文正文正文正文<br>正文正文正文正文正文正文正文<br>正文正文正文正文正文正文正文</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//C测试</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"HelloWorld"</span>);</span><br></pre></td></tr></table></figure><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//C++测试</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"HelloWorld"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//java测试</span></span><br><span class="line">System.out.println(<span class="string">"HelloWorld"</span>);</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># python测试</span></span><br><span class="line"><span class="keyword">import</span> math;</span><br><span class="line">print(<span class="string">"HelloWorld"</span>);</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -71,10 +31,10 @@
     
     </summary>
     
-      <category term="未分类" scheme="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/"/>
+      <category term="测试" scheme="/categories/%E6%B5%8B%E8%AF%95/"/>
     
     
-      <category term="uncategorized" scheme="/tags/uncategorized/"/>
+      <category term="test" scheme="/tags/test/"/>
     
   </entry>
   
