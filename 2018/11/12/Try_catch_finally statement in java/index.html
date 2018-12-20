@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Java中的try catch finally语法（坑） | Ultronxr&#39;s Blog | Ultronxr&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="java,problems">
+    <meta name="description" content="以前都没有仔细注意过try catch finally的用途，只知道在代码里try catch一下，然后println一下异常提示。今天在做项目的时候被这个坑了好久，感叹自己学艺不精！下面讲一下里面的心路历程。">
+<meta name="keywords" content="java,problems">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java中的try catch finally语法（坑）">
+<meta property="og:url" content="/2018/11/12/Try_catch_finally statement in java/index.html">
+<meta property="og:site_name" content="Ultronxr&#39;s Blog">
+<meta property="og:description" content="以前都没有仔细注意过try catch finally的用途，只知道在代码里try catch一下，然后println一下异常提示。今天在做项目的时候被这个坑了好久，感叹自己学艺不精！下面讲一下里面的心路历程。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-20T13:19:55.014Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java中的try catch finally语法（坑）">
+<meta name="twitter:description" content="以前都没有仔细注意过try catch finally的用途，只知道在代码里try catch一下，然后println一下异常提示。今天在做项目的时候被这个坑了好久，感叹自己学艺不精！下面讲一下里面的心路历程。">
+    
+        <link rel="alternate" type="application/atom+xml" title="Ultronxr&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ultronxr</h5>
+          <a href="mailto:f_1208@163.com" title="f_1208@163.com" class="mail">f_1208@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                MainPage 主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags 标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories 分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives 归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Ultronxr" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/" target="_blank">
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-about"></i>
+                About 关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Java中的try catch finally语法（坑）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Java中的try catch finally语法（坑）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-11-11T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2018-11-12
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/java/">java</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/java/problems/">problems</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、写这篇文章的起因"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、写这篇文章的起因</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、借此机会摘记一下try-catch-finally的用法和运行顺序"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、借此机会摘记一下try catch finally的用法和运行顺序</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、总结"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、总结</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Try_catch_finally statement in java" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Java中的try catch finally语法（坑）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-11-12 00:00:00" datetime="2018-11-11T16:00:00.000Z" itemprop="datePublished">2018-11-12</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/java/">java</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/java/problems/">problems</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>以前都没有仔细注意过try catch finally的用途，只知道在代码里try catch一下，然后println一下异常提示。<br>今天在做项目的时候被这个坑了好久，感叹自己学艺不精！下面讲一下里面的心路历程。</p>
+<a id="more"></a>
+<h1 id="一、写这篇文章的起因"><a href="#一、写这篇文章的起因" class="headerlink" title="一、写这篇文章的起因"></a>一、写这篇文章的起因</h1><p><br></p>
+<p>超级超级低级的错误！！！</p>
+<p>以前都没有仔细注意过try catch finally的用途，只知道在代码里try catch一下，然后println一下异常提示。</p>
+<p>今天在做项目的时候被这个坑了好久，感叹自己学艺不精！下面讲一下里面的心路历程。</p>
+<p>直接上代码（第一版的代码）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: 这是一个线程中的execute方法实例，用来在rabbitmq里注册一个consumer消费者，每隔一定时间去取消息队列中的信息</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TransferExecutor</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            ......</span><br><span class="line">            </span><br><span class="line">            Consumer consumer = <span class="keyword">new</span> DefaultConsumer(channel);</span><br><span class="line">            <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">                channel.basicConsume(queueName, autoAck, consumer);</span><br><span class="line">                Thread.sleep(<span class="number">100</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span> (Exception ex)&#123;</span><br><span class="line">            ex.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">finally</span> &#123;</span><br><span class="line">            MyRabbitMQ.closeChannelAndConnection(channel, connection);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">        execute();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面这段代码完全可以正常运行，甚至一段相当长的时间内都看不出异常。。。</p>
+<p>直到我用rabbitmq自带的可视化界面看了一下我的队列，发现我的队列绑定着上百个consumer（要不是IDEA报错我可能现在还没发现）。</p>
+<p>原因是 <code>channel.basicConsume()</code> 方法并不是单单从队列中取出信息消费一次（重点），而是注册一个消费者consumer持续地进行消费，直至channel关闭或手动删除consumer。</p>
+<p><br> <br></p>
+<p>修改了，然后就有了第二版代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TransferExecutor</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            ......</span><br><span class="line">            </span><br><span class="line">            Consumer consumer = <span class="keyword">new</span> DefaultConsumer(channel);</span><br><span class="line">            channel.basicConsume(queueName, autoAck, consumer); <span class="comment">//不是说注册消费者吗，那我就只注册一个呗。</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span> (Exception ex)&#123;</span><br><span class="line">            ex.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">finally</span> &#123;</span><br><span class="line">            MyRabbitMQ.closeChannelAndConnection(channel, connection);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">        execute();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后呢，代码直接就不能用了，不是说不能运行，而是publish新的消息没有消费者去处理，然后发现在队列上完全没有消费者绑着。</p>
+<p>调了很久，一直找不出错误，一度怀疑是 <code>Executors.newFixedThreadPool(10)</code> 的线程池有问题。。。</p>
+<p>然后这里把代码简化了就能一眼看出来了，try运行完了没有抛出异常直接就转到finally里的代码了，线程在运行，却关闭了消息队列的连接，当然没法消费了（再次重点）。</p>
+<p><br> <br> <br></p>
+<h1 id="二、借此机会摘记一下try-catch-finally的用法和运行顺序"><a href="#二、借此机会摘记一下try-catch-finally的用法和运行顺序" class="headerlink" title="二、借此机会摘记一下try catch finally的用法和运行顺序"></a>二、借此机会摘记一下try catch finally的用法和运行顺序</h1><p><br></p>
+<p>据说有些公司拿这个当过面试和笔试题（别人博客上看到的）。</p>
+<p>考运行顺序一般是和return exit这些函数放在一起考的，详见下面的摘记或博客（这里我列了一些我看到的比较好的博客）：</p>
+<p><a href="https://blog.csdn.net/u013309870/article/details/73498860" target="_blank" rel="noopener">Java异常机制–try catch finally 执行顺序详解</a></p>
+<p><a href="https://blog.csdn.net/aaoxue/article/details/8535754" target="_blank" rel="noopener">Java异常捕获之try-catch-finally-return的执行顺序</a></p>
+<p style="font-size:6px">以后会填坑的（小声逼逼..）</p>
+
+<p><br> <br> <br></p>
+<h1 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h1><p><br></p>
+<p>学艺不精，继续努力！</p>
+<p><br> <br> <br> <br></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-12-20T13:19:55.014Z" itemprop="dateUpdated">2018-12-20 21:19:55</time>
+</span><br>
+
+
+        
+        评论基于Valine，不用登录即可评论。
+        
+    </div>
+    <footer>
+        <a href="">
+            <img src="/img/logo.png" alt="ultronxr">
+            ultronxr
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/problems/">problems</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=/2018/11/12/Try_catch_finally statement in java/&title=《Java中的try catch finally语法（坑）》 — Ultronxr's Blog&pic=/img/logo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=/2018/11/12/Try_catch_finally statement in java/&title=《Java中的try catch finally语法（坑）》 — Ultronxr's Blog&source=以前都没有仔细注意过try catch finally的用途，只知道在代码里try catch一下，然后println一下异常提示。今天在做项目的时候被这..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=/2018/11/12/Try_catch_finally statement in java/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java中的try catch finally语法（坑）》 — Ultronxr's Blog&url=/2018/11/12/Try_catch_finally statement in java/&via=" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=/2018/11/12/Try_catch_finally statement in java/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/12/20/test/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">test</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/10/01/Create maven web project using IDEA/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">使用IDEA创建maven web项目</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "lJoGIGFv2iPXuLM58kJhfj5c-gzGzoHsz",
+            appKey: "1HcbLo7Q4meup2lfb8ABs09N",
+            avatar: "mm",
+            placeholder: "comment here...",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ultronxr &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=/2018/11/12/Try_catch_finally statement in java/&title=《Java中的try catch finally语法（坑）》 — Ultronxr's Blog&pic=/img/logo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=/2018/11/12/Try_catch_finally statement in java/&title=《Java中的try catch finally语法（坑）》 — Ultronxr's Blog&source=以前都没有仔细注意过try catch finally的用途，只知道在代码里try catch一下，然后println一下异常提示。今天在做项目的时候被这..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=/2018/11/12/Try_catch_finally statement in java/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java中的try catch finally语法（坑）》 — Ultronxr's Blog&url=/2018/11/12/Try_catch_finally statement in java/&via=" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=/2018/11/12/Try_catch_finally statement in java/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACI0lEQVR42u3aS1LDMBAFwNz/0nAAwHlvRAiWWqtUyhWrtZjMR49HvD4u1/WTX79P3vJ4xcLAwLgtI9niT998/Zy/Jf/l5PgwMDBOYPz04mTT7ZNtmL7eGwYGBsY69Xrr7UFgYGBgzMJokuQlZeqb/zcwMDD+PSMpYmeB9XqLb6jFMTAwbsjIu+5///kl8w0MDIxbMT7KdZ2cJSG1TR+jXWFgYGzNWBlAro8w2xL3yZMYGBibMtqSdb3oLU4352FgYBzAmA0J8sbZrFVXHBYGBsbWjPWLWetPzo4DAwPjHEaSkM1K0GRDCTt5CwYGxjmMvAXfFqtt4phf4FiaJGBgYNyKsdKzWm/hzfLZbwIuBgbGAYy8NJ0FzfzaWTvOxMDAOIHxilRvNhadNd0wMDDOYeSbbovedtV/AxgYGFsz8gtYyeaSINu22GZlNgYGxq6MvLnWppJ5q65t2GFgYJzA+N3wOgugyRjgySFiYGBszWjDaDsGyK+O5YOHKLfFwMDYjtE23fIkrz2gpaIaAwPjGEYyDFgZdiaHhYGBgbEScH83yWvHnE/eiIGBsSlj/fJEW9a2wTRiY2BgbM1YCXZ5s36WUCZbr2EYGBi3ZcxK1tkFrzaJLAIuBgbGAYy2oZ9vrh2CDkM/BgYGxnIBmV+baBt/GBgYGG3wTZpueTuvoGJgYBzASIrYWaqXBOu8xMXAwDiTkSd2bYBOAu5KkMXAwDiA8Qk53GC+Rjul2AAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.0"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.0" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

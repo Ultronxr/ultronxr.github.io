@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Windows下Redis的安装与设置 | Ultronxr&#39;s Blog | Ultronxr&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="redis">
+    <meta name="description" content="Windows下Redis的安装与设置">
+<meta name="keywords" content="redis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows下Redis的安装与设置">
+<meta property="og:url" content="/2018/08/15/The installation and setup of Redis on Windows/index.html">
+<meta property="og:site_name" content="Ultronxr&#39;s Blog">
+<meta property="og:description" content="Windows下Redis的安装与设置">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="/assets/images/2018-08-15-The%20installation%20and%20setup%20of%20Redis%20on%20Windows/01.png">
+<meta property="og:image" content="/assets/images/2018-08-15-The%20installation%20and%20setup%20of%20Redis%20on%20Windows/02.png">
+<meta property="og:image" content="/assets/images/2018-08-15-The%20installation%20and%20setup%20of%20Redis%20on%20Windows/03.png">
+<meta property="og:image" content="/assets/images/2018-08-15-The%20installation%20and%20setup%20of%20Redis%20on%20Windows/04.png">
+<meta property="og:image" content="/assets/images/2018-08-15-The%20installation%20and%20setup%20of%20Redis%20on%20Windows/05.png">
+<meta property="og:image" content="/assets/images/2018-08-15-The%20installation%20and%20setup%20of%20Redis%20on%20Windows/06.png">
+<meta property="og:image" content="/assets/images/2018-08-15-The%20installation%20and%20setup%20of%20Redis%20on%20Windows/07.png">
+<meta property="og:image" content="/assets/images/2018-08-15-The%20installation%20and%20setup%20of%20Redis%20on%20Windows/08.png">
+<meta property="og:image" content="/assets/images/2018-08-15-The%20installation%20and%20setup%20of%20Redis%20on%20Windows/09.png">
+<meta property="og:image" content="/assets/images/2018-08-15-The%20installation%20and%20setup%20of%20Redis%20on%20Windows/10.png">
+<meta property="og:image" content="/assets/images/2018-08-15-The%20installation%20and%20setup%20of%20Redis%20on%20Windows/11.png">
+<meta property="og:image" content="/assets/images/2018-08-15-The%20installation%20and%20setup%20of%20Redis%20on%20Windows/12.png">
+<meta property="og:image" content="/assets/images/2018-08-15-The%20installation%20and%20setup%20of%20Redis%20on%20Windows/13.png">
+<meta property="og:image" content="/assets/images/2018-08-15-The%20installation%20and%20setup%20of%20Redis%20on%20Windows/14.png">
+<meta property="og:image" content="/assets/images/2018-08-15-The%20installation%20and%20setup%20of%20Redis%20on%20Windows/15.png">
+<meta property="og:image" content="/assets/images/2018-08-15-The%20installation%20and%20setup%20of%20Redis%20on%20Windows/16.png">
+<meta property="og:image" content="/assets/images/2018-08-15-The%20installation%20and%20setup%20of%20Redis%20on%20Windows/17.png">
+<meta property="og:updated_time" content="2018-12-20T13:29:06.936Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Windows下Redis的安装与设置">
+<meta name="twitter:description" content="Windows下Redis的安装与设置">
+<meta name="twitter:image" content="/assets/images/2018-08-15-The%20installation%20and%20setup%20of%20Redis%20on%20Windows/01.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Ultronxr&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ultronxr</h5>
+          <a href="mailto:f_1208@163.com" title="f_1208@163.com" class="mail">f_1208@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                MainPage 主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags 标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories 分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives 归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Ultronxr" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/" target="_blank">
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-about"></i>
+                About 关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Windows下Redis的安装与设置</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Windows下Redis的安装与设置</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-08-14T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2018-08-15
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Windows工作环境搭建/">Windows工作环境搭建</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、Redis简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、Redis简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、Windows下安装和配置Redis"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、Windows下安装和配置Redis</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-安装前的注意事项"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">1.安装前的注意事项</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-下载安装包"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2.下载安装包</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-安装"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">3.安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-配置"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">4.配置</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、检查是否安装成功"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、检查是否安装成功</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-进入Redis服务检验"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">1.进入Redis服务检验</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-Redis读写检验"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">2.Redis读写检验</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、参考资料"><span class="post-toc-number">4.</span> <span class="post-toc-text">四、参考资料</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-The installation and setup of Redis on Windows" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Windows下Redis的安装与设置</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-08-15 00:00:00" datetime="2018-08-14T16:00:00.000Z" itemprop="datePublished">2018-08-15</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Windows工作环境搭建/">Windows工作环境搭建</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>Windows下Redis的安装与设置</p>
+<a id="more"></a>
+<h1 id="一、Redis简介"><a href="#一、Redis简介" class="headerlink" title="一、Redis简介"></a>一、Redis简介</h1><p>Redis 是完全开源免费，遵守 BSD 协议的一个高性能的 key-value 数据库。</p>
+<p>Redis 的特点：</p>
+<ul>
+<li>性能极高;</li>
+<li>提供 key-value, list, set, zset, hash 等数据结构的存储;</li>
+<li>支持二进制案例的 Strings, Lists, Hashes, Sets 及 Ordered Sets 数据类型操作;</li>
+<li>所有操作都是原子性的，意思就是要么成功执行要么失败完全不执行;</li>
+</ul>
+<p><br> <br></p>
+<h1 id="二、Windows下安装和配置Redis"><a href="#二、Windows下安装和配置Redis" class="headerlink" title="二、Windows下安装和配置Redis"></a>二、Windows下安装和配置Redis</h1><h2 id="1-安装前的注意事项"><a href="#1-安装前的注意事项" class="headerlink" title="1.安装前的注意事项"></a>1.安装前的注意事项</h2><ul>
+<li>仅可在 Windows x64位 上安装</li>
+<li>安装前请升级Windows上的 .NET Framework 至4.0版本以上，否则会安装程序会自动结束无法安装，可以在cmd中输入 <code>dir %WINDIR%\Microsoft.Net\Framework\v* /O:-N /B</code> 命令查看当前安装的版本</li>
+</ul>
+<p><br></p>
+<h2 id="2-下载安装包"><a href="#2-下载安装包" class="headerlink" title="2.下载安装包"></a>2.下载安装包</h2><p>链接：<a href="https://github.com/MicrosoftArchive/redis/releases/" target="_blank" rel="noopener">Redis在GitHub上的项目网址</a></p>
+<p><div><img src="\assets\images\2018-08-15-The installation and setup of Redis on Windows\01.png" align="absmiddle" width="100%" height="100%"></div> <br></p>
+<p>可以选择msi安装包或者zip压缩包下载，装好的内容是一样的，随意选。我这里选择msi安装包下载。</p>
+<p><br></p>
+<h2 id="3-安装"><a href="#3-安装" class="headerlink" title="3.安装"></a>3.安装</h2><p>打开安装包，点击 Next 进入下一步；</p>
+<p><div><img src="\assets\images\2018-08-15-The installation and setup of Redis on Windows\02.png" align="absmiddle" width="60%" height="60%"></div> <br></p>
+<p>同意用户许可协议，点击 Next 进入下一步；</p>
+<p><div><img src="\assets\images\2018-08-15-The installation and setup of Redis on Windows\03.png" align="absmiddle" width="60%" height="60%"></div> <br></p>
+<p>选择安装路径，同时选中下面的复选框，把安装目录添加到系统环境变量；</p>
+<p><div><img src="\assets\images\2018-08-15-The installation and setup of Redis on Windows\04.png" align="absmiddle" width="60%" height="60%"></div> <br></p>
+<p>设置端口，这里保持默认，选中下面的复选框，添加防火墙例外，保证外部可以正常访问Redis服务；</p>
+<p><div><img src="\assets\images\2018-08-15-The installation and setup of Redis on Windows\05.png" align="absmiddle" width="60%" height="60%"></div> <br></p>
+<p>设置最大占用空间限制，可以不设置，我这里设置了10G的大小；</p>
+<p><div><img src="\assets\images\2018-08-15-The installation and setup of Redis on Windows\06.png" align="absmiddle" width="60%" height="60%"></div> <br></p>
+<p>点击 Install 安装，Win10和Win7上会要求提供管理员权限，选 是 ；</p>
+<p><div><img src="\assets\images\2018-08-15-The installation and setup of Redis on Windows\07.png" align="absmiddle" width="60%" height="60%"></div> <br></p>
+<p><div><img src="\assets\images\2018-08-15-The installation and setup of Redis on Windows\08.png" align="absmiddle" width="60%" height="60%"></div> <br></p>
+<p>等待安装完成，点击 Finish 退出安装程序；</p>
+<p><div><img src="\assets\images\2018-08-15-The installation and setup of Redis on Windows\09.png" align="absmiddle" width="60%" height="60%"></div> <br></p>
+<p>下面是安装完成后的文件列表，同时系统环境变量 PATH 中会有安装目录的变量。</p>
+<p><div><img src="\assets\images\2018-08-15-The installation and setup of Redis on Windows\10.png" align="absmiddle" width="100%" height="100%"></div> <br> <br></p>
+<h2 id="4-配置"><a href="#4-配置" class="headerlink" title="4.配置"></a>4.配置</h2><p>进入安装目录，使用文本编辑器（推荐Notepad++或Sublime）打开 <code>redis.windows-service.conf</code> 文件，注意是有 service 的文件，不是另一个！</p>
+<p><div><img src="\assets\images\2018-08-15-The installation and setup of Redis on Windows\11.png" align="absmiddle" width="100%" height="100%"></div> <br></p>
+<p>打开之后找到 <code>requirepass</code> 所在的行，在下面另起一行，写入 <code>requirepass 123456</code> ，123456是redis的密码，可以自己设置；</p>
+<p><div><img src="\assets\images\2018-08-15-The installation and setup of Redis on Windows\12.png" align="absmiddle" width="100%" height="100%"></div> <br></p>
+<p><div><img src="\assets\images\2018-08-15-The installation and setup of Redis on Windows\13.png" align="absmiddle" width="100%" height="100%"></div> <br></p>
+<p>完成后保存文件退出。</p>
+<p><br></p>
+<p>依次 右键点击”我的电脑” - 打开”管理” - “服务和应用程序” - “服务”，在右侧找到名为 Redis 的服务项，查看是否已启动。没有启动的话手动启动它。如果已经启动的话请停止后重新启动（为了刷新密码验证设置）。</p>
+<p><div><img src="\assets\images\2018-08-15-The installation and setup of Redis on Windows\14.png" align="absmiddle" width="100%" height="100%"></div> <br><br><br></p>
+<h1 id="三、检查是否安装成功"><a href="#三、检查是否安装成功" class="headerlink" title="三、检查是否安装成功"></a>三、检查是否安装成功</h1><h2 id="1-进入Redis服务检验"><a href="#1-进入Redis服务检验" class="headerlink" title="1.进入Redis服务检验"></a>1.进入Redis服务检验</h2><p>打开cmd窗口，输入 <code>redis-cli</code> 回车，如果显示了本地地址和端口号，则说明Redis服务正常。</p>
+<p><div><img src="\assets\images\2018-08-15-The installation and setup of Redis on Windows\15.png" align="absmiddle" width="60%" height="60%"></div> <br></p>
+<h2 id="2-Redis读写检验"><a href="#2-Redis读写检验" class="headerlink" title="2.Redis读写检验"></a>2.Redis读写检验</h2><p>设置了密码之后，需要输入 <code>auth 123456</code> 使用密码来通过验证，显示 OK 则成功；</p>
+<p><div><img src="\assets\images\2018-08-15-The installation and setup of Redis on Windows\16.png" align="absmiddle" width="60%" height="60%"></div> <br></p>
+<p>输入 <code>set testkey &quot;hello redis&quot;</code> 新增一个键值，再输入 <code>get testkey</code> 读取刚刚新建的键值，若能写入和读取则安装成功；</p>
+<p><div><img src="\assets\images\2018-08-15-The installation and setup of Redis on Windows\17.png" align="absmiddle" width="60%" height="60%"></div> <br></p>
+<p>输入 <code>del testkey</code> 删除键值；</p>
+<p><br></p>
+<p>输入 <code>exit</code> 退出Redis。</p>
+<p><br> <br></p>
+<h1 id="四、参考资料"><a href="#四、参考资料" class="headerlink" title="四、参考资料"></a>四、参考资料</h1><ul>
+<li><a href="https://redis.io/" target="_blank" rel="noopener">Redis官网</a></li>
+<li><a href="https://github.com/MicrosoftArchive/redis/" target="_blank" rel="noopener">Redis的GitHub项目</a></li>
+<li><a href="http://try.redis.io/" target="_blank" rel="noopener">Redis在线试用</a></li>
+<li><a href="http://www.runoob.com/redis/redis-tutorial.html" target="_blank" rel="noopener">Redis教程</a></li>
+</ul>
+<p><br> <br> <br> <br></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-12-20T13:29:06.936Z" itemprop="dateUpdated">2018-12-20 21:29:06</time>
+</span><br>
+
+
+        
+        评论基于Valine，不用登录即可评论。
+        
+    </div>
+    <footer>
+        <a href="">
+            <img src="/img/logo.png" alt="ultronxr">
+            ultronxr
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=/2018/08/15/The installation and setup of Redis on Windows/&title=《Windows下Redis的安装与设置》 — Ultronxr's Blog&pic=/img/logo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=/2018/08/15/The installation and setup of Redis on Windows/&title=《Windows下Redis的安装与设置》 — Ultronxr's Blog&source=Windows下Redis的安装与设置" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=/2018/08/15/The installation and setup of Redis on Windows/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Windows下Redis的安装与设置》 — Ultronxr's Blog&url=/2018/08/15/The installation and setup of Redis on Windows/&via=" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=/2018/08/15/The installation and setup of Redis on Windows/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/09/17/Java jdk setting up and tomcat installation/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">在Windows上安装maven，并且在eclipse和IDEA中配置maven</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/08/09/Create a kubernetes cluster on CentOS7/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">CentOS 7下搭建Kubernetes(k8s)集群</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "lJoGIGFv2iPXuLM58kJhfj5c-gzGzoHsz",
+            appKey: "1HcbLo7Q4meup2lfb8ABs09N",
+            avatar: "mm",
+            placeholder: "comment here...",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ultronxr &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=/2018/08/15/The installation and setup of Redis on Windows/&title=《Windows下Redis的安装与设置》 — Ultronxr's Blog&pic=/img/logo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=/2018/08/15/The installation and setup of Redis on Windows/&title=《Windows下Redis的安装与设置》 — Ultronxr's Blog&source=Windows下Redis的安装与设置" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=/2018/08/15/The installation and setup of Redis on Windows/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Windows下Redis的安装与设置》 — Ultronxr's Blog&url=/2018/08/15/The installation and setup of Redis on Windows/&via=" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=/2018/08/15/The installation and setup of Redis on Windows/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACF0lEQVR42u3aQW4kIQwF0Nz/0j3biTJk/seVSA2PVVTpongsLBvz8RGP11/j65PVyGdefeXhgYGB8baMZCnJB5K3VjOsflNsEwYGxgWMdurVZyYbtMfGwMDA+P4332P2louBgYHxVMBdhdenCmMMDAyMvQSuPeNKis+9xBEDA+M2xt7x/e/8/SP9DQwMjLdiTALlU8t6jQcGBsbZjDzATVLGvRSwLYAxMDBOZbQHXgkjX1Ab1pezYWBgHM2YvND+ZnKg1oZ7DAyMkxhtmToPypNLG8snGBgYlzHyifZSzJYUUTEwMI5m7KVxkysaecDdLGIxMDCOZuTJX97IzI/VcnzRQsDAwDiCkUzdpmhtiTvfRAwMjNsYCWkvrrfH/UUhjYGBcTSjDaB76V17rNa2IjAwMM5mtG3L+SKSDcq35lMRi4GBcTTjqcsTk/YABgYGRs5IUrq2qZmkmHnJ+o+vY2BgHM1oj/Jz9uR4rsVgYGDcw2gL0f8c0AeL3rsau3yOgYFxASN/Ya+gbRdaX13FwMC4gJG0AX76WmoevjdTQwwMjDdkvMrRFr2TJmge6DEwMM5m5GOP1C5ufqUMAwPjVMbk0H9SHicHcEXAxcDAuIAxuVSxV7JOitjiHxgYGFcynr0wkT/f9GFgYFzJyJPIvRZpmz5iYGDcw8iD5l5R2jYm863BwMC4gTEqHeO32iZoOycGBsahjD8ttn+tSoN8GAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.0"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.0" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
