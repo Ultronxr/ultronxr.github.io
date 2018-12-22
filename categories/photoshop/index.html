@@ -68,49 +68,42 @@
             <li class="waves-block waves-effect">
               <a href="/">
                 <i class="icon icon-lg icon-home"></i>
-                MainPage 主页
+                主页 MainPage
               </a>
             </li>
         
             <li class="waves-block waves-effect">
               <a href="/tags">
                 <i class="icon icon-lg icon-tags"></i>
-                Tags 标签
+                标签 Tags
               </a>
             </li>
         
             <li class="waves-block waves-effect active">
               <a href="/categories">
                 <i class="icon icon-lg icon-th-list"></i>
-                Categories 分类
+                分类 Categories
               </a>
             </li>
         
             <li class="waves-block waves-effect">
               <a href="/archives">
                 <i class="icon icon-lg icon-archives"></i>
-                Archives 归档
+                归档 Archives
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://github.com/Ultronxr" target="_blank">
+              <a href="https://github.com/Ultronxr/ultronxr.github.io" target="_blank">
                 <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="http://www.weibo.com/" target="_blank">
-                <i class="icon icon-lg icon-weibo"></i>
-                Weibo
+                仓库 GithubRepo
               </a>
             </li>
         
             <li class="waves-block waves-effect">
               <a href="/about">
                 <i class="icon icon-lg icon-about"></i>
-                About 关于
+                关于 About
               </a>
             </li>
         
@@ -160,11 +153,15 @@
             ">全部</a>
         
 
-            <a href="/categories/Linux工作环境搭建/" style="-webkit-order:7;order:7" class="tags-list-item waves-effect waves-button waves-light">Linux工作环境搭建</a>
+            <a href="/categories/Linux工作环境搭建/" style="-webkit-order:6;order:6" class="tags-list-item waves-effect waves-button waves-light">Linux工作环境搭建</a>
 
         
 
-            <a href="/categories/Windows工作环境搭建/" style="-webkit-order:0;order:0" class="tags-list-item waves-effect waves-button waves-light">Windows工作环境搭建</a>
+            <a href="/categories/Windows工作环境搭建/" style="-webkit-order:7;order:7" class="tags-list-item waves-effect waves-button waves-light">Windows工作环境搭建</a>
+
+        
+
+            <a href="/categories/java/" style="-webkit-order:0;order:0" class="tags-list-item waves-effect waves-button waves-light">java</a>
 
         
 
@@ -172,7 +169,7 @@
 
         
 
-            <a href="/categories/java/" style="-webkit-order:2;order:2" class="tags-list-item waves-effect waves-button waves-light">java</a>
+            <a href="/categories/IDEA/" style="-webkit-order:2;order:2" class="tags-list-item waves-effect waves-button waves-light">IDEA</a>
 
         
 
@@ -184,11 +181,7 @@
 
         
 
-            <a href="/categories/IDEA/" style="-webkit-order:5;order:5" class="tags-list-item waves-effect waves-button waves-light">IDEA</a>
-
-        
-
-            <a href="/categories/java/problems/" style="-webkit-order:6;order:6" class="tags-list-item waves-effect waves-button waves-light">problems</a>
+            <a href="/categories/java/problems/" style="-webkit-order:5;order:5" class="tags-list-item waves-effect waves-button waves-light">problems</a>
 
         
     </nav>
@@ -375,10 +368,10 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
     var OriginTitile = document.title, titleTime;
     document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
-            document.title = '死鬼去哪里了！';
+            document.title = '';
             clearTimeout(titleTime);
         } else {
-            document.title = '(つェ⊂)咦!又好了!';
+            document.title = '';
             titleTime = setTimeout(function() {
                 document.title = OriginTitile;
             },2000);

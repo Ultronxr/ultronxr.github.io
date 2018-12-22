@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="Ultronxr&#39;s Blog">
 <meta property="og:description" content="CentOS 7下搭建Kubernetes(k8s)集群">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-20T13:30:05.713Z">
+<meta property="og:updated_time" content="2018-12-22T10:50:08.520Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 7下搭建Kubernetes(k8s)集群">
 <meta name="twitter:description" content="CentOS 7下搭建Kubernetes(k8s)集群">
@@ -69,49 +69,42 @@
             <li class="waves-block waves-effect">
               <a href="/">
                 <i class="icon icon-lg icon-home"></i>
-                MainPage 主页
+                主页 MainPage
               </a>
             </li>
         
             <li class="waves-block waves-effect">
               <a href="/tags">
                 <i class="icon icon-lg icon-tags"></i>
-                Tags 标签
+                标签 Tags
               </a>
             </li>
         
             <li class="waves-block waves-effect">
               <a href="/categories">
                 <i class="icon icon-lg icon-th-list"></i>
-                Categories 分类
+                分类 Categories
               </a>
             </li>
         
             <li class="waves-block waves-effect">
               <a href="/archives">
                 <i class="icon icon-lg icon-archives"></i>
-                Archives 归档
+                归档 Archives
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://github.com/Ultronxr" target="_blank">
+              <a href="https://github.com/Ultronxr/ultronxr.github.io" target="_blank">
                 <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="http://www.weibo.com/" target="_blank">
-                <i class="icon icon-lg icon-weibo"></i>
-                Weibo
+                仓库 GithubRepo
               </a>
             </li>
         
             <li class="waves-block waves-effect">
               <a href="/about">
                 <i class="icon icon-lg icon-about"></i>
-                About 关于
+                关于 About
               </a>
             </li>
         
@@ -208,7 +201,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-12-20T13:30:05.713Z" itemprop="dateUpdated">2018-12-20 21:30:05</time>
+    最后更新时间：<time datetime="2018-12-22T10:50:08.520Z" itemprop="dateUpdated">2018-12-22 18:50:08</time>
 </span><br>
 
 
@@ -225,6 +218,10 @@
 </blockquote>
 
         
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
 
 
         <div class="post-footer">
@@ -334,7 +331,7 @@
             verify: 'false' == 'true',
             appId: "lJoGIGFv2iPXuLM58kJhfj5c-gzGzoHsz",
             appKey: "1HcbLo7Q4meup2lfb8ABs09N",
-            avatar: "mm",
+            avatar: "",
             placeholder: "comment here...",
             guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
             pageSize: "10"
@@ -346,6 +343,31 @@
 
 
 </article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        感谢支持！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wepay_qrcode.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wepay_qrcode.png" data-alipay="/img/alipay_qrcode.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
 
 
 
@@ -434,7 +456,7 @@
 
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 
 
 </script>
@@ -480,10 +502,10 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
     var OriginTitile = document.title, titleTime;
     document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
-            document.title = '死鬼去哪里了！';
+            document.title = '';
             clearTimeout(titleTime);
         } else {
-            document.title = '(つェ⊂)咦!又好了!';
+            document.title = '';
             titleTime = setTimeout(function() {
                 document.title = OriginTitile;
             },2000);
