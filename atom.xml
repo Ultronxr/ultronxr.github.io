@@ -5,9 +5,9 @@
   <subtitle>Ultronxr&#39;s Blog</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="/"/>
+  <link href="https://ultronxr.xyz/"/>
   <updated>2018-12-22T11:34:33.392Z</updated>
-  <id>/</id>
+  <id>https://ultronxr.xyz/</id>
   
   <author>
     <name>ultronxr</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>test</title>
-    <link href="/2018/12/20/test/"/>
-    <id>/2018/12/20/test/</id>
+    <link href="https://ultronxr.xyz/2018/12/20/test/"/>
+    <id>https://ultronxr.xyz/2018/12/20/test/</id>
     <published>2018-12-20T02:48:17.000Z</published>
     <updated>2018-12-22T11:34:33.392Z</updated>
     
@@ -31,17 +31,17 @@
     
     </summary>
     
-      <category term="测试" scheme="/categories/%E6%B5%8B%E8%AF%95/"/>
+      <category term="测试" scheme="https://ultronxr.xyz/categories/%E6%B5%8B%E8%AF%95/"/>
     
     
-      <category term="test" scheme="/tags/test/"/>
+      <category term="test" scheme="https://ultronxr.xyz/tags/test/"/>
     
   </entry>
   
   <entry>
     <title>Java中的try catch finally语法（坑）</title>
-    <link href="/2018/11/12/Try_catch_finally%20statement%20in%20java/"/>
-    <id>/2018/11/12/Try_catch_finally statement in java/</id>
+    <link href="https://ultronxr.xyz/2018/11/12/Try_catch_finally%20statement%20in%20java/"/>
+    <id>https://ultronxr.xyz/2018/11/12/Try_catch_finally statement in java/</id>
     <published>2018-11-11T16:00:00.000Z</published>
     <updated>2018-12-22T10:49:34.095Z</updated>
     
@@ -53,21 +53,21 @@
     
     </summary>
     
-      <category term="java" scheme="/categories/java/"/>
+      <category term="java" scheme="https://ultronxr.xyz/categories/java/"/>
     
-      <category term="problems" scheme="/categories/java/problems/"/>
+      <category term="problems" scheme="https://ultronxr.xyz/categories/java/problems/"/>
     
     
-      <category term="java" scheme="/tags/java/"/>
+      <category term="java" scheme="https://ultronxr.xyz/tags/java/"/>
     
-      <category term="problems" scheme="/tags/problems/"/>
+      <category term="problems" scheme="https://ultronxr.xyz/tags/problems/"/>
     
   </entry>
   
   <entry>
     <title>IDEA中编译器与项目的java版本不同导致编译失败的解决办法</title>
-    <link href="/2018/10/01/Compiling%20failure%20due%20to%20the%20differences%20between%20project%20and%20java%20complier/"/>
-    <id>/2018/10/01/Compiling failure due to the differences between project and java complier/</id>
+    <link href="https://ultronxr.xyz/2018/10/01/Compiling%20failure%20due%20to%20the%20differences%20between%20project%20and%20java%20complier/"/>
+    <id>https://ultronxr.xyz/2018/10/01/Compiling failure due to the differences between project and java complier/</id>
     <published>2018-09-30T16:00:00.000Z</published>
     <updated>2018-12-22T10:49:55.161Z</updated>
     
@@ -79,19 +79,19 @@
     
     </summary>
     
-      <category term="IDEA" scheme="/categories/IDEA/"/>
+      <category term="IDEA" scheme="https://ultronxr.xyz/categories/IDEA/"/>
     
     
-      <category term="java" scheme="/tags/java/"/>
+      <category term="java" scheme="https://ultronxr.xyz/tags/java/"/>
     
-      <category term="IDEA" scheme="/tags/IDEA/"/>
+      <category term="IDEA" scheme="https://ultronxr.xyz/tags/IDEA/"/>
     
   </entry>
   
   <entry>
     <title>使用IDEA创建maven web项目</title>
-    <link href="/2018/10/01/Create%20maven%20web%20project%20using%20IDEA/"/>
-    <id>/2018/10/01/Create maven web project using IDEA/</id>
+    <link href="https://ultronxr.xyz/2018/10/01/Create%20maven%20web%20project%20using%20IDEA/"/>
+    <id>https://ultronxr.xyz/2018/10/01/Create maven web project using IDEA/</id>
     <published>2018-09-30T16:00:00.000Z</published>
     <updated>2018-12-22T10:49:51.604Z</updated>
     
@@ -103,23 +103,23 @@
     
     </summary>
     
-      <category term="javaweb" scheme="/categories/javaweb/"/>
+      <category term="javaweb" scheme="https://ultronxr.xyz/categories/javaweb/"/>
     
     
-      <category term="java" scheme="/tags/java/"/>
+      <category term="java" scheme="https://ultronxr.xyz/tags/java/"/>
     
-      <category term="IDEA" scheme="/tags/IDEA/"/>
+      <category term="IDEA" scheme="https://ultronxr.xyz/tags/IDEA/"/>
     
-      <category term="javaweb" scheme="/tags/javaweb/"/>
+      <category term="javaweb" scheme="https://ultronxr.xyz/tags/javaweb/"/>
     
-      <category term="maven" scheme="/tags/maven/"/>
+      <category term="maven" scheme="https://ultronxr.xyz/tags/maven/"/>
     
   </entry>
   
   <entry>
     <title>在Windows上安装maven，并且在eclipse和IDEA中配置maven</title>
-    <link href="/2018/10/01/How%20to%20install%20maven%20on%20windows%20and%20the%20setup%20of%20maven%20in%20eclipse%20and%20IDEA/"/>
-    <id>/2018/10/01/How to install maven on windows and the setup of maven in eclipse and IDEA/</id>
+    <link href="https://ultronxr.xyz/2018/10/01/How%20to%20install%20maven%20on%20windows%20and%20the%20setup%20of%20maven%20in%20eclipse%20and%20IDEA/"/>
+    <id>https://ultronxr.xyz/2018/10/01/How to install maven on windows and the setup of maven in eclipse and IDEA/</id>
     <published>2018-09-30T16:00:00.000Z</published>
     <updated>2018-12-22T10:49:47.508Z</updated>
     
@@ -131,25 +131,25 @@
     
     </summary>
     
-      <category term="javaweb" scheme="/categories/javaweb/"/>
+      <category term="javaweb" scheme="https://ultronxr.xyz/categories/javaweb/"/>
     
     
-      <category term="java" scheme="/tags/java/"/>
+      <category term="java" scheme="https://ultronxr.xyz/tags/java/"/>
     
-      <category term="IDEA" scheme="/tags/IDEA/"/>
+      <category term="IDEA" scheme="https://ultronxr.xyz/tags/IDEA/"/>
     
-      <category term="javaweb" scheme="/tags/javaweb/"/>
+      <category term="javaweb" scheme="https://ultronxr.xyz/tags/javaweb/"/>
     
-      <category term="maven" scheme="/tags/maven/"/>
+      <category term="maven" scheme="https://ultronxr.xyz/tags/maven/"/>
     
-      <category term="eclipse" scheme="/tags/eclipse/"/>
+      <category term="eclipse" scheme="https://ultronxr.xyz/tags/eclipse/"/>
     
   </entry>
   
   <entry>
     <title>使用Photoshop创建4寸照</title>
-    <link href="/2018/09/22/How%20to%20create%20a%204%20inch%20photo%20with%20photoshop/"/>
-    <id>/2018/09/22/How to create a 4 inch photo with photoshop/</id>
+    <link href="https://ultronxr.xyz/2018/09/22/How%20to%20create%20a%204%20inch%20photo%20with%20photoshop/"/>
+    <id>https://ultronxr.xyz/2018/09/22/How to create a 4 inch photo with photoshop/</id>
     <published>2018-09-21T16:00:00.000Z</published>
     <updated>2018-12-22T11:35:05.331Z</updated>
     
@@ -161,17 +161,17 @@
     
     </summary>
     
-      <category term="photoshop" scheme="/categories/photoshop/"/>
+      <category term="photoshop" scheme="https://ultronxr.xyz/categories/photoshop/"/>
     
     
-      <category term="photoshop" scheme="/tags/photoshop/"/>
+      <category term="photoshop" scheme="https://ultronxr.xyz/tags/photoshop/"/>
     
   </entry>
   
   <entry>
     <title>Windows下 Java JDK 和 Tomcat 的安装配置</title>
-    <link href="/2018/09/17/Java%20jdk%20setting%20up%20and%20tomcat%20installation/"/>
-    <id>/2018/09/17/Java jdk setting up and tomcat installation/</id>
+    <link href="https://ultronxr.xyz/2018/09/17/Java%20jdk%20setting%20up%20and%20tomcat%20installation/"/>
+    <id>https://ultronxr.xyz/2018/09/17/Java jdk setting up and tomcat installation/</id>
     <published>2018-09-16T16:00:00.000Z</published>
     <updated>2018-12-22T11:33:34.896Z</updated>
     
@@ -183,21 +183,21 @@
     
     </summary>
     
-      <category term="java" scheme="/categories/java/"/>
+      <category term="java" scheme="https://ultronxr.xyz/categories/java/"/>
     
     
-      <category term="java" scheme="/tags/java/"/>
+      <category term="java" scheme="https://ultronxr.xyz/tags/java/"/>
     
-      <category term="jdk" scheme="/tags/jdk/"/>
+      <category term="jdk" scheme="https://ultronxr.xyz/tags/jdk/"/>
     
-      <category term="tomcat" scheme="/tags/tomcat/"/>
+      <category term="tomcat" scheme="https://ultronxr.xyz/tags/tomcat/"/>
     
   </entry>
   
   <entry>
     <title>Windows下Redis的安装与设置</title>
-    <link href="/2018/08/15/The%20installation%20and%20setup%20of%20Redis%20on%20Windows/"/>
-    <id>/2018/08/15/The installation and setup of Redis on Windows/</id>
+    <link href="https://ultronxr.xyz/2018/08/15/The%20installation%20and%20setup%20of%20Redis%20on%20Windows/"/>
+    <id>https://ultronxr.xyz/2018/08/15/The installation and setup of Redis on Windows/</id>
     <published>2018-08-14T16:00:00.000Z</published>
     <updated>2018-12-22T10:50:05.755Z</updated>
     
@@ -209,17 +209,17 @@
     
     </summary>
     
-      <category term="Windows工作环境搭建" scheme="/categories/Windows%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+      <category term="Windows工作环境搭建" scheme="https://ultronxr.xyz/categories/Windows%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
     
     
-      <category term="redis" scheme="/tags/redis/"/>
+      <category term="redis" scheme="https://ultronxr.xyz/tags/redis/"/>
     
   </entry>
   
   <entry>
     <title>CentOS 7下搭建Kubernetes(k8s)集群</title>
-    <link href="/2018/08/09/Create%20a%20kubernetes%20cluster%20on%20CentOS7/"/>
-    <id>/2018/08/09/Create a kubernetes cluster on CentOS7/</id>
+    <link href="https://ultronxr.xyz/2018/08/09/Create%20a%20kubernetes%20cluster%20on%20CentOS7/"/>
+    <id>https://ultronxr.xyz/2018/08/09/Create a kubernetes cluster on CentOS7/</id>
     <published>2018-08-08T16:00:00.000Z</published>
     <updated>2018-12-22T10:50:08.520Z</updated>
     
@@ -231,19 +231,19 @@
     
     </summary>
     
-      <category term="Linux工作环境搭建" scheme="/categories/Linux%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+      <category term="Linux工作环境搭建" scheme="https://ultronxr.xyz/categories/Linux%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
     
     
-      <category term="docker" scheme="/tags/docker/"/>
+      <category term="docker" scheme="https://ultronxr.xyz/tags/docker/"/>
     
-      <category term="kubernetes" scheme="/tags/kubernetes/"/>
+      <category term="kubernetes" scheme="https://ultronxr.xyz/tags/kubernetes/"/>
     
   </entry>
   
   <entry>
     <title>Windows环境下安装Ruby组件和配置，以及利用jekyll和GitHub Pages在GitHub上搭建个人博客</title>
-    <link href="/2018/08/08/Create%20ruby%20environment%20in%20Windows%20and%20build%20your%20own%20github%20blog%20with%20jekyll%20and%20GitHub%20Pages/"/>
-    <id>/2018/08/08/Create ruby environment in Windows and build your own github blog with jekyll and GitHub Pages/</id>
+    <link href="https://ultronxr.xyz/2018/08/08/Create%20ruby%20environment%20in%20Windows%20and%20build%20your%20own%20github%20blog%20with%20jekyll%20and%20GitHub%20Pages/"/>
+    <id>https://ultronxr.xyz/2018/08/08/Create ruby environment in Windows and build your own github blog with jekyll and GitHub Pages/</id>
     <published>2018-08-07T16:00:00.000Z</published>
     <updated>2018-12-22T10:50:12.213Z</updated>
     
@@ -255,14 +255,14 @@
     
     </summary>
     
-      <category term="Windows工作环境搭建" scheme="/categories/Windows%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+      <category term="Windows工作环境搭建" scheme="https://ultronxr.xyz/categories/Windows%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
     
     
-      <category term="jekyll" scheme="/tags/jekyll/"/>
+      <category term="jekyll" scheme="https://ultronxr.xyz/tags/jekyll/"/>
     
-      <category term="ruby" scheme="/tags/ruby/"/>
+      <category term="ruby" scheme="https://ultronxr.xyz/tags/ruby/"/>
     
-      <category term="blog" scheme="/tags/blog/"/>
+      <category term="blog" scheme="https://ultronxr.xyz/tags/blog/"/>
     
   </entry>
   
