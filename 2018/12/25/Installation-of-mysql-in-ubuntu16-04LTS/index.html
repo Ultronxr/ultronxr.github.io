@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Ubuntu 16.04 LTS 简易安装mysql | Ultronxr&#39;s Blog | Ultronxr&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="ubuntu,mysql">
+    <meta name="description" content="完全使用命令行安装mysql。">
+<meta name="keywords" content="ubuntu,mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu 16.04 LTS 简易安装mysql">
+<meta property="og:url" content="https://ultronxr.xyz/2018/12/25/Installation-of-mysql-in-ubuntu16-04LTS/index.html">
+<meta property="og:site_name" content="Ultronxr&#39;s Blog">
+<meta property="og:description" content="完全使用命令行安装mysql。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-25T03:33:07.811Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ubuntu 16.04 LTS 简易安装mysql">
+<meta name="twitter:description" content="完全使用命令行安装mysql。">
+    
+        <link rel="alternate" type="application/atom+xml" title="Ultronxr&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ultronxr</h5>
+          <a href="mailto:f_1208@163.com" title="f_1208@163.com" class="mail">f_1208@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页 MainPage
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签 Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类 Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档 Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Ultronxr/ultronxr.github.io" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                仓库 GithubRepo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-about"></i>
+                关于 About
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Ubuntu 16.04 LTS 简易安装mysql</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Ubuntu 16.04 LTS 简易安装mysql</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-12-25T02:43:18.000Z" itemprop="datePublished" class="page-time">
+  2018-12-25
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Ubuntu16-04LTS安装-配置全家桶/">Ubuntu16.04LTS安装/配置全家桶</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、安装"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、安装</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、登录数据库验证"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、登录数据库验证</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Installation-of-mysql-in-ubuntu16-04LTS" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Ubuntu 16.04 LTS 简易安装mysql</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-12-25 10:43:18" datetime="2018-12-25T02:43:18.000Z" itemprop="datePublished">2018-12-25</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Ubuntu16-04LTS安装-配置全家桶/">Ubuntu16.04LTS安装/配置全家桶</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>完全使用命令行安装mysql。</p>
+<a id="more"></a>
+<h1 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h1><p>依次执行以下命令：</p>
+<p><code>sudo apt-get install mysql-server</code></p>
+<p><code>sudo apt-get install mysql-client</code></p>
+<p><code>sudo apt-get install libmysqlclient-dev</code></p>
+<p>安装过程中会有一个粉红色界面让你输入数据库root用户的密码，输好之后不要忘了。</p>
+<p><br></p>
+<h1 id="二、登录数据库验证"><a href="#二、登录数据库验证" class="headerlink" title="二、登录数据库验证"></a>二、登录数据库验证</h1><p>输入以下命令，以root用户身份输入密码的形式登录数据库：</p>
+<p><code>mysql -u root -p</code></p>
+<p>输入密码回车，如果提示欢迎登录数据库，然后命令行的标志变成了<code>mysql&gt;</code>，说明安装成功。</p>
+<p>可以输入<code>show databases;</code>查看所有存在的数据库。</p>
+<p>注意mysql命令最后要带分号才是完整的。</p>
+<p><br><br></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-12-25T03:33:07.811Z" itemprop="dateUpdated">2018-12-25 11:33:07</time>
+</span><br>
+
+
+        
+        评论基于Valine，不用登录即可评论，支持Markdown。
+        
+    </div>
+    <footer>
+        <a href="https://ultronxr.xyz">
+            <img src="/img/logo.png" alt="ultronxr">
+            ultronxr
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ultronxr.xyz/2018/12/25/Installation-of-mysql-in-ubuntu16-04LTS/&title=《Ubuntu 16.04 LTS 简易安装mysql》 — Ultronxr's Blog&pic=https://ultronxr.xyz/img/logo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ultronxr.xyz/2018/12/25/Installation-of-mysql-in-ubuntu16-04LTS/&title=《Ubuntu 16.04 LTS 简易安装mysql》 — Ultronxr's Blog&source=完全使用命令行安装mysql。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ultronxr.xyz/2018/12/25/Installation-of-mysql-in-ubuntu16-04LTS/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu 16.04 LTS 简易安装mysql》 — Ultronxr's Blog&url=https://ultronxr.xyz/2018/12/25/Installation-of-mysql-in-ubuntu16-04LTS/&via=https://ultronxr.xyz" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ultronxr.xyz/2018/12/25/Installation-of-mysql-in-ubuntu16-04LTS/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/12/25/Change-default-apt-source-to-ali-source-in-ubuntu16-04LTS/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Ubuntu 16.04 LTS 的apt换源</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/12/25/Installation-of-tomcat8-in-ubuntu16-04LTS/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Ubuntu 16.04 LTS 下安装Tomcat 8</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "lJoGIGFv2iPXuLM58kJhfj5c-gzGzoHsz",
+            appKey: "1HcbLo7Q4meup2lfb8ABs09N",
+            avatar: "",
+            placeholder: "comment here...",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        感谢支持！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wepay_qrcode.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wepay_qrcode.png" data-alipay="/img/alipay_qrcode.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ultronxr &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ultronxr.xyz/2018/12/25/Installation-of-mysql-in-ubuntu16-04LTS/&title=《Ubuntu 16.04 LTS 简易安装mysql》 — Ultronxr's Blog&pic=https://ultronxr.xyz/img/logo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ultronxr.xyz/2018/12/25/Installation-of-mysql-in-ubuntu16-04LTS/&title=《Ubuntu 16.04 LTS 简易安装mysql》 — Ultronxr's Blog&source=完全使用命令行安装mysql。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ultronxr.xyz/2018/12/25/Installation-of-mysql-in-ubuntu16-04LTS/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu 16.04 LTS 简易安装mysql》 — Ultronxr's Blog&url=https://ultronxr.xyz/2018/12/25/Installation-of-mysql-in-ubuntu16-04LTS/&via=https://ultronxr.xyz" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ultronxr.xyz/2018/12/25/Installation-of-mysql-in-ubuntu16-04LTS/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACxUlEQVR42u3aQU4DMQwF0N7/0kViCzP9tuMWpJcVoqNOXpBiY/vxiNfze1395nmxfn768xuuPs2fObDw8PDwWltPtphgkgOqviv/hl92goeHh7fGSzZUvejvn+wFnnzPeHh4eH+Bl6S/+RavjiZJqfHw8PD+C2/yn34eZqo/4+Hh4X2Kl2+xUAgILvcJ+3CtBQ8PD6+2h0ID7C/8vNjfw8PDwxt01XthIEnWJ6MDhb3h4eHhLfCSAmsvSMyT9fvEuhAw8PDw8JZ5yevzVlm1DdY7xBfP4OHh4S3wTrX5q4l1MmqQPB8l+nh4eHiHeEkAqLad7sen7o8pLzFER4yHh4e3wOv9e18NGPOD6xUp8PDw8PZ4eZDoFRfKhdc4gS600/Dw8PCO8pKLe1KS2PievMCBh4eHd5bXS4InA1K9Jlm1EPzLTBkeHh7eW3iPeBWiUDGlztNoPDw8vPfwkoS1OoaVD2/lJY/qPvHw8PC2eQeS11bx91Fc+cEdKNHg4eHhBbz8or+/mieJdXVkoTwZgYeHh7fA67WpThVqe0MGhdEBPDw8vDGvmv7ev7h30U+KDi8+xcPDw1vj9baSX+VJ0XZS/rg8LDw8PLxlXq8EMAkn86GrF38GPDw8vAVeLznuNbryQ0lCSGEQAQ8PD2+NN29x9Qaz8iJFb9gLDw8Pb4OXF17z1/dKGNWScTntxsPDwzvES16ZX8ST30wKxJdIPDw8vGVeEjBObbTc0IpXc6YMDw8PL+A9iyspv+atskljLBr/wsPDw1vgNSNJq4RRHUqoHsEkkODh4eFVeUkwqIaBjQs9L3/g4eHhvYdXLUD0SrTVFloeYAozZXh4eHhv503Ku/nWq2NbL1JqPDw8vA/xklZW9clq2bc64oCHh4e3x+ttLi+25m2wXkOunHHj4eHhDXjzBtgkePSKIGeHtPDw8PBi3hfgb9pPawjW8QAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.0"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.0" async></script>
+
+
+
+
+
+<!--不蒜子域名过期 
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+-->
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

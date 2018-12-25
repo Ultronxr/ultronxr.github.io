@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Ubuntu 16.04 LTS 的apt换源 | Ultronxr&#39;s Blog | Ultronxr&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="apt,ubuntu">
+    <meta name="description" content="为了apt安装和更新加快速度，这里选择把默认源更换成阿里源。">
+<meta name="keywords" content="apt,ubuntu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu 16.04 LTS 的apt换源">
+<meta property="og:url" content="https://ultronxr.xyz/2018/12/25/Change-default-apt-source-to-ali-source-in-ubuntu16-04LTS/index.html">
+<meta property="og:site_name" content="Ultronxr&#39;s Blog">
+<meta property="og:description" content="为了apt安装和更新加快速度，这里选择把默认源更换成阿里源。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-25T05:34:44.553Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ubuntu 16.04 LTS 的apt换源">
+<meta name="twitter:description" content="为了apt安装和更新加快速度，这里选择把默认源更换成阿里源。">
+    
+        <link rel="alternate" type="application/atom+xml" title="Ultronxr&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ultronxr</h5>
+          <a href="mailto:f_1208@163.com" title="f_1208@163.com" class="mail">f_1208@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页 MainPage
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签 Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类 Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档 Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Ultronxr/ultronxr.github.io" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                仓库 GithubRepo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-about"></i>
+                关于 About
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Ubuntu 16.04 LTS 的apt换源</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Ubuntu 16.04 LTS 的apt换源</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-12-25T02:46:41.000Z" itemprop="datePublished" class="page-time">
+  2018-12-25
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Ubuntu16-04LTS安装-配置全家桶/">Ubuntu16.04LTS安装/配置全家桶</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、备份系统默认源"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、备份系统默认源</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、查看系统版本详细信息"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、查看系统版本详细信息</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、新建-etc-apt-sources-list-并修改内容"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、新建 /etc/apt/sources.list 并修改内容</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、更新apt使其生效"><span class="post-toc-number">4.</span> <span class="post-toc-text">四、更新apt使其生效</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#五、备注"><span class="post-toc-number">5.</span> <span class="post-toc-text">五、备注</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Change-default-apt-source-to-ali-source-in-ubuntu16-04LTS" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Ubuntu 16.04 LTS 的apt换源</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-12-25 10:46:41" datetime="2018-12-25T02:46:41.000Z" itemprop="datePublished">2018-12-25</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Ubuntu16-04LTS安装-配置全家桶/">Ubuntu16.04LTS安装/配置全家桶</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>为了apt安装和更新加快速度，这里选择把默认源更换成阿里源。</p>
+<a id="more"></a>
+<h1 id="一、备份系统默认源"><a href="#一、备份系统默认源" class="headerlink" title="一、备份系统默认源"></a>一、备份系统默认源</h1><p><code>sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak</code></p>
+<p><br></p>
+<h1 id="二、查看系统版本详细信息"><a href="#二、查看系统版本详细信息" class="headerlink" title="二、查看系统版本详细信息"></a>二、查看系统版本详细信息</h1><p><code>lsb_release -c</code></p>
+<p>查看列出的系统信息的<code>Codename</code>一项后面的值，注意这里不同版本的Ubuntu的值是不同的，不要搞错！！！</p>
+<p>记住上面的值，例如Ubuntu 16.04 LTS的Codename一般是<code>xenial</code>，其他的一般如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Ubuntu 12.04 (LTS)代号为precise</span><br><span class="line"></span><br><span class="line">Ubuntu 14.04 (LTS)代号为trusty</span><br><span class="line"></span><br><span class="line">Ubuntu 15.04 代号为vivid</span><br><span class="line"></span><br><span class="line">Ubuntu 15.10 代号为wily</span><br><span class="line"></span><br><span class="line">Ubuntu 16.04 (LTS)代号为xenial</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h1 id="三、新建-etc-apt-sources-list-并修改内容"><a href="#三、新建-etc-apt-sources-list-并修改内容" class="headerlink" title="三、新建 /etc/apt/sources.list 并修改内容"></a>三、新建 <code>/etc/apt/sources.list</code> 并修改内容</h1><p><code>sudo vim /etc/apt/sources.list</code></p>
+<p>如果第二步的Codename的值是<code>xenial</code>的话，直接加入以下内容即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">deb-src http://archive.ubuntu.com/ubuntu xenial main restricted</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial main restricted multiverse universe</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted multiverse universe</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial universe</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-updates universe</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-updates multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse</span><br><span class="line">deb http://archive.canonical.com/ubuntu xenial partner</span><br><span class="line">deb-src http://archive.canonical.com/ubuntu xenial partner</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted multiverse universe</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-security universe</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-security multiverse</span><br></pre></td></tr></table></figure>
+<p>其他的版本的话，需要把上面内容中的<code>xenial</code>改成其他版本的Codename再添加。</p>
+<p><br></p>
+<h1 id="四、更新apt使其生效"><a href="#四、更新apt使其生效" class="headerlink" title="四、更新apt使其生效"></a>四、更新apt使其生效</h1><p><code>sudo apt-get update</code></p>
+<p><br></p>
+<h1 id="五、备注"><a href="#五、备注" class="headerlink" title="五、备注"></a>五、备注</h1><p>这里顺便备注一下，<code>apt-get update</code>和<code>apt-get upgrade</code>的区别：</p>
+<p>前者是更新系统软件列表，后者是更新软件；</p>
+<p>所以更新软件时应该先update一下再upgrade。</p>
+<p><br><br></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-12-25T05:34:44.553Z" itemprop="dateUpdated">2018-12-25 13:34:44</time>
+</span><br>
+
+
+        
+        评论基于Valine，不用登录即可评论，支持Markdown。
+        
+    </div>
+    <footer>
+        <a href="https://ultronxr.xyz">
+            <img src="/img/logo.png" alt="ultronxr">
+            ultronxr
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apt/">apt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ultronxr.xyz/2018/12/25/Change-default-apt-source-to-ali-source-in-ubuntu16-04LTS/&title=《Ubuntu 16.04 LTS 的apt换源》 — Ultronxr's Blog&pic=https://ultronxr.xyz/img/logo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ultronxr.xyz/2018/12/25/Change-default-apt-source-to-ali-source-in-ubuntu16-04LTS/&title=《Ubuntu 16.04 LTS 的apt换源》 — Ultronxr's Blog&source=为了apt安装和更新加快速度，这里选择把默认源更换成阿里源。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ultronxr.xyz/2018/12/25/Change-default-apt-source-to-ali-source-in-ubuntu16-04LTS/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu 16.04 LTS 的apt换源》 — Ultronxr's Blog&url=https://ultronxr.xyz/2018/12/25/Change-default-apt-source-to-ali-source-in-ubuntu16-04LTS/&via=https://ultronxr.xyz" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ultronxr.xyz/2018/12/25/Change-default-apt-source-to-ali-source-in-ubuntu16-04LTS/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/12/25/Installation-of-mysql-in-ubuntu16-04LTS/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Ubuntu 16.04 LTS 简易安装mysql</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "lJoGIGFv2iPXuLM58kJhfj5c-gzGzoHsz",
+            appKey: "1HcbLo7Q4meup2lfb8ABs09N",
+            avatar: "",
+            placeholder: "comment here...",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        感谢支持！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wepay_qrcode.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wepay_qrcode.png" data-alipay="/img/alipay_qrcode.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ultronxr &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ultronxr.xyz/2018/12/25/Change-default-apt-source-to-ali-source-in-ubuntu16-04LTS/&title=《Ubuntu 16.04 LTS 的apt换源》 — Ultronxr's Blog&pic=https://ultronxr.xyz/img/logo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ultronxr.xyz/2018/12/25/Change-default-apt-source-to-ali-source-in-ubuntu16-04LTS/&title=《Ubuntu 16.04 LTS 的apt换源》 — Ultronxr's Blog&source=为了apt安装和更新加快速度，这里选择把默认源更换成阿里源。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ultronxr.xyz/2018/12/25/Change-default-apt-source-to-ali-source-in-ubuntu16-04LTS/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu 16.04 LTS 的apt换源》 — Ultronxr's Blog&url=https://ultronxr.xyz/2018/12/25/Change-default-apt-source-to-ali-source-in-ubuntu16-04LTS/&via=https://ultronxr.xyz" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ultronxr.xyz/2018/12/25/Change-default-apt-source-to-ali-source-in-ubuntu16-04LTS/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADJ0lEQVR42u3aS7IaQQwEwHf/S+MIbzG4Sj3YIHJWBAEznWIh9Pn5ia/b7+v5+7e76/79++8+/+Sj18nZLriwsbGxP4R9e3olj0we3H4yCevzwD36DDY2NvZWdp6czpPQo/u0IWt/HmxsbGzsWQGQsNv0M0u02NjY2NhJu6dt8bQpLT8VNjY29rex22ZNfoe8XDkfD7ykl4aNjY399uxZOfGer18438bGxsZ+S/atvE6ClSTCVyStPzwRGxsbexG7bf3PRr9tu6dNTrM2EzY2NvYOdr68OCtRZu2hE3YUPmxsbOxF7KRgmA0S2jAlQZ+VHw9F2NjY2IvYyU3zFJUUIcWxynAkPx42Njb2PnZ73FkDaJb8ZsgoJWNjY2OvY1/14HxbZtaKykfFdcbGxsbG/kB2Am5fJ/e5agzQDpWxsbGx97HbPZZrl3jOQ9wWJ8P1HWxsbOw3Zl+bSPIWzysWgJKRAzY2NvY+dtu4aZNTcYhRMXOSArGxsbE3sfNbzwbAeaFy1YAhPxU2Njb2DnbyV/6qhs55iTL7YbCxsbG3sq9dbcxHyFcNiYeBw8bGxl7HPhmjtgFqg9XCojtgY2Njr2PPmvIJqU1RJ0EvFoywsbGxF7FnN2qXLOtlmqAtlSe5aOcUGxsb+2PZsxsl7Z7Zt/KQ5aE5q1qwsbGxP4nd/rmfJaRrQ98+CxsbG3sf+zxVJCmqTTx56ypPk9jY2Nhb2UkSmiWwPKB5I+lo4fJ+KoKNjY29lD0rD87LjJMRQj5IxsbGxv4GdpLG2rWbpDxox8azQQU2Njb2Pna7HJMPGGYJacabrQ1hY2Nj72C/eiSQFxt5UdSOqP/DJAQbGxv7n7PbZZck1Z0MaE/aW5EOGxsbex27Ha+eNHralJanzGJQjY2Njb2I3aaWWTOoPcTzsqQ92xEeGxsb+0PYbdI6mkWMiocZ7C/fxcbGxl7Hzv/uz9pMs0ZV8pMMky42Njb2V7KTcOTtpNlyz6wJdZTAsLGxsdexZ2XDySpPG9yo+MHGxsZex24XcfIklKSZWdqbrftgY2Nj72O/btB71eDhvDmFjY2NvZT9C+HIgaV8TkmcAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.0"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.0" async></script>
+
+
+
+
+
+<!--不蒜子域名过期 
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+-->
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

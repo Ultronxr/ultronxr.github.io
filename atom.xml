@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ultronxr.xyz/"/>
-  <updated>2018-12-24T17:25:29.496Z</updated>
+  <updated>2018-12-25T05:34:44.553Z</updated>
   <id>https://ultronxr.xyz/</id>
   
   <author>
@@ -17,9 +17,107 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Ubuntu 16.04 LTS 的apt换源</title>
+    <link href="https://ultronxr.xyz/2018/12/25/Change-default-apt-source-to-ali-source-in-ubuntu16-04LTS/"/>
+    <id>https://ultronxr.xyz/2018/12/25/Change-default-apt-source-to-ali-source-in-ubuntu16-04LTS/</id>
+    <published>2018-12-25T02:46:41.000Z</published>
+    <updated>2018-12-25T05:34:44.553Z</updated>
+    
+    <content type="html"><![CDATA[<p>为了apt安装和更新加快速度，这里选择把默认源更换成阿里源。</p><a id="more"></a><h1 id="一、备份系统默认源"><a href="#一、备份系统默认源" class="headerlink" title="一、备份系统默认源"></a>一、备份系统默认源</h1><p><code>sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak</code></p><p><br></p><h1 id="二、查看系统版本详细信息"><a href="#二、查看系统版本详细信息" class="headerlink" title="二、查看系统版本详细信息"></a>二、查看系统版本详细信息</h1><p><code>lsb_release -c</code></p><p>查看列出的系统信息的<code>Codename</code>一项后面的值，注意这里不同版本的Ubuntu的值是不同的，不要搞错！！！</p><p>记住上面的值，例如Ubuntu 16.04 LTS的Codename一般是<code>xenial</code>，其他的一般如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Ubuntu 12.04 (LTS)代号为precise</span><br><span class="line"></span><br><span class="line">Ubuntu 14.04 (LTS)代号为trusty</span><br><span class="line"></span><br><span class="line">Ubuntu 15.04 代号为vivid</span><br><span class="line"></span><br><span class="line">Ubuntu 15.10 代号为wily</span><br><span class="line"></span><br><span class="line">Ubuntu 16.04 (LTS)代号为xenial</span><br></pre></td></tr></table></figure><p><br></p><h1 id="三、新建-etc-apt-sources-list-并修改内容"><a href="#三、新建-etc-apt-sources-list-并修改内容" class="headerlink" title="三、新建 /etc/apt/sources.list 并修改内容"></a>三、新建 <code>/etc/apt/sources.list</code> 并修改内容</h1><p><code>sudo vim /etc/apt/sources.list</code></p><p>如果第二步的Codename的值是<code>xenial</code>的话，直接加入以下内容即可：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">deb-src http://archive.ubuntu.com/ubuntu xenial main restricted</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial main restricted multiverse universe</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted multiverse universe</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial universe</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-updates universe</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-updates multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse</span><br><span class="line">deb http://archive.canonical.com/ubuntu xenial partner</span><br><span class="line">deb-src http://archive.canonical.com/ubuntu xenial partner</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted multiverse universe</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-security universe</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-security multiverse</span><br></pre></td></tr></table></figure><p>其他的版本的话，需要把上面内容中的<code>xenial</code>改成其他版本的Codename再添加。</p><p><br></p><h1 id="四、更新apt使其生效"><a href="#四、更新apt使其生效" class="headerlink" title="四、更新apt使其生效"></a>四、更新apt使其生效</h1><p><code>sudo apt-get update</code></p><p><br></p><h1 id="五、备注"><a href="#五、备注" class="headerlink" title="五、备注"></a>五、备注</h1><p>这里顺便备注一下，<code>apt-get update</code>和<code>apt-get upgrade</code>的区别：</p><p>前者是更新系统软件列表，后者是更新软件；</p><p>所以更新软件时应该先update一下再upgrade。</p><p><br><br></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;为了apt安装和更新加快速度，这里选择把默认源更换成阿里源。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Ubuntu16.04LTS安装/配置全家桶" scheme="https://ultronxr.xyz/categories/Ubuntu16-04LTS%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE%E5%85%A8%E5%AE%B6%E6%A1%B6/"/>
+    
+    
+      <category term="apt" scheme="https://ultronxr.xyz/tags/apt/"/>
+    
+      <category term="ubuntu" scheme="https://ultronxr.xyz/tags/ubuntu/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu 16.04 LTS 简易安装mysql</title>
+    <link href="https://ultronxr.xyz/2018/12/25/Installation-of-mysql-in-ubuntu16-04LTS/"/>
+    <id>https://ultronxr.xyz/2018/12/25/Installation-of-mysql-in-ubuntu16-04LTS/</id>
+    <published>2018-12-25T02:43:18.000Z</published>
+    <updated>2018-12-25T03:33:07.811Z</updated>
+    
+    <content type="html"><![CDATA[<p>完全使用命令行安装mysql。</p><a id="more"></a><h1 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h1><p>依次执行以下命令：</p><p><code>sudo apt-get install mysql-server</code></p><p><code>sudo apt-get install mysql-client</code></p><p><code>sudo apt-get install libmysqlclient-dev</code></p><p>安装过程中会有一个粉红色界面让你输入数据库root用户的密码，输好之后不要忘了。</p><p><br></p><h1 id="二、登录数据库验证"><a href="#二、登录数据库验证" class="headerlink" title="二、登录数据库验证"></a>二、登录数据库验证</h1><p>输入以下命令，以root用户身份输入密码的形式登录数据库：</p><p><code>mysql -u root -p</code></p><p>输入密码回车，如果提示欢迎登录数据库，然后命令行的标志变成了<code>mysql&gt;</code>，说明安装成功。</p><p>可以输入<code>show databases;</code>查看所有存在的数据库。</p><p>注意mysql命令最后要带分号才是完整的。</p><p><br><br></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;完全使用命令行安装mysql。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Ubuntu16.04LTS安装/配置全家桶" scheme="https://ultronxr.xyz/categories/Ubuntu16-04LTS%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE%E5%85%A8%E5%AE%B6%E6%A1%B6/"/>
+    
+    
+      <category term="ubuntu" scheme="https://ultronxr.xyz/tags/ubuntu/"/>
+    
+      <category term="mysql" scheme="https://ultronxr.xyz/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu 16.04 LTS 下安装Tomcat 8</title>
+    <link href="https://ultronxr.xyz/2018/12/25/Installation-of-tomcat8-in-ubuntu16-04LTS/"/>
+    <id>https://ultronxr.xyz/2018/12/25/Installation-of-tomcat8-in-ubuntu16-04LTS/</id>
+    <published>2018-12-25T02:43:09.000Z</published>
+    <updated>2018-12-25T06:17:53.965Z</updated>
+    
+    <content type="html"><![CDATA[<p>Ubuntu 16.04 LTS 下安装Tomcat 8 。</p><a id="more"></a><h1 id="一、下载Tomcat8压缩包"><a href="#一、下载Tomcat8压缩包" class="headerlink" title="一、下载Tomcat8压缩包"></a>一、下载Tomcat8压缩包</h1><p>如果知道确切的下载链接的话，可以直接使用wget命令直接下载到Ubuntu，否则可以先下载到Windows再上传到Ubuntu。</p><p>这里使用后者方法，请另行下载Tomcat8的压缩包：</p><p><code>apache-tomcat-8.5.23.tar.gz</code></p><p>用ftp工具把压缩包上传到Ubuntu，这里以上传到<code>~/temp/</code>目录为例。</p><p><br></p><h1 id="二、解压到指定目录"><a href="#二、解压到指定目录" class="headerlink" title="二、解压到指定目录"></a>二、解压到指定目录</h1><p>进入/usr/local/目录，创建tomcat文件夹：</p><p><code>cd /usr/local</code></p><p><code>mkdir tomcat</code></p><p>把压缩包移动到/usr/local/tomcat/目录并解压：</p><p><code>mv ~/temp/apache-tomcat-8.5.23.tar.gz /usr/local/tomcat/</code></p><p><code>tar -zxvf apache-tomcat-8.5.23.tar.gz</code></p><p>解压出来的应该是一个名为<code>apache-tomcat-8.5.23</code>的文件夹。</p><p><br></p><h1 id="三、配置Tomcat"><a href="#三、配置Tomcat" class="headerlink" title="三、配置Tomcat"></a>三、配置Tomcat</h1><p>修改环境变量：</p><p><code>sudo vim /etc/profile</code></p><p>添加以下内容（md代码块前带有行号，请不要连行号一起复制！）：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#tomcat</span><br><span class="line">export TOMCAT_HOME=/usr/local/tomcat/apache-tomcat-8.5.23</span><br></pre></td></tr></table></figure><p>保存退出，运行以下命令使环境变量生效：</p><p><code>source /etc/profile</code></p><p><br></p><h1 id="四、启动和停止Tomcat"><a href="#四、启动和停止Tomcat" class="headerlink" title="四、启动和停止Tomcat"></a>四、启动和停止Tomcat</h1><p>进入Tomcat安装目录：</p><p><code>cd /usr/local/tomcat/apache-tomcat-8.5.23/bin/</code></p><p>运行启动脚本：</p><p><code>./startup.sh</code></p><p>如果最后显示 Tomcat started. 的内容，说明Tomcat启动成功。</p><p>另外，停止运行的脚本也在相同目录下，运行即可：</p><p><code>./shutdown.sh</code></p><p>注意：如果在运行脚本时提示权限问题，无法运行，请使用chmod添加运行权限。</p><p><br></p><h1 id="五、验证Tomcat是否启动成功"><a href="#五、验证Tomcat是否启动成功" class="headerlink" title="五、验证Tomcat是否启动成功"></a>五、验证Tomcat是否启动成功</h1><p>如果只在Ubuntu中验证，可以使用如下命令：</p><p><code>curl 127.0.0.1:8080</code></p><p>如果显示了Tomcat欢迎页面的HTML代码，则说明运行成功：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>Apache Tomcat/8.5.23<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"favicon.ico"</span> <span class="attr">rel</span>=<span class="string">"icon"</span> <span class="attr">type</span>=<span class="string">"image/x-icon"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"favicon.ico"</span> <span class="attr">rel</span>=<span class="string">"shortcut icon"</span> <span class="attr">type</span>=<span class="string">"image/x-icon"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"tomcat.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"wrapper"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"navigation"</span> <span class="attr">class</span>=<span class="string">"curved container"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"nav-home"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://tomcat.apache.org/"</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"nav-hosts"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/docs/"</span>&gt;</span>Documentation<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"nav-config"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/docs/config/"</span>&gt;</span>Configuration<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"nav-examples"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/examples/"</span>&gt;</span>Examples<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"nav-wiki"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://wiki.apache.org/tomcat/FrontPage"</span>&gt;</span>Wiki<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"nav-lists"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://tomcat.apache.org/lists.html"</span>&gt;</span>Mailing Lists<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"nav-help"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://tomcat.apache.org/findhelp.html"</span>&gt;</span>Find Help<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">br</span> <span class="attr">class</span>=<span class="string">"separator"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"asf-box"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Apache Tomcat/8.5.23<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"upper"</span> <span class="attr">class</span>=<span class="string">"curved container"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"congrats"</span> <span class="attr">class</span>=<span class="string">"curved container"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>If you're seeing this, you've successfully installed Tomcat. Congratulations!<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"notice"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"tomcat.png"</span> <span class="attr">alt</span>=<span class="string">"[tomcat logo]"</span> /&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"tasks"</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">h3</span>&gt;</span>Recommended Reading:<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">h4</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/docs/security-howto.html"</span>&gt;</span>Security Considerations HOW-TO<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">h4</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/docs/manager-howto.html"</span>&gt;</span>Manager Application HOW-TO<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">h4</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/docs/cluster-howto.html"</span>&gt;</span>Clustering/Session Replication HOW-TO<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                </span><br><span class="line">    <span class="comment">&lt;!-- 下面还有很多，这里省略 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 下面还有很多，这里省略 --&gt;</span></span><br></pre></td></tr></table></figure><p>或者也可以直接访问Ubuntu的公网ip的8080端口，会显示Tomcat欢迎页面（针对Ubuntu服务器）。</p><p><br></p><h1 id="六、修改端口"><a href="#六、修改端口" class="headerlink" title="六、修改端口"></a>六、修改端口</h1><p>默认的Tomcat端口为8080端口，一般在安装后都会修改成80端口，以下是修改方法（修改前先停止Tomcat运行！！！）：</p><p>修改Tomcat配置文件：</p><p><code>vim /usr/local/tomcat/apache-tomcat-8.5.23/conf/server.xml</code></p><p>找到如下内容：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8080"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">redirectPort</span>=<span class="string">"8443"</span> /&gt;</span></span><br></pre></td></tr></table></figure><p>把其中的port=”8080”修改成port=”80”，保存退出，重启Tomcat即可生效。</p><p>但是还有一种特殊情况，即单单修改这里是无效的，这里暂时先不讨论。</p><p><br></p><h1 id="七、设置Tomcat-Manager"><a href="#七、设置Tomcat-Manager" class="headerlink" title="七、设置Tomcat Manager"></a>七、设置Tomcat Manager</h1><p>Tomcat首页默认是有自带的Manager管理程序，即三个按钮Server Status、Manager App、Host Manager是可以进行管理员登录然后查看Tomcat运行状况的。</p><p>如果不手动配置，点击进去是404页面。下面是配置方法（同样配置前先停止Tomcat！！！）：</p><p>修改tomcat-users.xml配置文件：</p><p><code>vim /usr/local/tomcat/apache-tomcat-8.5.23/conf/tomcat-users.xml</code></p><p>在<code>&lt;tomcat-users&gt;</code>和<code>&lt;tomcat-users/&gt;</code>标签之间添加以下内容：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">role</span> <span class="attr">rolename</span>=<span class="string">"manager-gui"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">user</span> <span class="attr">username</span>=<span class="string">"replace me"</span> <span class="attr">password</span>=<span class="string">"replace me"</span> <span class="attr">roles</span>=<span class="string">"manager-gui"</span>/&gt;</span></span><br></pre></td></tr></table></figure><p>把其中的两个replace me分别修改成用户名和密码，保存退出即可。</p><p>重启服务器，点击首页的管理按钮，输入账户名和密码即可查看Tomcat运行状态。</p><p>注意：服务器上配置了Tomcat Manager默认只能从本地访问，如果需要远程访问，请修改以下配置文件：</p><p><code>vim /usr/local/tomcat/apache-tomcat-8.5.23/webapps/manager/META-INF/context.xml</code></p><p>找到如下内容：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Valve</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.valves.RemoteAddrValve"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">allow</span>=<span class="string">"127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1"</span> /&gt;</span></span><br></pre></td></tr></table></figure><p>其中的allow的值就是允许访问Tomcat Manager的ip地址，可以看到默认只允许本地ip访问，可以在allow的值的末尾添加一个竖线然后写上自己的ip。</p><p>如添加之后为：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Valve</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.valves.RemoteAddrValve"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">allow</span>=<span class="string">"127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1|152.163.163.163"</span> /&gt;</span></span><br></pre></td></tr></table></figure><p>保存退出，重启Tomcat即可生效。</p><p><br></p><h1 id="八、备注"><a href="#八、备注" class="headerlink" title="八、备注"></a>八、备注</h1><p>tomcat安装目录<br><code>/usr/local/tomcat/apache-tomcat-8.5.23</code></p><p>webapp包目录<br><code>/usr/local/tomcat/apache-tomcat-8.5.23/webapps</code></p><p>启动tomcat命令<br><code>/usr/local/tomcat/apache-tomcat-8.5.23/bin/startup.sh</code></p><p>停止tomcat命令<br><code>/usr/local/tomcat/apache-tomcat-8.5.23/bin/shutdown.sh</code></p><p><br> <br></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Ubuntu 16.04 LTS 下安装Tomcat 8 。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Ubuntu16.04LTS安装/配置全家桶" scheme="https://ultronxr.xyz/categories/Ubuntu16-04LTS%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE%E5%85%A8%E5%AE%B6%E6%A1%B6/"/>
+    
+    
+      <category term="tomcat" scheme="https://ultronxr.xyz/tags/tomcat/"/>
+    
+      <category term="ubuntu" scheme="https://ultronxr.xyz/tags/ubuntu/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu 16.04 LTS 下安装JDK1.8和JRE</title>
+    <link href="https://ultronxr.xyz/2018/12/25/Setting-up-of-jdk1-8-in-ubuntu16-04LTS/"/>
+    <id>https://ultronxr.xyz/2018/12/25/Setting-up-of-jdk1-8-in-ubuntu16-04LTS/</id>
+    <published>2018-12-25T02:42:42.000Z</published>
+    <updated>2018-12-25T05:39:52.437Z</updated>
+    
+    <content type="html"><![CDATA[<p>Ubuntu 16.04 LTS 下安装JDK1.8和JRE。</p><a id="more"></a><h1 id="一、下载JDK1-8的压缩包（64位）"><a href="#一、下载JDK1-8的压缩包（64位）" class="headerlink" title="一、下载JDK1.8的压缩包（64位）"></a>一、下载JDK1.8的压缩包（64位）</h1><p>如果知道确切的下载链接的话，可以直接使用wget命令直接下载到Ubuntu，否则可以先下载到Windows再上传到Ubuntu。</p><p>这里使用后者方法，请另行下载JDK1.8的压缩包：</p><p><code>jdk-8u181-linux-x64.tar.gz</code> （里面自带JRE）</p><p>用ftp工具把压缩包上传到Ubuntu，这里以上传到<code>~/temp/</code>目录为例。</p><p><br></p><h1 id="二、解压到指定目录"><a href="#二、解压到指定目录" class="headerlink" title="二、解压到指定目录"></a>二、解压到指定目录</h1><p>进入/usr/lib/目录，创建java文件夹：</p><p><code>cd /usr/lib</code></p><p><code>mkdir java</code></p><p>把压缩包移动到/usr/lib/java/目录并解压：</p><p><code>mv ~/temp/jdk-8u181-linux-x64.tar.gz /usr/lib/java/</code></p><p><code>tar -zxvf jdk-8u181-linux-x64.tar.gz</code></p><p>解压出来的应该是一个名为<code>jdk1.8.0_181</code>的文件夹。</p><p><br></p><h1 id="三、配置环境变量"><a href="#三、配置环境变量" class="headerlink" title="三、配置环境变量"></a>三、配置环境变量</h1><p>修改环境变量文件：</p><p><code>sudo vim /etc/profile</code></p><p>在末尾添加如下内容（md代码块前带有行号，请不要连行号一起复制！）：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#set java environment</span><br><span class="line">export JAVA_HOME=/usr/lib/java/jdk1.8.0_181</span><br><span class="line">export JRE_HOME=$&#123;JAVA_HOME&#125;/jre</span><br><span class="line">export CLASSPATH=.:%&#123;JAVA_HOME&#125;/lib:%&#123;JRE_HOME&#125;/lib</span><br><span class="line">export PATH=$&#123;JAVA_HOME&#125;/bin:$PATH</span><br></pre></td></tr></table></figure><p>保存退出，使用以下命令使环境变量生效：</p><p><code>source /etc/profile</code></p><p><br></p><h1 id="四、验证是否安装成功"><a href="#四、验证是否安装成功" class="headerlink" title="四、验证是否安装成功"></a>四、验证是否安装成功</h1><p>输入<code>java -version</code>命令，如果显示以下内容则配置完成：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">java version &quot;1.8.0_181&quot;</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_181-b13)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.181-b13, mixed mode)</span><br></pre></td></tr></table></figure><p><br></p><h1 id="五、提醒"><a href="#五、提醒" class="headerlink" title="五、提醒"></a>五、提醒</h1><p>请注意下载的JDK是32位（x86）的还是64位（x64）的，不符合要求的JDK即使配置完成也无法使用！！</p><p><br><br></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Ubuntu 16.04 LTS 下安装JDK1.8和JRE。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Ubuntu16.04LTS安装/配置全家桶" scheme="https://ultronxr.xyz/categories/Ubuntu16-04LTS%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE%E5%85%A8%E5%AE%B6%E6%A1%B6/"/>
+    
+    
+      <category term="jdk" scheme="https://ultronxr.xyz/tags/jdk/"/>
+    
+      <category term="ubuntu" scheme="https://ultronxr.xyz/tags/ubuntu/"/>
+    
+      <category term="jre" scheme="https://ultronxr.xyz/tags/jre/"/>
+    
+  </entry>
+  
+  <entry>
     <title>word和pdf的比较——为什么正式场合更多使用pdf</title>
-    <link href="https://ultronxr.xyz/2018/12/25/the-comparison-of-pdf-and-word/"/>
-    <id>https://ultronxr.xyz/2018/12/25/the-comparison-of-pdf-and-word/</id>
+    <link href="https://ultronxr.xyz/2018/12/25/The-comparison-of-pdf-and-word/"/>
+    <id>https://ultronxr.xyz/2018/12/25/The-comparison-of-pdf-and-word/</id>
     <published>2018-12-24T16:03:46.000Z</published>
     <updated>2018-12-24T17:25:29.496Z</updated>
     
@@ -41,11 +139,11 @@
   </entry>
   
   <entry>
-    <title>test</title>
-    <link href="https://ultronxr.xyz/2018/12/20/test/"/>
-    <id>https://ultronxr.xyz/2018/12/20/test/</id>
+    <title>Hexo博客测试</title>
+    <link href="https://ultronxr.xyz/2018/12/20/Hexo-Test/"/>
+    <id>https://ultronxr.xyz/2018/12/20/Hexo-Test/</id>
     <published>2018-12-20T02:48:17.000Z</published>
-    <updated>2018-12-22T11:34:33.392Z</updated>
+    <updated>2018-12-25T02:52:29.220Z</updated>
     
     <content type="html"><![CDATA[<p>—这里是文章摘要—<br>这是该博客对于Hexo的测试页面。</p><a id="more"></a><h1 id="标题1"><a href="#标题1" class="headerlink" title="标题1"></a>标题1</h1><h2 id="标题2"><a href="#标题2" class="headerlink" title="标题2"></a>标题2</h2><p>正文正文正文正文正文正文正文<br>正文正文正文正文正文正文正文<br>正文正文正文正文正文正文正文<br>正文正文正文正文正文正文正文</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//C测试</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"HelloWorld"</span>);</span><br></pre></td></tr></table></figure><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//C++测试</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"HelloWorld"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//java测试</span></span><br><span class="line">System.out.println(<span class="string">"HelloWorld"</span>);</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># python测试</span></span><br><span class="line"><span class="keyword">import</span> math;</span><br><span class="line">print(<span class="string">"HelloWorld"</span>);</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -64,8 +162,8 @@
   
   <entry>
     <title>Java中的try catch finally语法（坑）</title>
-    <link href="https://ultronxr.xyz/2018/11/12/Try_catch_finally%20statement%20in%20java/"/>
-    <id>https://ultronxr.xyz/2018/11/12/Try_catch_finally statement in java/</id>
+    <link href="https://ultronxr.xyz/2018/11/12/Try-catch-finally-statement-in-java/"/>
+    <id>https://ultronxr.xyz/2018/11/12/Try-catch-finally-statement-in-java/</id>
     <published>2018-11-11T16:00:00.000Z</published>
     <updated>2018-12-22T10:49:34.095Z</updated>
     
@@ -90,8 +188,8 @@
   
   <entry>
     <title>IDEA中编译器与项目的java版本不同导致编译失败的解决办法</title>
-    <link href="https://ultronxr.xyz/2018/10/01/Compiling%20failure%20due%20to%20the%20differences%20between%20project%20and%20java%20complier/"/>
-    <id>https://ultronxr.xyz/2018/10/01/Compiling failure due to the differences between project and java complier/</id>
+    <link href="https://ultronxr.xyz/2018/10/01/Compiling-failure-due-to-the-differences-between-project-and-java-complier/"/>
+    <id>https://ultronxr.xyz/2018/10/01/Compiling-failure-due-to-the-differences-between-project-and-java-complier/</id>
     <published>2018-09-30T16:00:00.000Z</published>
     <updated>2018-12-22T10:49:55.161Z</updated>
     
@@ -114,8 +212,8 @@
   
   <entry>
     <title>使用IDEA创建maven web项目</title>
-    <link href="https://ultronxr.xyz/2018/10/01/Create%20maven%20web%20project%20using%20IDEA/"/>
-    <id>https://ultronxr.xyz/2018/10/01/Create maven web project using IDEA/</id>
+    <link href="https://ultronxr.xyz/2018/10/01/Create-maven-web-project-using-IDEA/"/>
+    <id>https://ultronxr.xyz/2018/10/01/Create-maven-web-project-using-IDEA/</id>
     <published>2018-09-30T16:00:00.000Z</published>
     <updated>2018-12-22T10:49:51.604Z</updated>
     
@@ -142,8 +240,8 @@
   
   <entry>
     <title>在Windows上安装maven，并且在eclipse和IDEA中配置maven</title>
-    <link href="https://ultronxr.xyz/2018/10/01/How%20to%20install%20maven%20on%20windows%20and%20the%20setup%20of%20maven%20in%20eclipse%20and%20IDEA/"/>
-    <id>https://ultronxr.xyz/2018/10/01/How to install maven on windows and the setup of maven in eclipse and IDEA/</id>
+    <link href="https://ultronxr.xyz/2018/10/01/How-to-install-maven-on-windows-and-the-setup-of-maven-in-eclipse-and-IDEA/"/>
+    <id>https://ultronxr.xyz/2018/10/01/How-to-install-maven-on-windows-and-the-setup-of-maven-in-eclipse-and-IDEA/</id>
     <published>2018-09-30T16:00:00.000Z</published>
     <updated>2018-12-22T10:49:47.508Z</updated>
     
@@ -172,8 +270,8 @@
   
   <entry>
     <title>使用Photoshop创建4寸照</title>
-    <link href="https://ultronxr.xyz/2018/09/22/How%20to%20create%20a%204%20inch%20photo%20with%20photoshop/"/>
-    <id>https://ultronxr.xyz/2018/09/22/How to create a 4 inch photo with photoshop/</id>
+    <link href="https://ultronxr.xyz/2018/09/22/How-to-create-a-4-inch-photo-using-photoshop/"/>
+    <id>https://ultronxr.xyz/2018/09/22/How-to-create-a-4-inch-photo-using-photoshop/</id>
     <published>2018-09-21T16:00:00.000Z</published>
     <updated>2018-12-22T11:35:05.331Z</updated>
     
@@ -194,8 +292,8 @@
   
   <entry>
     <title>Windows下 Java JDK 和 Tomcat 的安装配置</title>
-    <link href="https://ultronxr.xyz/2018/09/17/Java%20jdk%20setting%20up%20and%20tomcat%20installation/"/>
-    <id>https://ultronxr.xyz/2018/09/17/Java jdk setting up and tomcat installation/</id>
+    <link href="https://ultronxr.xyz/2018/09/17/Java-jdk-setting-up-and-tomcat-installation/"/>
+    <id>https://ultronxr.xyz/2018/09/17/Java-jdk-setting-up-and-tomcat-installation/</id>
     <published>2018-09-16T16:00:00.000Z</published>
     <updated>2018-12-22T11:33:34.896Z</updated>
     
@@ -220,8 +318,8 @@
   
   <entry>
     <title>Windows下Redis的安装与设置</title>
-    <link href="https://ultronxr.xyz/2018/08/15/The%20installation%20and%20setup%20of%20Redis%20on%20Windows/"/>
-    <id>https://ultronxr.xyz/2018/08/15/The installation and setup of Redis on Windows/</id>
+    <link href="https://ultronxr.xyz/2018/08/15/The-installation-and-setup-of-Redis-on-Windows/"/>
+    <id>https://ultronxr.xyz/2018/08/15/The-installation-and-setup-of-Redis-on-Windows/</id>
     <published>2018-08-14T16:00:00.000Z</published>
     <updated>2018-12-22T10:50:05.755Z</updated>
     
@@ -242,8 +340,8 @@
   
   <entry>
     <title>CentOS 7下搭建Kubernetes(k8s)集群</title>
-    <link href="https://ultronxr.xyz/2018/08/09/Create%20a%20kubernetes%20cluster%20on%20CentOS7/"/>
-    <id>https://ultronxr.xyz/2018/08/09/Create a kubernetes cluster on CentOS7/</id>
+    <link href="https://ultronxr.xyz/2018/08/09/Create-a-kubernetes-cluster-on-CentOS7/"/>
+    <id>https://ultronxr.xyz/2018/08/09/Create-a-kubernetes-cluster-on-CentOS7/</id>
     <published>2018-08-08T16:00:00.000Z</published>
     <updated>2018-12-22T10:50:08.520Z</updated>
     
@@ -266,8 +364,8 @@
   
   <entry>
     <title>Windows环境下安装Ruby组件和配置，以及利用jekyll和GitHub Pages在GitHub上搭建个人博客</title>
-    <link href="https://ultronxr.xyz/2018/08/08/Create%20ruby%20environment%20in%20Windows%20and%20build%20your%20own%20github%20blog%20with%20jekyll%20and%20GitHub%20Pages/"/>
-    <id>https://ultronxr.xyz/2018/08/08/Create ruby environment in Windows and build your own github blog with jekyll and GitHub Pages/</id>
+    <link href="https://ultronxr.xyz/2018/08/08/Create-ruby-environment-in-Windows-and-build-your-own-github-blog-with-jekyll-and-GitHub-Pages/"/>
+    <id>https://ultronxr.xyz/2018/08/08/Create-ruby-environment-in-Windows-and-build-your-own-github-blog-with-jekyll-and-GitHub-Pages/</id>
     <published>2018-08-07T16:00:00.000Z</published>
     <updated>2018-12-22T10:50:12.213Z</updated>
     
