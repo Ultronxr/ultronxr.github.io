@@ -25,4 +25,6 @@ Ultronxr...
 
 2. 2018.12.20 博客迁移至Hexo。
 
+3. 2018.12.21 添加解析域名：https://ultronxr.xyz 。
+
 <br/><br/>
