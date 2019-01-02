@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="Ultronxr&#39;s Blog">
 <meta property="og:description" content="学习工作中，word的格式排版确实让人伤脑筋。而说到word，则不得不提在正式场合更多使用的pdf格式。正巧前几天看到了一遍关于这个的博客写得很好，我这里简单总结一下，比较一下两者的特点和不同，两者的格式转换为什么这么困难，以及为什么正式场合更多使用pdf而不是word。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-24T17:25:29.496Z">
+<meta property="og:updated_time" content="2019-01-02T09:04:07.485Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="word和pdf的比较——为什么正式场合更多使用pdf">
 <meta name="twitter:description" content="学习工作中，word的格式排版确实让人伤脑筋。而说到word，则不得不提在正式场合更多使用的pdf格式。正巧前几天看到了一遍关于这个的博客写得很好，我这里简单总结一下，比较一下两者的特点和不同，两者的格式转换为什么这么困难，以及为什么正式场合更多使用pdf而不是word。">
@@ -201,6 +201,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;w:pPr&gt;&lt;w:jcw:val=&quot;center&quot;/&gt;&lt;w:rPr&gt;</span><br><span class="line">&lt;w:rFontsw:ascii=&quot;Times&quot;w:hAnsi=&quot;Times&quot;/&gt;&lt;w:langw:val=&quot;en-US&quot;/&gt;</span><br><span class="line">&lt;/w:rPr&gt;&lt;/w:pPr&gt;&lt;w:rw:rsidRPr=&quot;003C75CF&quot;&gt;&lt;w:rPr&gt;</span><br><span class="line">&lt;w:rFontsw:ascii=&quot;Times&quot;w:hAnsi=&quot;Times&quot;/&gt;&lt;/w:rPr&gt;&lt;w:t&gt;Hello world!&lt;/w:t&gt;&lt;/w:r&gt;</span><br></pre></td></tr></table></figure>
 <p>现在可以很清楚得看到，代码中全是属性标签。从包含了输入内容的最后一行代码看起，字体在w:rFontsw标签中定义为Times，第一行的w:jcw标签控制的是段落样式center居中对齐。</p>
 <p>这就是标记语言，实际上和HTML等文件的工作原理类似。</p>
+<p><br> <br></p>
 <h2 id="2-pdf的实现原理"><a href="#2-pdf的实现原理" class="headerlink" title="2.*pdf的实现原理"></a>2.*pdf的实现原理</h2><p><code>pdf的本质就是数字化的纸张，计算机对pdf的操作实际上是打印</code></p>
 <p>首先pdf，可以理解为“电子版的虚拟打印”，就是实体文档在计算机中的影像，而不是实际的文本。计算机对pdf的操作可以理解为“模拟对一张实际的纸张的操作”，例如进行pdf的复制操作，可以理解为“把一张纸上的内容抄写到另一张纸上”，计算机并不知道它抄写的是什么，只是“依样画葫芦”地抄写，而不是复制。</p>
 <p>知道了这个，就不难理解为什么pdf有难以编辑的缺点了，一份pdf打印出来之后，它的内容，包括文字的内容，文字相对于纸张的位置，文字的字体、大小等都被确定了，很难被改变。</p>
@@ -226,7 +227,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-12-24T17:25:29.496Z" itemprop="dateUpdated">2018-12-25 01:25:29</time>
+    最后更新时间：<time datetime="2019-01-02T09:04:07.485Z" itemprop="dateUpdated">2019-01-02 17:04:07</time>
 </span><br>
 
 
