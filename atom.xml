@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ultronxr.xyz/"/>
-  <updated>2019-01-02T08:38:44.333Z</updated>
+  <updated>2019-01-02T08:57:55.541Z</updated>
   <id>https://ultronxr.xyz/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://ultronxr.xyz/2019/01/02/Let-mysql-on-Ubuntu-use-remote-connections/"/>
     <id>https://ultronxr.xyz/2019/01/02/Let-mysql-on-Ubuntu-use-remote-connections/</id>
     <published>2019-01-02T08:13:43.000Z</published>
-    <updated>2019-01-02T08:38:44.333Z</updated>
+    <updated>2019-01-02T08:57:55.541Z</updated>
     
-    <content type="html"><![CDATA[<p>设置Ubuntu服务器上的MySQL可以使用远程连接，用于给Navicat连接或者用代码进行数据库远程操作。</p><a id="more"></a><h1 id="一、开放服务器mysql端口"><a href="#一、开放服务器mysql端口" class="headerlink" title="一、开放服务器mysql端口"></a>一、开放服务器mysql端口</h1><p>默认mysql端口为3306，到服务器控制台的安全组策略中设置以下内容：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">规则方向：入方向</span><br><span class="line">授权策略：允许</span><br><span class="line">协议类型：MYSQL(3306) 或 自定TCP</span><br><span class="line">端口范围：3306/3306</span><br><span class="line">优先级：1</span><br><span class="line">授权类型：IPv4地址段访问</span><br><span class="line">授权对象：你的ip地址/端口 或 0.0.0.0/0</span><br></pre></td></tr></table></figure><p>保存即可。</p><h1 id="二、修改mysql配置文件"><a href="#二、修改mysql配置文件" class="headerlink" title="二、修改mysql配置文件"></a>二、修改mysql配置文件</h1><p>mysql默认配置文件为<code>/etc/mysql/mysql.conf.d/mysqld.cnf</code>文件，注释下面这一行（在这行开头添加一个#号）：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># bind-address          = 127.0.0.1</span><br></pre></td></tr></table></figure><p>保存退出。</p><h1 id="三、重启mysql服务"><a href="#三、重启mysql服务" class="headerlink" title="三、重启mysql服务"></a>三、重启mysql服务</h1><p>以下为所有mysql启动、停止、重启命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">启动mysql：</span><br><span class="line">sudo /etc/init.d/mysql start</span><br><span class="line">    或</span><br><span class="line">sudo service mysql start</span><br><span class="line"></span><br><span class="line">停止mysql：</span><br><span class="line">sudo /etc/init.d/mysql stop</span><br><span class="line">    或</span><br><span class="line">sudo service mysql stop</span><br><span class="line"></span><br><span class="line">重启mysql：</span><br><span class="line">sudo/etc/init.d/mysql restart</span><br><span class="line">    或</span><br><span class="line">sudo service mysql restart</span><br></pre></td></tr></table></figure><h1 id="四、修改mysql权限"><a href="#四、修改mysql权限" class="headerlink" title="四、修改mysql权限"></a>四、修改mysql权限</h1><p>使用 <code>mysql -u root -p</code>命令输入密码登录mysql，依次运行以下命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br><span class="line">update user set host = &apos;%&apos; where user = &apos;root&apos;;</span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure><p>大功告成！</p>]]></content>
+    <content type="html"><![CDATA[<p>设置Ubuntu服务器上的MySQL可以使用远程连接，用于给Navicat连接或者用代码进行数据库远程操作。</p><a id="more"></a><h1 id="一、开放服务器mysql端口"><a href="#一、开放服务器mysql端口" class="headerlink" title="一、开放服务器mysql端口"></a>一、开放服务器mysql端口</h1><p>默认mysql端口为3306，到服务器控制台的安全组策略中添加一条策略，包含以下内容：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">规则方向：入方向</span><br><span class="line">授权策略：允许</span><br><span class="line">协议类型：MYSQL(3306) 或 自定TCP</span><br><span class="line">端口范围：3306/3306</span><br><span class="line">优先级：1</span><br><span class="line">授权类型：IPv4地址段访问</span><br><span class="line">授权对象：你的ip地址/端口 或 0.0.0.0/0</span><br></pre></td></tr></table></figure><p>保存即可。</p><p><br></p><h1 id="二、修改mysql配置文件"><a href="#二、修改mysql配置文件" class="headerlink" title="二、修改mysql配置文件"></a>二、修改mysql配置文件</h1><p>使用<code>netstat -an | grep 3306</code>命令查看系统监听的对应于3306端口的ip，发现是127.0.0.1:3306，说明只监听了本地的3306端口。</p><p>mysql默认配置文件为<code>/etc/mysql/mysql.conf.d/mysqld.cnf</code>文件（有些博客写的不是这个文件），找到下面这一行，在行首添加#号把这行注释掉：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bind-address          = 127.0.0.1</span><br></pre></td></tr></table></figure><p>保存退出。</p><p>重启mysql服务（具体命令看步骤三的内容），再使用<code>netstat -an | grep 3306</code>命令查看，监听的ip变成:::3306即可。</p><p><br></p><h1 id="三、重启mysql服务"><a href="#三、重启mysql服务" class="headerlink" title="三、重启mysql服务"></a>三、重启mysql服务</h1><p>以下为所有mysql启动、停止、重启命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">启动mysql：</span><br><span class="line">sudo /etc/init.d/mysql start</span><br><span class="line">    或</span><br><span class="line">sudo service mysql start</span><br><span class="line"></span><br><span class="line">停止mysql：</span><br><span class="line">sudo /etc/init.d/mysql stop</span><br><span class="line">    或</span><br><span class="line">sudo service mysql stop</span><br><span class="line"></span><br><span class="line">重启mysql：</span><br><span class="line">sudo/etc/init.d/mysql restart</span><br><span class="line">    或</span><br><span class="line">sudo service mysql restart</span><br></pre></td></tr></table></figure><p><br></p><h1 id="四、修改mysql权限"><a href="#四、修改mysql权限" class="headerlink" title="四、修改mysql权限"></a>四、修改mysql权限</h1><p>使用 <code>mysql -u root -p</code>命令输入密码登录mysql，依次运行以下命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br><span class="line">update user set host = &apos;%&apos; where user = &apos;root&apos;;</span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure><p>大功告成！</p><p><br><br></p>]]></content>
     
     <summary type="html">
     
@@ -34,9 +34,9 @@
       <category term="Ubuntu16.04LTS安装/配置全家桶" scheme="https://ultronxr.xyz/categories/Ubuntu16-04LTS%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE%E5%85%A8%E5%AE%B6%E6%A1%B6/"/>
     
     
-      <category term="mysql" scheme="https://ultronxr.xyz/tags/mysql/"/>
-    
       <category term="ubuntu" scheme="https://ultronxr.xyz/tags/ubuntu/"/>
+    
+      <category term="mysql" scheme="https://ultronxr.xyz/tags/mysql/"/>
     
   </entry>
   
@@ -58,9 +58,9 @@
       <category term="Ubuntu16.04LTS安装/配置全家桶" scheme="https://ultronxr.xyz/categories/Ubuntu16-04LTS%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE%E5%85%A8%E5%AE%B6%E6%A1%B6/"/>
     
     
-      <category term="ubuntu" scheme="https://ultronxr.xyz/tags/ubuntu/"/>
-    
       <category term="apt" scheme="https://ultronxr.xyz/tags/apt/"/>
+    
+      <category term="ubuntu" scheme="https://ultronxr.xyz/tags/ubuntu/"/>
     
   </entry>
   
@@ -82,9 +82,9 @@
       <category term="Ubuntu16.04LTS安装/配置全家桶" scheme="https://ultronxr.xyz/categories/Ubuntu16-04LTS%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE%E5%85%A8%E5%AE%B6%E6%A1%B6/"/>
     
     
-      <category term="mysql" scheme="https://ultronxr.xyz/tags/mysql/"/>
-    
       <category term="ubuntu" scheme="https://ultronxr.xyz/tags/ubuntu/"/>
+    
+      <category term="mysql" scheme="https://ultronxr.xyz/tags/mysql/"/>
     
   </entry>
   
