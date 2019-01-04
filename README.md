@@ -1,6 +1,6 @@
 # 关于我
 
-Ultronxr...
+这里摘录一些学习工作中遇到的问题，以及一些容易忘的tips。
 
 [我的GitHub](https://github.com/Ultronxr)；
 
