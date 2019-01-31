@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Win10的睡眠和休眠 | Ultronxr&#39;s Blog | Ultronxr&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="win10,windows">
+    <meta name="description" content="这是强迫症的Win10整顿计划系列的第一篇，这个系列主要记录一些Win10的系统设置，或者关闭一些不必要的功能，或是几个好用的软件，能让win10更便于工作和学习。这个开坑第一篇，先讲讲Windows的睡眠和休眠。">
+<meta name="keywords" content="win10,windows">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Win10的睡眠和休眠">
+<meta property="og:url" content="https://ultronxr.xyz/2019/01/30/Win10-sleep-and-hibernation/index.html">
+<meta property="og:site_name" content="Ultronxr&#39;s Blog">
+<meta property="og:description" content="这是强迫症的Win10整顿计划系列的第一篇，这个系列主要记录一些Win10的系统设置，或者关闭一些不必要的功能，或是几个好用的软件，能让win10更便于工作和学习。这个开坑第一篇，先讲讲Windows的睡眠和休眠。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-31T13:47:37.789Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Win10的睡眠和休眠">
+<meta name="twitter:description" content="这是强迫症的Win10整顿计划系列的第一篇，这个系列主要记录一些Win10的系统设置，或者关闭一些不必要的功能，或是几个好用的软件，能让win10更便于工作和学习。这个开坑第一篇，先讲讲Windows的睡眠和休眠。">
+    
+        <link rel="alternate" type="application/atom+xml" title="Ultronxr&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ultronxr</h5>
+          <a href="mailto:f_1208@163.com" title="f_1208@163.com" class="mail">f_1208@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页 MainPage
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签 Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类 Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档 Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Ultronxr/ultronxr.github.io" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                仓库 GithubRepo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-about"></i>
+                关于 About
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Win10的睡眠和休眠</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Win10的睡眠和休眠</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-01-30T01:54:14.000Z" itemprop="datePublished" class="page-time">
+  2019-01-30
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/强迫症的Win10整顿计划/">强迫症的Win10整顿计划</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、睡眠sleep和休眠hibernate"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、睡眠sleep和休眠hibernate</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、关闭睡眠功能"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、关闭睡眠功能</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、关闭休眠功能"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、关闭休眠功能</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、特殊的“混合睡眠”模式"><span class="post-toc-number">4.</span> <span class="post-toc-text">四、特殊的“混合睡眠”模式</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#五、参考资料"><span class="post-toc-number">5.</span> <span class="post-toc-text">五、参考资料</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Win10-sleep-and-hibernation" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Win10的睡眠和休眠</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-01-30 09:54:14" datetime="2019-01-30T01:54:14.000Z" itemprop="datePublished">2019-01-30</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/强迫症的Win10整顿计划/">强迫症的Win10整顿计划</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>这是<code>强迫症的Win10整顿计划</code>系列的第一篇，这个系列主要记录一些Win10的系统设置，或者关闭一些不必要的功能，或是几个好用的软件，能让win10更便于工作和学习。这个开坑第一篇，先讲讲Windows的睡眠和休眠。</p>
+<a id="more"></a>
+<h1 id="一、睡眠sleep和休眠hibernate"><a href="#一、睡眠sleep和休眠hibernate" class="headerlink" title="一、睡眠sleep和休眠hibernate"></a>一、睡眠sleep和休眠hibernate</h1><p>Win10有一个功能是睡眠（台式机和笔记本都有），另一个是休眠（笔记本特有），两者都能暂停工作、“关闭电脑”，并且重新打开电脑后能恢复工作进度。两者功能相同但是存在区别，这里简单描述一下<code>两者的区别</code>以及<code>如何关闭这两个功能</code>。</p>
+<p>非常简洁地表述两者的联系和区别：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">睡眠实际上没有关闭电脑，休眠是完全关闭电脑了，但是两者在重新打开电脑后都能恢复原来的工作状态；</span><br><span class="line">睡眠能比休眠更快地唤醒电脑；</span><br><span class="line">睡眠的系统工作内容还是保存在内存中，所以没有完全断电，休眠则是保存在硬盘上，所以是完全断电；</span><br></pre></td></tr></table></figure>
+<p>下面是比较具体的说明：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">睡眠模式下，系统会给内存保持通电，其他硬件断电（实际上不是绝对的），从而保留当前的工作状态。在下次开机时，可以非常快速地直接进入系统，而不用经过系统的预加载过程。</span><br><span class="line">所以睡眠模式时不能让电脑的电源出现问题或者断电，否则会导致工作状态丢失或数据丢失。</span><br><span class="line"></span><br><span class="line">休眠模式下，系统会把内存中的内容转化成休眠文件，保存在系统盘的预留位置内（hiberfil.sys文件，大小等于实际内存大小），然后给所有设备断电。在下次开机时，系统会读取休眠文件并恢复到内存中，从而恢复工作状态。过程其实相当于关机重启，所以速度不快。</span><br><span class="line">休眠模式下可以断电。</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h1 id="二、关闭睡眠功能"><a href="#二、关闭睡眠功能" class="headerlink" title="二、关闭睡眠功能"></a>二、关闭睡眠功能</h1><p>这么好的功能为什么要关？？？是因为不知道为什么，我的笔记本每次睡眠之后就唤醒不了，都只能强制断电重启！！！</p>
+<p>这里说的关闭其实并不算是关闭，只能阻止系统进入睡眠状态。</p>
+<p>取消睡眠的方法：</p>
+<p>① <code>开始菜单</code>——<code>设置</code>——<code>系统</code>——<code>电源和睡眠</code>：把睡眠下面的两个<code>“在使用xx情况下，电脑在经过以下时间后进入睡眠状态”下拉选项</code>都设置成“<code>从不</code>”。</p>
+<p>或</p>
+<p>② <code>控制面板</code>——<code>系统和安全</code>——<code>电源选项</code>：中间的<code>选定的计划</code>，选择当前的计划（一般是<code>平衡</code>），右侧的 <code>更改计划设置</code> 按钮，把<code>“使计算机进入睡眠状态”一行的两个下拉选项</code>都设置成“<code>从不</code>”。</p>
+<p><br></p>
+<p>不仅要把你关了，而且不想再见到你了——去掉开始菜单电源按钮中的睡眠选项：</p>
+<p><code>控制面板</code>——<code>系统和安全</code>——<code>电源选项</code>：左侧的<code>选择电源按钮的功能</code>，进去之后点一下带有管理员符号的<code>更改当前不可用的设置</code>，最下面的<code>关机设置</code>里的复选框就可以改动了，把<code>睡眠 显示在开始菜单中</code>的复选框勾勾<code>去掉</code>，然后最下面<code>保存修改</code>即可。</p>
+<p><br></p>
+<h1 id="三、关闭休眠功能"><a href="#三、关闭休眠功能" class="headerlink" title="三、关闭休眠功能"></a>三、关闭休眠功能</h1><p>这是确确实实可以关闭的功能，同时关闭之后，系统盘中的保存休眠文件的位置就会自动删除，就是那个hiberfil.sys文件，然后系统盘就会多出一些空位置。</p>
+<p>关闭方法：</p>
+<p><code>管理员模式的cmd命令行</code>——<code>powercfg -h off</code></p>
+<p>收工。</p>
+<p>想要重新打开休眠功能的话就把off改成on：<code>powercfg -h on</code>，另外<code>powercfg -a</code>可以查看系统的所有睡眠状态。</p>
+<p>去掉开始菜单电源按钮中的休眠选项：</p>
+<p>关闭休眠功能后，休眠选项会自动删除，如果不关闭只想隐藏休眠选项的话，还是和去掉睡眠选项一样：</p>
+<p><code>控制面板</code>——<code>系统和安全</code>——<code>电源选项</code>：左侧的<code>选择电源按钮的功能</code>，进去之后点一下带有管理员符号的<code>更改当前不可用的设置</code>，最下面的<code>关机设置</code>里的复选框就可以改动了，把<code>休眠 显示在开始菜单中</code>的复选框勾勾<code>去掉</code>，然后最下面<code>保存修改</code>即可（如果关闭了休眠功能这里是没有休眠的复选框的！）。</p>
+<p><br></p>
+<h1 id="四、特殊的“混合睡眠”模式"><a href="#四、特殊的“混合睡眠”模式" class="headerlink" title="四、特殊的“混合睡眠”模式"></a>四、特殊的“混合睡眠”模式</h1><p>Windows还给台式机加了一种另外的特殊模式：混合睡眠模式。</p>
+<p>顾名思义，就是把睡眠和休眠同时进行，既保持内存不断电，同时也把内存中的工作内容保存为休眠文件放到磁盘上。这样做既可以保证迅速恢复电脑工作状态，也防止了出现电源异常或断电的情况时数据丢失。</p>
+<p><br></p>
+<h1 id="五、参考资料"><a href="#五、参考资料" class="headerlink" title="五、参考资料"></a>五、参考资料</h1><ol>
+<li><p><a href="https://jingyan.baidu.com/article/22a299b5f6f4809e18376a5b.html" target="_blank" rel="noopener">windows10/7关闭休眠，怎么删除hiberfil.sys</a></p>
+</li>
+<li><p><a href="http://www.cfan.com.cn/2017/1124/129794.shtml" target="_blank" rel="noopener">睡死的Win10？那是你没用对</a></p>
+</li>
+</ol>
+<p><br> <br></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-01-31T13:47:37.789Z" itemprop="dateUpdated">2019-01-31 21:47:37</time>
+</span><br>
+
+
+        
+        评论基于Valine，不用登录即可评论，支持Markdown。
+        
+    </div>
+    <footer>
+        <a href="https://ultronxr.xyz">
+            <img src="/img/logo.png" alt="ultronxr">
+            ultronxr
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/win10/">win10</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/">windows</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ultronxr.xyz/2019/01/30/Win10-sleep-and-hibernation/&title=《Win10的睡眠和休眠》 — Ultronxr's Blog&pic=https://ultronxr.xyz/img/logo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ultronxr.xyz/2019/01/30/Win10-sleep-and-hibernation/&title=《Win10的睡眠和休眠》 — Ultronxr's Blog&source=这是强迫症的Win10整顿计划系列的第一篇，这个系列主要记录一些Win10的系统设置，或者关闭一些不必要的功能，或是几个好用的软件，能让win10更便于工..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ultronxr.xyz/2019/01/30/Win10-sleep-and-hibernation/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Win10的睡眠和休眠》 — Ultronxr's Blog&url=https://ultronxr.xyz/2019/01/30/Win10-sleep-and-hibernation/&via=https://ultronxr.xyz" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ultronxr.xyz/2019/01/30/Win10-sleep-and-hibernation/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/01/29/Different-SSD-Interface/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">SSD接口</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "lJoGIGFv2iPXuLM58kJhfj5c-gzGzoHsz",
+            appKey: "1HcbLo7Q4meup2lfb8ABs09N",
+            avatar: "",
+            placeholder: "comment here...",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        感谢支持！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wepay_qrcode.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wepay_qrcode.png" data-alipay="/img/alipay_qrcode.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ultronxr &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ultronxr.xyz/2019/01/30/Win10-sleep-and-hibernation/&title=《Win10的睡眠和休眠》 — Ultronxr's Blog&pic=https://ultronxr.xyz/img/logo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ultronxr.xyz/2019/01/30/Win10-sleep-and-hibernation/&title=《Win10的睡眠和休眠》 — Ultronxr's Blog&source=这是强迫症的Win10整顿计划系列的第一篇，这个系列主要记录一些Win10的系统设置，或者关闭一些不必要的功能，或是几个好用的软件，能让win10更便于工..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ultronxr.xyz/2019/01/30/Win10-sleep-and-hibernation/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Win10的睡眠和休眠》 — Ultronxr's Blog&url=https://ultronxr.xyz/2019/01/30/Win10-sleep-and-hibernation/&via=https://ultronxr.xyz" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ultronxr.xyz/2019/01/30/Win10-sleep-and-hibernation/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3by27CQBBEUf7/px0pq0gEc6sLotC+s0LG4DksWv0Ybje8ju/16PXPK/fX7+9Jv+1lS4YMGR/LOE7X+YPJVg6wyLedf0qGDBlXYJAgSwIl2QQJ1nxvMmTIkEGCbMpunitDhgwZPEV7lFzyAJ3eKUOGDBk8jetbbOQneGMtLkOGjA9k9IOB973+0/mGDBky/iXjCFcaOtOwPtyVDBkyVjNmjbC00Z+G2rRtJ0OGjN2MpnBtHs/bduiHliFDxmUY6WAgbf2TApW00p4EXBkyZKxj8KJxtqGmfOXHOGTIkLGbkQ4I0yJ2dsAiJcmQIeM6jKY07QeWzShChgwZuxnBG6dhl18nV3ihK0OGjCswmhQw5cW1NT/YIUOGjNWM5vAob8PxIlmGDBky8JTwBX9W5GDUUEszXBkyZKxjkGNY/axw2DhLD4fJkCFjKYM062cjyVn52gw+ZciQsY8xKyyb5n7KI/fLkCFjNyMdTPbbIiVu820yZMjYxzjASkeb/LOkfB12B2XIkLGO0SdtfIRAqur0eJkMGTJ2M2bHudJ7ZoPS9PiFDBkytjKOcJHDEHwUOmvb/fKuDBkyVjPSMUDanpttpZrEypAhYyljFmR5oAymE80oVIYMGRdg8ASOFLFpQZsG/YelrAwZMi7PaB7GA+gs3ZQhQ4aMpnE/a6XxElqGDBnXYfQhj9/TJI5PAq4MGTKWMmYJHw+jPJiiFLDByJAh4/MYXyuDDyzRM4ljAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.0"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.0" async></script>
+
+
+
+
+
+<!--不蒜子域名过期 
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+-->
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
