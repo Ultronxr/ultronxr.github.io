@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Java项目的Utils包中一些常用的通用静态函数 | Ultronxr&#39;s Blog | Ultronxr&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="java">
+    <meta name="description" content="记录一些例如JDBCUtil、获取随机整数、MD5加密等常用的Utils函数。">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java项目的Utils包中一些常用的通用静态函数">
+<meta property="og:url" content="https://ultronxr.xyz/2019/02/22/Functions-commonly-used-in-Java-Utils-packages/index.html">
+<meta property="og:site_name" content="Ultronxr&#39;s Blog">
+<meta property="og:description" content="记录一些例如JDBCUtil、获取随机整数、MD5加密等常用的Utils函数。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-22T13:27:20.980Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java项目的Utils包中一些常用的通用静态函数">
+<meta name="twitter:description" content="记录一些例如JDBCUtil、获取随机整数、MD5加密等常用的Utils函数。">
+    
+        <link rel="alternate" type="application/atom+xml" title="Ultronxr&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ultronxr</h5>
+          <a href="mailto:f_1208@163.com" title="f_1208@163.com" class="mail">f_1208@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页 MainPage
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签 Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类 Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档 Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Ultronxr/ultronxr.github.io" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                仓库 GithubRepo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-about"></i>
+                关于 About
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Java项目的Utils包中一些常用的通用静态函数</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Java项目的Utils包中一些常用的通用静态函数</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-02-22T12:42:22.000Z" itemprop="datePublished" class="page-time">
+  2019-02-22
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/java/">java</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、JDBCUtil"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、JDBCUtil</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、获取随机整数"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、获取随机整数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、MD5加密"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、MD5加密</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、判断一个字符是否是中文汉字和中文标点"><span class="post-toc-number">4.</span> <span class="post-toc-text">四、判断一个字符是否是中文汉字和中文标点</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#五、计算数学表达式-字符串-的值-Jeval"><span class="post-toc-number">5.</span> <span class="post-toc-text">五、计算数学表达式(字符串)的值(Jeval)</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Functions-commonly-used-in-Java-Utils-packages" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Java项目的Utils包中一些常用的通用静态函数</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-02-22 20:42:22" datetime="2019-02-22T12:42:22.000Z" itemprop="datePublished">2019-02-22</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/java/">java</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>记录一些例如JDBCUtil、获取随机整数、MD5加密等常用的Utils函数。</p>
+<a id="more"></a>
+<h1 id="一、JDBCUtil"><a href="#一、JDBCUtil" class="headerlink" title="一、JDBCUtil"></a>一、JDBCUtil</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"><span class="keyword">import</span> java.util.Properties;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JDBCUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String jdbcDriver = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String url = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String username = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String password = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        loadProperties();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Class.forName(jdbcDriver);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">            System.out.println(<span class="string">"[x] ClassNotFoundException 数据库加载驱动失败！"</span>);</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getConnection</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Connection con = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            con = DriverManager.getConnection(url, username, password);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            System.out.println(<span class="string">"[x] SQLException 数据库连接失败！"</span>);</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> con;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">closeConnection</span><span class="params">(ResultSet rs, PreparedStatement stmt, Connection con)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (rs != <span class="keyword">null</span>) rs.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            System.out.println(<span class="string">"[x] SQLException 关闭JDBC连接的RS时出错！"</span>);</span><br><span class="line">            <span class="comment">//e.printStackTrace();</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (stmt != <span class="keyword">null</span>) stmt.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            System.out.println(<span class="string">"[x] SQLException 关闭JDBC连接的STMT时出错！"</span>);</span><br><span class="line">            <span class="comment">//e.printStackTrace();</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (con != <span class="keyword">null</span>) con.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            System.out.println(<span class="string">"[x] SQLException 关闭JDBC连接的CON时出错！"</span>);</span><br><span class="line">            <span class="comment">//e.printStackTrace();</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">loadProperties</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        InputStream inputStream  =  JDBCUtil.class.getClassLoader().getResourceAsStream( <span class="string">"jdbc.properties"</span> );</span><br><span class="line">        Properties p = <span class="keyword">new</span> Properties();</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            p.load(inputStream);</span><br><span class="line">        &#125;<span class="keyword">catch</span>(IOException e)&#123;</span><br><span class="line">            System.out.println(<span class="string">"[x] IOException JDBC配置文件加载失败！"</span>);</span><br><span class="line">            <span class="comment">//e.printStackTrace();</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        jdbcDriver = p.getProperty(<span class="string">"driverClassName"</span>);</span><br><span class="line">        url = p.getProperty(<span class="string">"url"</span>);</span><br><span class="line">        username = p.getProperty(<span class="string">"username"</span>);</span><br><span class="line">        password = p.getProperty(<span class="string">"password"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* jdbc.properties</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">driverClassName=com.mysql.cj.jdbc.Driver</span></span><br><span class="line"><span class="comment">url=jdbc:mysql://localhost:3306/?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false&amp;serverTimezone=GMT%2B8</span></span><br><span class="line"><span class="comment">username=</span></span><br><span class="line"><span class="comment">password=</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<p><br><br></p>
+<h1 id="二、获取随机整数"><a href="#二、获取随机整数" class="headerlink" title="二、获取随机整数"></a>二、获取随机整数</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取随机整数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> min 所需要整数范围的最小值</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> max 所需要整数范围的最大值</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> int 一个整数，范围为两边闭合的区间[min,max]</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Random random = <span class="keyword">new</span> Random();</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">intRangedRandNum</span><span class="params">(<span class="keyword">int</span> min, <span class="keyword">int</span> max)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> random.nextInt(max)%(max-min+<span class="number">1</span>)+min;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br><br></p>
+<h1 id="三、MD5加密"><a href="#三、MD5加密" class="headerlink" title="三、MD5加密"></a>三、MD5加密</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 对字符串进行MD5加密</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> data 需要加密的目标字符串</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> String 返回加密后的结果字符串，长度为32且全部小写</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">toMD5</span><span class="params">(String data)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (data == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        MessageDigest md = MessageDigest.getInstance(<span class="string">"MD5"</span>);</span><br><span class="line">        md.update(data.getBytes());</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> BigInteger(<span class="number">1</span>, md.digest()).toString(<span class="number">16</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (NoSuchAlgorithmException e) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br><br></p>
+<h1 id="四、判断一个字符是否是中文汉字和中文标点"><a href="#四、判断一个字符是否是中文汉字和中文标点" class="headerlink" title="四、判断一个字符是否是中文汉字和中文标点"></a>四、判断一个字符是否是中文汉字和中文标点</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 判断一个字符是否是汉字（中文标点不算），汉字的编码范围：[\u4e00-\u9fa5]</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> c 所需要判断的字符</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> boolean 判断的结果，是汉字为true，不是为false</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isChineseCharacter</span><span class="params">(<span class="keyword">char</span> c)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> String.valueOf(c).matches(<span class="string">"[\u4e00-\u9fa5]"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 判断一个字符是否为中文标点符号</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> c 所需要判断的字符</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> boolean 判断的结果，是中文标点为true，不是为false</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isChinesePunctuation</span><span class="params">(<span class="keyword">char</span> c)</span> </span>&#123;</span><br><span class="line">    Character.UnicodeBlock ub = Character.UnicodeBlock.of(c);</span><br><span class="line">    <span class="keyword">if</span> (ub == Character.UnicodeBlock.GENERAL_PUNCTUATION</span><br><span class="line">            || ub == Character.UnicodeBlock.CJK_SYMBOLS_AND_PUNCTUATION</span><br><span class="line">            || ub == Character.UnicodeBlock.HALFWIDTH_AND_FULLWIDTH_FORMS</span><br><span class="line">            || ub == Character.UnicodeBlock.CJK_COMPATIBILITY_FORMS</span><br><span class="line">            || ub == Character.UnicodeBlock.VERTICAL_FORMS) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br><br></p>
+<h1 id="五、计算数学表达式-字符串-的值-Jeval"><a href="#五、计算数学表达式-字符串-的值-Jeval" class="headerlink" title="五、计算数学表达式(字符串)的值(Jeval)"></a>五、计算数学表达式(字符串)的值(Jeval)</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 计算数学表达式(字符串)的值，使用Jeval</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> expression 待计算的字符串类型的数学表达式</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> String 计算的结果(PlainString表示取消了大数的科学计数法)</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Evaluator evaluator = <span class="keyword">new</span> Evaluator();</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getAnsOfAExpression</span><span class="params">(String expression)</span></span>&#123;</span><br><span class="line">    Double res = <span class="number">0.0</span>;</span><br><span class="line">    BigDecimal bigDecimal = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">        res = evaluator.getNumberResult(expression);</span><br><span class="line">        bigDecimal = <span class="keyword">new</span> BigDecimal(res.toString());</span><br><span class="line">    &#125;<span class="keyword">catch</span> (EvaluationException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> bigDecimal.toPlainString();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*maven 包依赖</span></span><br><span class="line"><span class="comment">&lt;dependency&gt;</span></span><br><span class="line"><span class="comment">  &lt;groupId&gt;net.sourceforge.jeval&lt;/groupId&gt;</span></span><br><span class="line"><span class="comment">  &lt;artifactId&gt;jeval&lt;/artifactId&gt;</span></span><br><span class="line"><span class="comment">  &lt;version&gt;0.9.4&lt;/version&gt;</span></span><br><span class="line"><span class="comment">&lt;/dependency&gt;</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<p><br><br></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-02-22T13:27:20.980Z" itemprop="dateUpdated">2019-02-22 21:27:20</time>
+</span><br>
+
+
+        
+        评论基于Valine，不用登录即可评论，支持Markdown。
+        
+    </div>
+    <footer>
+        <a href="https://ultronxr.xyz">
+            <img src="/img/logo.png" alt="ultronxr">
+            ultronxr
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ultronxr.xyz/2019/02/22/Functions-commonly-used-in-Java-Utils-packages/&title=《Java项目的Utils包中一些常用的通用静态函数》 — Ultronxr's Blog&pic=https://ultronxr.xyz/img/logo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ultronxr.xyz/2019/02/22/Functions-commonly-used-in-Java-Utils-packages/&title=《Java项目的Utils包中一些常用的通用静态函数》 — Ultronxr's Blog&source=记录一些例如JDBCUtil、获取随机整数、MD5加密等常用的Utils函数。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ultronxr.xyz/2019/02/22/Functions-commonly-used-in-Java-Utils-packages/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java项目的Utils包中一些常用的通用静态函数》 — Ultronxr's Blog&url=https://ultronxr.xyz/2019/02/22/Functions-commonly-used-in-Java-Utils-packages/&via=https://ultronxr.xyz" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ultronxr.xyz/2019/02/22/Functions-commonly-used-in-Java-Utils-packages/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/01/30/Win10-sleep-and-hibernation/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Win10的睡眠和休眠</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "lJoGIGFv2iPXuLM58kJhfj5c-gzGzoHsz",
+            appKey: "1HcbLo7Q4meup2lfb8ABs09N",
+            avatar: "",
+            placeholder: "comment here...",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        感谢支持！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wepay_qrcode.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wepay_qrcode.png" data-alipay="/img/alipay_qrcode.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ultronxr &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ultronxr.xyz/2019/02/22/Functions-commonly-used-in-Java-Utils-packages/&title=《Java项目的Utils包中一些常用的通用静态函数》 — Ultronxr's Blog&pic=https://ultronxr.xyz/img/logo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ultronxr.xyz/2019/02/22/Functions-commonly-used-in-Java-Utils-packages/&title=《Java项目的Utils包中一些常用的通用静态函数》 — Ultronxr's Blog&source=记录一些例如JDBCUtil、获取随机整数、MD5加密等常用的Utils函数。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ultronxr.xyz/2019/02/22/Functions-commonly-used-in-Java-Utils-packages/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java项目的Utils包中一些常用的通用静态函数》 — Ultronxr's Blog&url=https://ultronxr.xyz/2019/02/22/Functions-commonly-used-in-Java-Utils-packages/&via=https://ultronxr.xyz" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ultronxr.xyz/2019/02/22/Functions-commonly-used-in-Java-Utils-packages/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACt0lEQVR42u3aUW7jMAwFwNz/0u0BsnYeSdHNAuOvoA1sjQtI7CNfr/j6ebvef/v++eon7/e8esr9c49deHh4eOOlJw/Ol568mvs7V18EHh4e3jO8qyVWN/dkccmzEvD9ffDw8PC+h5cspVpA54cBHh4e3v/ISw6GXhiRvA48PDy87+ElYcT9jfLDI48kHs1a8PDw8Ba6SN/zeaW/h4eHhzfuqs/j1GTLzg+h8mrx8PDwFnj5hpuMFPSK4FMx8eV68PDw8I7yJgFutcztxRmj7+Dh4eEt8PKiNg8p8iNknqNExwYeHh7eGq8XIiSbdbUEr77uqL+Hh4eHd4g3KZd74Wwhfp339PDw8PCWeb1xqLxl1VtucuR86O/h4eHhrfF6owB5CV5tblVfyof/FfDw8PAO8fJF5LHvNvtADI2Hh4c34CWM6tbcG+HKh7fyPwAeHh7eBi+PFfKIIQk4eo20vEWHh4eH9wyvOjLViwPy5eYjC9GBhIeHh3eIl2/Ek++fCi/yO+Dh4eHt8TYi1F5QOwkjPnwfDw8Pb5lXXUo+XJUX6Hn7rXz64eHh4Y151SMhYZ8asSpkz/fRLR4eHt5R3v3QUjXSzWOLXkusNwSGh4eHt8E7tZdO6vpqGDEZDsPDw8Ob8/IG1XysqhoHV4+oy6wFDw8Pb5k3atXHLa55KBy13/Dw8PAe5xWa9K1AIYmDq+MChYMBDw8Pb8CrDlFVw4X8J6/xhYeHh7fH6w1UzdPiaosrHz74x9AVHh4e3lFedautRhKTllgSiBw7TvDw8PCKvF6Q2ot3qwFx70Xg4eHhPcOrLqIXOowK33g04TJrwcPDw/sj3tlIotruKpfXeHh4eF/Aqxa1kwNmUrjj4eHhbfMmo6X3pW1STFfHFwpgPDw8vAXepFCeLHoyCnAqyMDDw8Mr8n4BqQx9gsvqSLkAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.0"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.0" async></script>
+
+
+
+
+
+<!--不蒜子域名过期 
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+-->
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
