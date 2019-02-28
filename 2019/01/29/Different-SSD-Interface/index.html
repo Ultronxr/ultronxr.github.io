@@ -20,18 +20,23 @@
     
     
     <meta name="keywords" content="SSD">
-    <meta name="description" content="还没写。。。">
+    <meta name="description" content="SSD接口介绍。">
 <meta name="keywords" content="SSD">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SSD接口">
 <meta property="og:url" content="https://ultronxr.xyz/2019/01/29/Different-SSD-Interface/index.html">
 <meta property="og:site_name" content="Ultronxr&#39;s Blog">
-<meta property="og:description" content="还没写。。。">
+<meta property="og:description" content="SSD接口介绍。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-31T13:48:22.621Z">
+<meta property="og:image" content="https://ultronxr.xyz/assets/images-new/2019-01-29-Different-SSD-Interface/1.jpg">
+<meta property="og:image" content="https://ultronxr.xyz/assets/images-new/2019-01-29-Different-SSD-Interface/2.jpg">
+<meta property="og:image" content="https://ultronxr.xyz/assets/images-new/2019-01-29-Different-SSD-Interface/3.jpg">
+<meta property="og:image" content="https://ultronxr.xyz/assets/images-new/2019-01-29-Different-SSD-Interface/4.jpg">
+<meta property="og:updated_time" content="2019-02-28T05:57:04.907Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SSD接口">
-<meta name="twitter:description" content="还没写。。。">
+<meta name="twitter:description" content="SSD接口介绍。">
+<meta name="twitter:image" content="https://ultronxr.xyz/assets/images-new/2019-01-29-Different-SSD-Interface/1.jpg">
     
         <link rel="alternate" type="application/atom+xml" title="Ultronxr&#39;s Blog" href="/atom.xml">
     
@@ -163,6 +168,13 @@
 
 <div class="container body-wrap">
     
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、接口与协议"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、接口与协议</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、接口"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、接口</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-SATA接口"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">2.1 SATA接口</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-M-2接口"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2.2 M.2接口</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、参考资料"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、参考资料</span></a></li></ol>
+        </nav>
+    </aside>
+    
 <article id="post-Different-SSD-Interface" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
@@ -183,8 +195,68 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>还没写。。。</p>
+            <p>SSD接口介绍。</p>
 <a id="more"></a>
+<h1 id="一、接口与协议"><a href="#一、接口与协议" class="headerlink" title="一、接口与协议"></a>一、接口与协议</h1><p>我们常说的SATA、M.2、PCIe等等指的都是物理接口，而AHCI、ATA、NVMe等所指的则是控制硬盘的协议，协议中又包含逻辑协议（AHCI、NVMe）和指令协议（ATA、NVMe），这里不详细展开。</p>
+<p><br><br></p>
+<h1 id="二、接口"><a href="#二、接口" class="headerlink" title="二、接口"></a>二、接口</h1><p>主流SSD接口主要就有SATA、M.2这两种，其他的mSATA、SATA Express、PCIe、U.2、SAS等接口都有受众，但确实不是非常流行。所以这里主要讲前面两种接口。</p>
+<h2 id="2-1-SATA接口"><a href="#2-1-SATA接口" class="headerlink" title="2.1 SATA接口"></a>2.1 SATA接口</h2><p>SATA接口（Serial ATA，Serial Advanced Technology Attachment，串行ATA）是目前大部分硬盘最常用的接口，走的是，从1代发展到现在3代，传输速率大幅提升。</p>
+<p>但是对于发展缓慢的机械硬盘HDD来说，SATA 3.0的传输速率远大于HDD的读写速率，所以HDD用SATA是非常够用的了。而2.5英寸的普通SSD也没有过大的读写速率需求，SATA接口足够使用。</p>
+<p>下面是SATA三个主要版本的带宽、传输速率对照表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">SATA版本</th>
+<th style="text-align:center">带宽 Gb/s</th>
+<th style="text-align:center">理论传输速率 MB/s</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">SATA 3.0</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">600</td>
+</tr>
+<tr>
+<td style="text-align:center">SATA 2.0</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">300</td>
+</tr>
+<tr>
+<td style="text-align:center">SATA 1.0</td>
+<td style="text-align:center">1.5</td>
+<td style="text-align:center">150</td>
+</tr>
+</tbody>
+</table>
+<p>带宽是指每秒能发送或者接收多少位（bit）的数据，而在SATA编码中，每10位数据有8位是实际数据，2位是校验数据，所以这种编码方式称为8/10编码；</p>
+<p>理论传输速率是指每秒能发送或接收多少字节（Byte）的实际数据，计算方式为 <code>理论传输速率MB/s = 带宽Gb/s * 0.8（8/10编码） / 8（每字节8位）</code>。</p>
+<p><br></p>
+<h2 id="2-2-M-2接口"><a href="#2-2-M-2接口" class="headerlink" title="2.2 M.2接口"></a>2.2 M.2接口</h2><p>M.2接口（前身为Next Generation Form Factor (NGFF)）现在主要有两种类型，<code>B Key（socket 2）</code> 和  <code>M Key（socket 3）</code> 。前者走SATA 3.0或者PCIe 2.0 x4通道，理论传输速率为600MB/s左右；后者走PCIe 3.0 x4通道，理论传输速率则高达4GB/s。</p>
+<p>M Key（socket 3）因为传输速率很高，需要足够的稳定性，所以NVMe协议的M.2接口正逐步取代以前使用的AHCI协议M.2接口。</p>
+<p>所以M.2的socket 2、3速率差距这么大，如何区分这两者？</p>
+<p>看防呆口的位置。</p>
+<p>防呆口在接口左边，且短的一边为6个针脚，为B Key；防呆口在右边，且短的一边为5个针脚，为M Key。见下图：</p>
+<div><img src="\assets\images-new\2019-01-29-Different-SSD-Interface\1.jpg" align="absmiddle" width="100%" height="100%"></div>
+
+<p>再看SSD，把SSD正面（有存储芯片的一面）朝上，左侧有缺口的是B Key，右侧有缺口的是M Key。</p>
+<div><img src="\assets\images-new\2019-01-29-Different-SSD-Interface\2.jpg" align="absmiddle" width="100%" height="100%"></div>
+
+<p>B+M Key的SSD可以插在两种M.2接口上，而只有单独一边缺口的SSD（单独B Key或单独M Key）只能插在对应的接口上。</p>
+<div><img src="\assets\images-new\2019-01-29-Different-SSD-Interface\3.jpg" align="absmiddle" width="100%" height="100%"></div>
+
+<div><img src="\assets\images-new\2019-01-29-Different-SSD-Interface\4.jpg" align="absmiddle" width="100%" height="100%"></div>
+
+<p>不看SSD型号，单看接口形状的情况下，如果SSD只支持M Key，说明这个SSD一定走PCIe 3.0通道，传输速率相当高；如果支持B+M Key，则无法判断是走SATA还是走PCIe，需要通过SSD型号来判断；如果只有B Key（暂时还没见过这种的SSD），则一定走SATA 3.0通道或PCIe 2.0，传输速率不是非常高。</p>
+<p><br><br></p>
+<h1 id="三、参考资料"><a href="#三、参考资料" class="headerlink" title="三、参考资料"></a>三、参考资料</h1><ol>
+<li><a href="https://zh.wikipedia.org/wiki/PCI_Express" target="_blank" rel="noopener">维基百科PCI-E</a></li>
+<li><a href="https://zh.wikipedia.org/zh/SATA" target="_blank" rel="noopener">维基百科SATA</a></li>
+<li><a href="https://zh.wikipedia.org/zh-hans/M.2" target="_blank" rel="noopener">维基百科M.2</a></li>
+<li><a href="https://diy.pconline.com.cn/849/8491225.html" target="_blank" rel="noopener">SSD升级选购全攻略</a></li>
+<li><a href="https://www.autobuy.tw/article_f85d01" target="_blank" rel="noopener">M.2 SSD 選購指南</a></li>
+</ol>
+<p><br><br></p>
 
         </div>
 
@@ -192,7 +264,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-01-31T13:48:22.621Z" itemprop="dateUpdated">2019-01-31 21:48:22</time>
+    最后更新时间：<time datetime="2019-02-28T05:57:04.907Z" itemprop="dateUpdated">2019-02-28 13:57:04</time>
 </span><br>
 
 
@@ -237,7 +309,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ultronxr.xyz/2019/01/29/Different-SSD-Interface/&title=《SSD接口》 — Ultronxr's Blog&source=还没写。。。" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ultronxr.xyz/2019/01/29/Different-SSD-Interface/&title=《SSD接口》 — Ultronxr's Blog&source=SSD接口介绍。" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -413,7 +485,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ultronxr.xyz/2019/01/29/Different-SSD-Interface/&title=《SSD接口》 — Ultronxr's Blog&source=还没写。。。" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ultronxr.xyz/2019/01/29/Different-SSD-Interface/&title=《SSD接口》 — Ultronxr's Blog&source=SSD接口介绍。" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
