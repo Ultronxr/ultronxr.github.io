@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Ubuntu 16.04 LTS 完整安装docker和docker-compose以及常用命令 | Ultronxr&#39;s Blog | Ultronxr&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="docker,ubuntu">
+    <meta name="description" content="Ubuntu 16.04 LTS 完整安装docker和docker-compose以及常用命令">
+<meta name="keywords" content="docker,ubuntu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu 16.04 LTS 完整安装docker和docker-compose以及常用命令">
+<meta property="og:url" content="https://ultronxr.xyz/2019/03/01/Docker-with-compose-installation-in-Ubuntu/index.html">
+<meta property="og:site_name" content="Ultronxr&#39;s Blog">
+<meta property="og:description" content="Ubuntu 16.04 LTS 完整安装docker和docker-compose以及常用命令">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-01T10:06:06.716Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ubuntu 16.04 LTS 完整安装docker和docker-compose以及常用命令">
+<meta name="twitter:description" content="Ubuntu 16.04 LTS 完整安装docker和docker-compose以及常用命令">
+    
+        <link rel="alternate" type="application/atom+xml" title="Ultronxr&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ultronxr</h5>
+          <a href="mailto:f_1208@163.com" title="f_1208@163.com" class="mail">f_1208@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页 MainPage
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签 Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类 Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档 Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Ultronxr/ultronxr.github.io" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                仓库 GithubRepo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-about"></i>
+                关于 About
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Ubuntu 16.04 LTS 完整安装docker和docker-compose以及常用命令</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Ubuntu 16.04 LTS 完整安装docker和docker-compose以及常用命令</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-03-01T08:59:09.000Z" itemprop="datePublished" class="page-time">
+  2019-03-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/docker/">docker</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、安装docker"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、安装docker</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-安装apt-transport-https包"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.1 安装apt-transport-https包</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2、添加Docker官方的GPG密钥"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">1.2、添加Docker官方的GPG密钥</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-3、设置docker的stable库"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">1.3、设置docker的stable库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-4、安装docker-ce"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">1.4、安装docker-ce</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、验证docker是否安装完成"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、验证docker是否安装完成</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、设置docker可以被非root用户直接使用"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、设置docker可以被非root用户直接使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-1-创建docker用户组"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">3.1 创建docker用户组</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-2-将当前用户加入docker用户组"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">3.2 将当前用户加入docker用户组</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-3-重启docker服务"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">3.3 重启docker服务</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-4-用户退出登录，重新登录（别忘了这一步！）"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">3.4 用户退出登录，重新登录（别忘了这一步！）</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、安装docker-compose"><span class="post-toc-number">4.</span> <span class="post-toc-text">四、安装docker-compose</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#五、docker常用命令"><span class="post-toc-number">5.</span> <span class="post-toc-text">五、docker常用命令</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Docker-with-compose-installation-in-Ubuntu" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Ubuntu 16.04 LTS 完整安装docker和docker-compose以及常用命令</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-03-01 16:59:09" datetime="2019-03-01T08:59:09.000Z" itemprop="datePublished">2019-03-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/docker/">docker</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>Ubuntu 16.04 LTS 完整安装docker和docker-compose以及常用命令</p>
+<a id="more"></a>
+<h1 id="一、安装docker"><a href="#一、安装docker" class="headerlink" title="一、安装docker"></a>一、安装docker</h1><p>这里使用root用户安装docker，后面会对docker进行配置，使其能让所有用户使用。</p>
+<h2 id="1-1-安装apt-transport-https包"><a href="#1-1-安装apt-transport-https包" class="headerlink" title="1.1 安装apt-transport-https包"></a>1.1 安装apt-transport-https包</h2><p>目的是让apt可以通过HTTPS使用安装包的仓库，命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="1-2、添加Docker官方的GPG密钥"><a href="#1-2、添加Docker官方的GPG密钥" class="headerlink" title="1.2、添加Docker官方的GPG密钥"></a>1.2、添加Docker官方的GPG密钥</h2><p>GPG密钥就是一种加密方法，加密之后保证你从docker库中获取的镜像和安装包等是经过官方验证的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</span><br></pre></td></tr></table></figure>
+<p>安装完成后bash会显示所安装的密钥，请确保密钥的最后八个字符串与下面的完全相同：</p>
+<p><code>9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88</code></p>
+<p><br></p>
+<h2 id="1-3、设置docker的stable库"><a href="#1-3、设置docker的stable库" class="headerlink" title="1.3、设置docker的stable库"></a>1.3、设置docker的stable库</h2><p>设置docker的设置stable存储库，设置完成后更新apt的索引。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-key fingerprint 0EBFCD88</span><br><span class="line"></span><br><span class="line">sudo add-apt-repository <span class="string">"deb [arch=amd64] https://download.docker.com/linux/ubuntu <span class="variable">$(lsb_release -cs)</span> stable"</span></span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="1-4、安装docker-ce"><a href="#1-4、安装docker-ce" class="headerlink" title="1.4、安装docker-ce"></a>1.4、安装docker-ce</h2><p>下面这条命令默认安装最新版本的docker-ce：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y docker-ce</span><br></pre></td></tr></table></figure>
+<p>如果需要指定版本的docker-ce，需要使用下面的命令，第一条是列出可用版本，第二条命令是指定安装版本（把<code>&lt;version&gt;</code>的位置替换成指定版本）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-cache madison docker-ce</span><br><span class="line"></span><br><span class="line">sudo apt-get install docker-ce=&lt;VERSION&gt;</span><br></pre></td></tr></table></figure>
+<p><br> <br></p>
+<h1 id="二、验证docker是否安装完成"><a href="#二、验证docker是否安装完成" class="headerlink" title="二、验证docker是否安装完成"></a>二、验证docker是否安装完成</h1><p>查看docker服务是否启动：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status docker</span><br></pre></td></tr></table></figure>
+<p>如果没有启动，使用以下命令启动docker：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></figure>
+<p>docker服务如果已经启动，可以运行hello-world镜像来验证docker正确运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run hello-world</span><br></pre></td></tr></table></figure>
+<p><br> <br></p>
+<h1 id="三、设置docker可以被非root用户直接使用"><a href="#三、设置docker可以被非root用户直接使用" class="headerlink" title="三、设置docker可以被非root用户直接使用"></a>三、设置docker可以被非root用户直接使用</h1><p>比如你现在<code>以非root身份登录系统</code>，每次运行docker命令都需要加sudo，为了避免这个，可以把当前用户加入docker用户组。</p>
+<p>下面是操作过程（非root用户登录系统）：</p>
+<h2 id="3-1-创建docker用户组"><a href="#3-1-创建docker用户组" class="headerlink" title="3.1 创建docker用户组"></a>3.1 创建docker用户组</h2><p>（新版docker在安装时会自动创建docker用户组，如果运行下面的命令，提示docker用户组已存在，可以直接进入下一步）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="3-2-将当前用户加入docker用户组"><a href="#3-2-将当前用户加入docker用户组" class="headerlink" title="3.2 将当前用户加入docker用户组"></a>3.2 将当前用户加入docker用户组</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gpasswd -a <span class="variable">$&#123;USER&#125;</span> docker</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="3-3-重启docker服务"><a href="#3-3-重启docker服务" class="headerlink" title="3.3 重启docker服务"></a>3.3 重启docker服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="3-4-用户退出登录，重新登录（别忘了这一步！）"><a href="#3-4-用户退出登录，重新登录（别忘了这一步！）" class="headerlink" title="3.4 用户退出登录，重新登录（别忘了这一步！）"></a>3.4 用户退出登录，重新登录（别忘了这一步！）</h2><p>完成后非root用户也可以直接运行docker的相关命令，而不需要加sudo。</p>
+<p><br> <br></p>
+<h1 id="四、安装docker-compose"><a href="#四、安装docker-compose" class="headerlink" title="四、安装docker-compose"></a>四、安装docker-compose</h1><p>很简单，一条命令，只不过需要先按照python3的环境（这是我所有找到能安装docker-compose最方便的方法了）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip3 install docker-compose</span><br></pre></td></tr></table></figure>
+<p><br> <br></p>
+<h1 id="五、docker常用命令"><a href="#五、docker常用命令" class="headerlink" title="五、docker常用命令"></a>五、docker常用命令</h1><table>
+<thead>
+<tr>
+<th style="text-align:center">作用</th>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">参数含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">登录docker</td>
+<td style="text-align:center"><code>docker login</code></td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">查看当前正在运行的所有镜像</td>
+<td style="text-align:center"><code>docker ps</code></td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">查看当前正在运行的所有镜像的id</td>
+<td style="text-align:center"><code>docker ps -q</code></td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">查看所有镜像</td>
+<td style="text-align:center"><code>docker ps -a</code></td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">查找镜像</td>
+<td style="text-align:center"><code>docker search &lt;image&gt;</code></td>
+<td style="text-align:center">image：镜像名称</td>
+</tr>
+<tr>
+<td style="text-align:center">下载镜像</td>
+<td style="text-align:center"><code>docker pull &lt;image&gt;</code></td>
+<td style="text-align:center">image：镜像名称</td>
+</tr>
+<tr>
+<td style="text-align:center">后台守护式运行镜像</td>
+<td style="text-align:center"><code>docker run -d &lt;image&gt;</code></td>
+<td style="text-align:center">image：镜像名称</td>
+</tr>
+<tr>
+<td style="text-align:center">运行镜像的同时进入交互界面</td>
+<td style="text-align:center"><code>docker run -it &lt;image&gt; /bin/bash</code></td>
+<td style="text-align:center">image：镜像名称</td>
+</tr>
+<tr>
+<td style="text-align:center">运行镜像的同时设置环境变量</td>
+<td style="text-align:center"><code>docker -e &lt;name&gt;=&lt;value&gt; &lt;image&gt;</code></td>
+<td style="text-align:center">name：环境变量名称，value：环境变量的值，image：镜像名称</td>
+</tr>
+<tr>
+<td style="text-align:center">运行的时候进行端口映射</td>
+<td style="text-align:center"><code>docker run -p &lt;hostport&gt;:&lt;containerport&gt;</code></td>
+<td style="text-align:center">hostport：主机端口，containerport：容器端口</td>
+</tr>
+<tr>
+<td style="text-align:center">运行容器的时候指定容器名称</td>
+<td style="text-align:center"><code>docker run --name &lt;name&gt;</code></td>
+<td style="text-align:center">name：所指定的容器的名称</td>
+</tr>
+<tr>
+<td style="text-align:center">运行容器的时候指定重启策略</td>
+<td style="text-align:center"><code>docker run --restart=&lt;val&gt;</code></td>
+<td style="text-align:center">val：restart策略的值，可选always和on-failure等值</td>
+</tr>
+<tr>
+<td style="text-align:center">进入正在运行的镜像</td>
+<td style="text-align:center"><code>docker exec -it &lt;containerid&gt; /bin/bash</code></td>
+<td style="text-align:center">containerid：容器id</td>
+</tr>
+<tr>
+<td style="text-align:center">停止运行容器</td>
+<td style="text-align:center"><code>docker stop &lt;containerid&gt;</code></td>
+<td style="text-align:center">containerid：容器id</td>
+</tr>
+<tr>
+<td style="text-align:center">删除容器</td>
+<td style="text-align:center"><code>docker rm &lt;containerid&gt;</code></td>
+<td style="text-align:center">containerid：容器id</td>
+</tr>
+</tbody>
+</table>
+<p>注：以上表格中的尖括号<code>&lt;&gt;</code>所括的内容为必选参数，运行命令时必须替换成实际内容。</p>
+<p><br> <br></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-01T10:06:06.716Z" itemprop="dateUpdated">2019-03-01 18:06:06</time>
+</span><br>
+
+
+        
+        评论基于Valine，不用登录即可评论，支持Markdown。
+        
+    </div>
+    <footer>
+        <a href="https://ultronxr.xyz">
+            <img src="/img/logo.png" alt="ultronxr">
+            ultronxr
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ultronxr.xyz/2019/03/01/Docker-with-compose-installation-in-Ubuntu/&title=《Ubuntu 16.04 LTS 完整安装docker和docker-compose以及常用命令》 — Ultronxr's Blog&pic=https://ultronxr.xyz/img/logo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ultronxr.xyz/2019/03/01/Docker-with-compose-installation-in-Ubuntu/&title=《Ubuntu 16.04 LTS 完整安装docker和docker-compose以及常用命令》 — Ultronxr's Blog&source=Ubuntu 16.04 LTS 完整安装docker和docker-compose以及常用命令" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ultronxr.xyz/2019/03/01/Docker-with-compose-installation-in-Ubuntu/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu 16.04 LTS 完整安装docker和docker-compose以及常用命令》 — Ultronxr's Blog&url=https://ultronxr.xyz/2019/03/01/Docker-with-compose-installation-in-Ubuntu/&via=https://ultronxr.xyz" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ultronxr.xyz/2019/03/01/Docker-with-compose-installation-in-Ubuntu/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/03/01/Build-your-personal-netdisk-using-the-Netcloud-image-in-docker/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">使用docker中的Netcloud镜像搭建你的个人网盘</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "lJoGIGFv2iPXuLM58kJhfj5c-gzGzoHsz",
+            appKey: "1HcbLo7Q4meup2lfb8ABs09N",
+            avatar: "",
+            placeholder: "comment here...",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        感谢支持！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wepay_qrcode.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wepay_qrcode.png" data-alipay="/img/alipay_qrcode.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ultronxr &copy; 2018 - 2019</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">浙ICP备19007617号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ultronxr.xyz/2019/03/01/Docker-with-compose-installation-in-Ubuntu/&title=《Ubuntu 16.04 LTS 完整安装docker和docker-compose以及常用命令》 — Ultronxr's Blog&pic=https://ultronxr.xyz/img/logo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ultronxr.xyz/2019/03/01/Docker-with-compose-installation-in-Ubuntu/&title=《Ubuntu 16.04 LTS 完整安装docker和docker-compose以及常用命令》 — Ultronxr's Blog&source=Ubuntu 16.04 LTS 完整安装docker和docker-compose以及常用命令" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ultronxr.xyz/2019/03/01/Docker-with-compose-installation-in-Ubuntu/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu 16.04 LTS 完整安装docker和docker-compose以及常用命令》 — Ultronxr's Blog&url=https://ultronxr.xyz/2019/03/01/Docker-with-compose-installation-in-Ubuntu/&via=https://ultronxr.xyz" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ultronxr.xyz/2019/03/01/Docker-with-compose-installation-in-Ubuntu/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACuElEQVR42u3a0WoCMRAFUP//py30qdSq92YStXD2Seium5OCE+7M5RJf1+/r5+fbK/nr7T2333/vznv3bLjw8PDwlpaeLDqhJm95/Gx+T7KVeHh4eOd4STFoS0VeJPJNzNeMh4eH9wm8vHgkGxQtDg8PD++f8+ZP5YFFXjbw8PDw3sV7TTibv6UNQTZkLXh4eHgxb60B9t7Px/t7eHh4eEtd9bYl1ra4JofvaJ14eHh4B3j3XjYZw5o0z/Jni4KBh4eHd4CXj0bl2zEfHWgjjCRixsPDw5vz1tpLeZibH7KPtNzw8PDwXsKbN6gmh+MkwojqGx4eHt4x3trX5YMFkyC4PdYXkxF4eHh4mzKESZuqjVPzOCPZ3OSveHh4eHt5eQyRbMQk4Mijh7rphYeHh3eY96SGDLZpcoBeLEV4eHh4W3ltHJA8lUeuu7bg7tbg4eHhHeZNIoZ56+txEVrcaDw8PLxjvOQAnQxI5YteOyK3DTY8PDy8E7w8lm3j3fZAnGxEjsfDw8M7zWsPwZNGV1IwiuZWOxmBh4eHd4A3+RFvf6xzZN4ew8PDwzvNa/cgLw9rba1dkW50Kx4eHt6Yt9bgb1+fH8rz9ljRu8PDw8Mb8/JDc3vPJDiYrOePfwkeHh7eYd5aMLHWTmsHCPJn8fDw8E7zJmNP+c90HsXmDbn60I+Hh4e3idfGprtKQl6Q2qDkSd3Dw8PD28TLF9reeS2vtpo9YePh4eFt5c1fnEcD7ZE6L0t4eHh4r+RNBgLWSkI+apCPWCVvwcPDw9vLWysG+ee1k34yUoCHh4f3Xt7a4GlePJIgYzIgW48L4OHh4b2ct2ssICkVbZHAw8PD+xxe+9PfHrvzODjfCDw8PLxzvF3jUHlaPBnGKo7deHh4eAd4kwZYEh+07f9JS2xzfw8PDw/v93d+AW3CX/QoMdFfAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.0"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.0" async></script>
+
+
+
+
+
+<!--不蒜子域名过期 
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+-->
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

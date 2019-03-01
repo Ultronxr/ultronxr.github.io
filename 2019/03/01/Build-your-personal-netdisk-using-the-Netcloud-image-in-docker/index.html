@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>使用docker中的Netcloud镜像搭建你的个人网盘 | Ultronxr&#39;s Blog | Ultronxr&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="docker,ubuntu,netdisk">
+    <meta name="description" content="简单介绍一下通过docker的nextcloud镜像搭建个人网盘。">
+<meta name="keywords" content="docker,ubuntu,netdisk">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用docker中的Netcloud镜像搭建你的个人网盘">
+<meta property="og:url" content="https://ultronxr.xyz/2019/03/01/Build-your-personal-netdisk-using-the-Netcloud-image-in-docker/index.html">
+<meta property="og:site_name" content="Ultronxr&#39;s Blog">
+<meta property="og:description" content="简单介绍一下通过docker的nextcloud镜像搭建个人网盘。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-01T10:48:18.292Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用docker中的Netcloud镜像搭建你的个人网盘">
+<meta name="twitter:description" content="简单介绍一下通过docker的nextcloud镜像搭建个人网盘。">
+    
+        <link rel="alternate" type="application/atom+xml" title="Ultronxr&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ultronxr</h5>
+          <a href="mailto:f_1208@163.com" title="f_1208@163.com" class="mail">f_1208@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页 MainPage
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签 Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类 Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档 Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Ultronxr/ultronxr.github.io" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                仓库 GithubRepo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-about"></i>
+                关于 About
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">使用docker中的Netcloud镜像搭建你的个人网盘</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">使用docker中的Netcloud镜像搭建你的个人网盘</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-03-01T08:52:56.000Z" itemprop="datePublished" class="page-time">
+  2019-03-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/docker/">docker</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、安装"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-安装docker"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">2.1 安装docker</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-安装nextcloud镜像并运行"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2.2 安装nextcloud镜像并运行</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-检查镜像是否运行成功"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">2.3 检查镜像是否运行成功</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-登录nextcloud界面并进行初始化设置"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">2.4 登录nextcloud界面并进行初始化设置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-设置管理员账户的联系邮箱"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">2.5 设置管理员账户的联系邮箱</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Build-your-personal-netdisk-using-the-Netcloud-image-in-docker" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">使用docker中的Netcloud镜像搭建你的个人网盘</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-03-01 16:52:56" datetime="2019-03-01T08:52:56.000Z" itemprop="datePublished">2019-03-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/docker/">docker</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>简单介绍一下通过docker的nextcloud镜像搭建个人网盘。</p>
+<a id="more"></a>
+<h1 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h1><p>现在国内市面上有很多网盘，比如百度网盘和腾讯微云，但是基本上都是限速，然后要充钱才能获取更好的服务。</p>
+<p>这里简单介绍一下通过docker的nextcloud镜像搭建个人网盘，网盘的传输速度取决于服务器的网络带宽。而且nextcloud可以更深层次地设置和定制自己需要的功能，或者对网盘进行监控和优化等操作。也可以给其他人分配子账户和指定用户组，进行方便的管理。总之功能比那些市面上的网盘功能多很多。</p>
+<p><br> <br></p>
+<h1 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h1><h2 id="2-1-安装docker"><a href="#2-1-安装docker" class="headerlink" title="2.1 安装docker"></a>2.1 安装docker</h2><p>安装方法详见我的博客另一篇文章：<a href="/2019/03/01/Docker-with-compose-installation-in-Ubuntu/">Ubuntu 16.04 LTS 完整安装docker和docker-compose以及常用命令</a></p>
+<p><br></p>
+<h2 id="2-2-安装nextcloud镜像并运行"><a href="#2-2-安装nextcloud镜像并运行" class="headerlink" title="2.2 安装nextcloud镜像并运行"></a>2.2 安装nextcloud镜像并运行</h2><p>找到镜像然后下载下来，注意下载的时候请选择<code>OFFICIAL</code>官方的镜像。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker search nextcloud</span><br><span class="line"></span><br><span class="line">docker pull nextcloud</span><br><span class="line"></span><br><span class="line">docker run -d --restart=always --name nextcloud -p 80:80 -v /root/nextcloud:/data nextcloud</span><br></pre></td></tr></table></figure>
+<p>第三条命令的<code>-d</code>代表该容器为守护容器，会在后台运行，<code>--restart=always</code>表示无论如何改容器都会被自动重启，<code>--name nextcloud</code>表示把容器的名称命名为nextcloud，<code>-p 80:80</code>表示把容器的80端口映射到主机的80端口（前一个是主机端口，后一个是容器端口），<code>-v /root/nextcloud:/data</code>表示把主机的/root/nextcloud目录映射到容器中的/data目录。</p>
+<p><br></p>
+<h2 id="2-3-检查镜像是否运行成功"><a href="#2-3-检查镜像是否运行成功" class="headerlink" title="2.3 检查镜像是否运行成功"></a>2.3 检查镜像是否运行成功</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+<p>找到nextcloud对应的镜像，在PORTS那一列查看值，如果显示的是<code>0.0.0.0:80-&gt;80/tcp</code>说明端口映射成功。</p>
+<p>如果镜像没有在运行，或者显示的端口值不正确，有可能是主机的80端口已经被占用，可以清理一下占用80端口的进程，或者选择不映射到80端口。然后重新尝试运行。</p>
+<p><br></p>
+<h2 id="2-4-登录nextcloud界面并进行初始化设置"><a href="#2-4-登录nextcloud界面并进行初始化设置" class="headerlink" title="2.4 登录nextcloud界面并进行初始化设置"></a>2.4 登录nextcloud界面并进行初始化设置</h2><p>在浏览器输入服务器的公网ip加端口（如果是80端口不用写），即可进入nextcloud登录界面。</p>
+<p>第一次进入nextcloud，它会要求你设置管理员账户，数据存放目录，以及数据库配置。</p>
+<p>管理员账户填完后，数据存放目录可以保持默认，数据库配置也可以保持默认（如果网盘存放大量数据，推荐使用mysql，否则使用默认的sqlite即可）。</p>
+<p>点击安装完成，nextcloud就会应用设置，稍等一会就可以进入网盘的主界面了。</p>
+<p><br></p>
+<h2 id="2-5-设置管理员账户的联系邮箱"><a href="#2-5-设置管理员账户的联系邮箱" class="headerlink" title="2.5 设置管理员账户的联系邮箱"></a>2.5 设置管理员账户的联系邮箱</h2><p>设置邮箱后，你的网盘就会在指定的情况下给你发邮件提醒你了。设置方法如下：</p>
+<p>（重要！）需要打开你的邮箱的SMTP功能，在邮箱的设置界面可以找到。</p>
+<p>进入nextcloud的设置界面，找到基本设置，在电子邮件服务器下面对应位置填写以下信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">发送模式：SMTP  加密：SSL/TLS</span><br><span class="line"></span><br><span class="line">来自地址：你的邮箱地址</span><br><span class="line"></span><br><span class="line">认证方法： 登录  勾选需要认证</span><br><span class="line"></span><br><span class="line">服务器地址：你使用邮箱公司所使用的SMTP的IP地址和端口（一般在官网可以查到）</span><br><span class="line"></span><br><span class="line">凭证：账户名和密码</span><br></pre></td></tr></table></figure>
+<p>设置完成后点击测试发送邮件，如果你的邮箱能收到nextcloud的邮件说明配置成功。</p>
+<p><br></p>
+<p><br> <br></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-01T10:48:18.292Z" itemprop="dateUpdated">2019-03-01 18:48:18</time>
+</span><br>
+
+
+        
+        评论基于Valine，不用登录即可评论，支持Markdown。
+        
+    </div>
+    <footer>
+        <a href="https://ultronxr.xyz">
+            <img src="/img/logo.png" alt="ultronxr">
+            ultronxr
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/netdisk/">netdisk</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ultronxr.xyz/2019/03/01/Build-your-personal-netdisk-using-the-Netcloud-image-in-docker/&title=《使用docker中的Netcloud镜像搭建你的个人网盘》 — Ultronxr's Blog&pic=https://ultronxr.xyz/img/logo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ultronxr.xyz/2019/03/01/Build-your-personal-netdisk-using-the-Netcloud-image-in-docker/&title=《使用docker中的Netcloud镜像搭建你的个人网盘》 — Ultronxr's Blog&source=简单介绍一下通过docker的nextcloud镜像搭建个人网盘。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ultronxr.xyz/2019/03/01/Build-your-personal-netdisk-using-the-Netcloud-image-in-docker/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用docker中的Netcloud镜像搭建你的个人网盘》 — Ultronxr's Blog&url=https://ultronxr.xyz/2019/03/01/Build-your-personal-netdisk-using-the-Netcloud-image-in-docker/&via=https://ultronxr.xyz" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ultronxr.xyz/2019/03/01/Build-your-personal-netdisk-using-the-Netcloud-image-in-docker/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/03/01/Docker-with-compose-installation-in-Ubuntu/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Ubuntu 16.04 LTS 完整安装docker和docker-compose以及常用命令</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/02/22/Functions-commonly-used-in-Java-Utils-packages/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Java项目的Utils包中一些常用的通用静态函数</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "lJoGIGFv2iPXuLM58kJhfj5c-gzGzoHsz",
+            appKey: "1HcbLo7Q4meup2lfb8ABs09N",
+            avatar: "",
+            placeholder: "comment here...",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        感谢支持！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wepay_qrcode.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wepay_qrcode.png" data-alipay="/img/alipay_qrcode.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ultronxr &copy; 2018 - 2019</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">浙ICP备19007617号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ultronxr.xyz/2019/03/01/Build-your-personal-netdisk-using-the-Netcloud-image-in-docker/&title=《使用docker中的Netcloud镜像搭建你的个人网盘》 — Ultronxr's Blog&pic=https://ultronxr.xyz/img/logo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ultronxr.xyz/2019/03/01/Build-your-personal-netdisk-using-the-Netcloud-image-in-docker/&title=《使用docker中的Netcloud镜像搭建你的个人网盘》 — Ultronxr's Blog&source=简单介绍一下通过docker的nextcloud镜像搭建个人网盘。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ultronxr.xyz/2019/03/01/Build-your-personal-netdisk-using-the-Netcloud-image-in-docker/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用docker中的Netcloud镜像搭建你的个人网盘》 — Ultronxr's Blog&url=https://ultronxr.xyz/2019/03/01/Build-your-personal-netdisk-using-the-Netcloud-image-in-docker/&via=https://ultronxr.xyz" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ultronxr.xyz/2019/03/01/Build-your-personal-netdisk-using-the-Netcloud-image-in-docker/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADJklEQVR42u3ay3LbQAwEQP//TzvXpBIzMwCdiKvWSaXHkr06QMDsx0f8+Pzp0X5rdpXfr/jVau1VPrCxsbGPY39ePq7Z+SWvV7hG5tuRWLCxsbFPZV8XhmQLcmRbur767qrIYWNjY78xO7+JvPy0gBvaFWxsbGzsoAm5LnXXa85I2NjY2O/M3gxuNgXmL6Ofm8ZP2NjY2Gez28j2lZ9/S76NjY2N/cLsz/KxP/fSlr28OBUKbGxs7IPYm/FQOxKahcftdYvxFjY2NvZB7Fng2g6G2hB3311F38XGxsZ+OLstMG3pmjUJeduTRw5/6MCwsbGxj2PPRkL5u+0rs7IXBcnY2NjYB7HbEcysnWhXmB3QTPBFN4aNjY39EHb+Jz75fD4kytdph0pJScbGxsY+id0u3bYldTOwKJ/XKw/zbWxsbOyXZyeFqv27vx8hteOh9s6xsbGx34edD4aST86GSvlBnGK7sbGxsY9mJ4UqKVqbkVPy3Rt6L2xsbOyD2JtIdd8qbAZbeSvyy7vY2NjYh7LbuLSNCmZDqM22fvkuNjY29kHsdmSzCXpnzUO+oflGY2NjY5/Ebg/QzGKA61f2Q6W6HGJjY2MfxJ4FrrMbmhXC9gcofjZsbGzsI9hJp9KObzajovaVG/JtbGxs7Iezk0XbIjS7oVmEUEe82NjY2G/A/o6IN2lOZmOmfChWtGbY2NjYj2Lv/9D/myw6+XxRILGxsbEPYrfjoVkhyT/fbs2qoGJjY2Mfwc5biHzwNCt1bRSRD5jq5BkbGxv7Uexk5tTeXB4ztAFAe2/Y2NjY78NOjtfkse4mYMipSQmMzithY2NjH8dug4G8pOWlaLZC/hNiY2NjvwM7/0PfHrjZj6jqHis5uIONjY39WPb/PVIza1dmzQk2Njb2qey2AGxusT5JNCpObZnExsbGPoOdj/7bLWjj5DxsuKGAYWNjYx/HzgvDrI2ZDZvyuKK9f2xsbGzsdsyUJ615MLAKm7GxsbGxb2o2ZtHvZs6PjY2NfSq7DQDyIz5tg3HvVW6IB7CxsbFfnn1XmJo0Bvl27BntuAobGxv7gewfReYCXWT7KkgAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.0"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.0" async></script>
+
+
+
+
+
+<!--不蒜子域名过期 
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+-->
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
