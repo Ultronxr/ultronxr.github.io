@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>以当前时间为名新建文件夹并复制文件到其中的bat脚本 | Ultronxr&#39;s Blog | Ultronxr&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="bat">
+    <meta name="description" content="用到了bat脚本中的md命令和xcopy命令。">
+<meta name="keywords" content="bat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="以当前时间为名新建文件夹并复制文件到其中的bat脚本">
+<meta property="og:url" content="https://ultronxr.xyz/2019/03/06/Current-time-for-filename-and-xcopy-in-bat/index.html">
+<meta property="og:site_name" content="Ultronxr&#39;s Blog">
+<meta property="og:description" content="用到了bat脚本中的md命令和xcopy命令。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-06T08:47:42.676Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="以当前时间为名新建文件夹并复制文件到其中的bat脚本">
+<meta name="twitter:description" content="用到了bat脚本中的md命令和xcopy命令。">
+    
+        <link rel="alternate" type="application/atom+xml" title="Ultronxr&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ultronxr</h5>
+          <a href="mailto:f_1208@163.com" title="f_1208@163.com" class="mail">f_1208@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页 MainPage
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签 Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类 Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档 Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Ultronxr/ultronxr.github.io" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                仓库 GithubRepo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-about"></i>
+                关于 About
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">以当前时间为名新建文件夹并复制文件到其中的bat脚本</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">以当前时间为名新建文件夹并复制文件到其中的bat脚本</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-03-06T07:58:20.000Z" itemprop="datePublished" class="page-time">
+  2019-03-06
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/bat/">bat</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、代码和部分注释"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、代码和部分注释</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Current-time-for-filename-and-xcopy-in-bat" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">以当前时间为名新建文件夹并复制文件到其中的bat脚本</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-03-06 15:58:20" datetime="2019-03-06T07:58:20.000Z" itemprop="datePublished">2019-03-06</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/bat/">bat</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>用到了bat脚本中的md命令和xcopy命令。</p>
+<a id="more"></a>
+<h1 id="一、代码和部分注释"><a href="#一、代码和部分注释" class="headerlink" title="一、代码和部分注释"></a>一、代码和部分注释</h1><p>注意bat脚本文件需要使用<code>ANSI</code>编码，不要使用UTF8编码，否则包含中文的文件路径会出错！</p>
+<p><code>%date%</code>和<code>%time%</code>两个变量是bat中的系统变量；前者输出当前日期，格式为<code>2019/03/06</code>所示，后者输出当前时间，格式为<code>16:13:23.21</code>（时:分:秒.毫秒）所示，但是如果小时的位置小于10，格式为<code>6:13:23.21</code>（小时的十位变为空格，而不是0）所示。</p>
+<p>所以把每一个所需的值截取出来，重新组装即可。</p>
+<p>然后是<code>md</code>命令，用于新建文件夹；</p>
+<p><code>xcopy</code>用于拷贝文件或文件夹，<code>/E</code>参数作用是<code>复制目录和子目录，包括空目录</code>，<code>/H</code>参数的作用是<code>也复制隐藏文件和系统文件</code>，<code>/V</code>参数作用是<code>验证每个新文件的大小</code>。</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> "year=<span class="variable">%date:~0,4%</span>"</span><br><span class="line"><span class="built_in">set</span> "month=<span class="variable">%date:~5,2%</span>"</span><br><span class="line"><span class="built_in">set</span> "day=<span class="variable">%date:~8,2%</span>"</span><br><span class="line"><span class="built_in">set</span> "hour_ten=<span class="variable">%time:~0,1%</span>"</span><br><span class="line"><span class="built_in">set</span> "hour_one=<span class="variable">%time:~1,1%</span>"</span><br><span class="line"><span class="built_in">set</span> "minute=<span class="variable">%time:~3,2%</span>"</span><br><span class="line"><span class="built_in">set</span> "second=<span class="variable">%time:~6,2%</span>"</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> "<span class="variable">%hour_ten%</span>" == " " (</span><br><span class="line">    <span class="built_in">set</span> "current_time=<span class="variable">%year%</span>-<span class="variable">%month%</span>-<span class="variable">%day%</span>--<span class="number">0</span><span class="variable">%hour_one%</span>-<span class="variable">%minute%</span>-<span class="variable">%second%</span>"</span><br><span class="line">) <span class="keyword">else</span> ( </span><br><span class="line">    <span class="built_in">set</span> "current_time=<span class="variable">%year%</span>-<span class="variable">%month%</span>-<span class="variable">%day%</span>--<span class="variable">%hour_ten%</span><span class="variable">%hour_one%</span>-<span class="variable">%minute%</span>-<span class="variable">%second%</span>"</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="built_in">md</span> "D:\测试目标文件夹<span class="number">2</span>\<span class="variable">%current_time%</span>"</span><br><span class="line"><span class="built_in">xcopy</span> /E /H /V  "D:\测试源文件夹<span class="number">1</span>\spring_test" "D:\测试目标文件夹<span class="number">2</span>\<span class="variable">%current_time%</span>\spring_test\"</span><br><span class="line"><span class="built_in">xcopy</span> /E /H /V  "D:\测试源文件夹<span class="number">1</span>\OMServer_model" "D:\测试目标文件夹<span class="number">2</span>\<span class="variable">%current_time%</span>\OMServer_model\"</span><br><span class="line"></span><br><span class="line"><span class="built_in">pause</span></span><br></pre></td></tr></table></figure>
+<p>运行这个bat脚本会输出所复制的所有源文件和文件夹，以及最终复制了多少个文件。如果文件夹名或文件名冲突，会提示是否覆盖。</p>
+<p>复制完成后cmd会显示结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">......</span><br><span class="line">......</span><br><span class="line">D:\测试源文件夹1\OMServer_model\target\OMServer_module\WEB-INF\lib\xpp3_min-1.1.4c.jar</span><br><span class="line">D:\测试源文件夹1\OMServer_model\target\OMServer_module\WEB-INF\lib\xstream-1.4.11.1.jar</span><br><span class="line">D:\测试源文件夹1\OMServer_model\target\test-classes\ApiTest\ApiTest.html</span><br><span class="line">D:\测试源文件夹1\OMServer_model\target\test-classes\xml\Status.class</span><br><span class="line">D:\测试源文件夹1\OMServer_model\target\test-classes\XMLTest\Bean.class</span><br><span class="line">D:\测试源文件夹1\OMServer_model\target\test-classes\XMLTest\test.xml</span><br><span class="line">D:\测试源文件夹1\OMServer_model\target\test-classes\XMLTest\XStreamTest.class</span><br><span class="line">D:\测试源文件夹1\OMServer_model\target\war\OMServer_module.war</span><br><span class="line">复制了 1050 个文件</span><br><span class="line">请按任意键继续. . .</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<p><br> <br></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-06T08:47:42.676Z" itemprop="dateUpdated">2019-03-06 16:47:42</time>
+</span><br>
+
+
+        
+        评论基于Valine，不用登录即可评论，支持Markdown。
+        
+    </div>
+    <footer>
+        <a href="https://ultronxr.xyz">
+            <img src="/img/logo.png" alt="ultronxr">
+            ultronxr
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bat/">bat</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ultronxr.xyz/2019/03/06/Current-time-for-filename-and-xcopy-in-bat/&title=《以当前时间为名新建文件夹并复制文件到其中的bat脚本》 — Ultronxr's Blog&pic=https://ultronxr.xyz/img/logo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ultronxr.xyz/2019/03/06/Current-time-for-filename-and-xcopy-in-bat/&title=《以当前时间为名新建文件夹并复制文件到其中的bat脚本》 — Ultronxr's Blog&source=用到了bat脚本中的md命令和xcopy命令。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ultronxr.xyz/2019/03/06/Current-time-for-filename-and-xcopy-in-bat/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《以当前时间为名新建文件夹并复制文件到其中的bat脚本》 — Ultronxr's Blog&url=https://ultronxr.xyz/2019/03/06/Current-time-for-filename-and-xcopy-in-bat/&via=https://ultronxr.xyz" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ultronxr.xyz/2019/03/06/Current-time-for-filename-and-xcopy-in-bat/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/03/02/Websocket-and-websocketpool-in-javaweb/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">javaweb中的Websocket和Websocket连接池</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "lJoGIGFv2iPXuLM58kJhfj5c-gzGzoHsz",
+            appKey: "1HcbLo7Q4meup2lfb8ABs09N",
+            avatar: "",
+            placeholder: "comment here...",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        感谢支持！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wepay_qrcode.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wepay_qrcode.png" data-alipay="/img/alipay_qrcode.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ultronxr &copy; 2018 - 2019</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">浙ICP备19007617号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ultronxr.xyz/2019/03/06/Current-time-for-filename-and-xcopy-in-bat/&title=《以当前时间为名新建文件夹并复制文件到其中的bat脚本》 — Ultronxr's Blog&pic=https://ultronxr.xyz/img/logo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ultronxr.xyz/2019/03/06/Current-time-for-filename-and-xcopy-in-bat/&title=《以当前时间为名新建文件夹并复制文件到其中的bat脚本》 — Ultronxr's Blog&source=用到了bat脚本中的md命令和xcopy命令。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ultronxr.xyz/2019/03/06/Current-time-for-filename-and-xcopy-in-bat/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《以当前时间为名新建文件夹并复制文件到其中的bat脚本》 — Ultronxr's Blog&url=https://ultronxr.xyz/2019/03/06/Current-time-for-filename-and-xcopy-in-bat/&via=https://ultronxr.xyz" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ultronxr.xyz/2019/03/06/Current-time-for-filename-and-xcopy-in-bat/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACpElEQVR42u3aQU7DQAwFUO5/aZBYsSDRtz1Os3hZIZo284o0Y7799RVf37/X35///ub+zqt7qnde3XPgwsPDw2st/eq65/WuyXPz9+Lh4eFt8/It/uqDeo+vflq+Zjw8PLw38KrbdK/UnpfgeHh4eO/hJe+qxhnVMhoPDw/vPbxqcHC/ZU8K5XkggoeHh7fN623rn/15vb+Hh4eH1+qqV7fdXgPsvmQftdnw8PDwFnjJENXZQyJfevLe6MDAw8PDO8qbfzdnw4L84IlWgoeHh7fMy9tdE9KEmgwW/FNM4+Hh4T3O6x0Sk42+V2qv1P54eHh4+ZZaLHaTorwaNORDBpdfFh4eHt4ar7fQKr56wOT4y1fx8PDwFniTUngytrWBv3wvHh4e3hov3/STB1TvqY4LHIsk8PDw8Iq8eUyQgPPjJ2mnFVaOh4eH9wivuoj72GISc8wHYfHw8PA2eL1QYNIM6wUWyTEQPQsPDw9vzMsHT/MaddKs6o3J4uHh4b2Bl58qeSBb/bTJIfTPZAQeHh7eUV4vTp00ribRRuFVPDw8vAd51eA1KbKrYcekYVbOQvDw8PCKvOpyz45S5Vt//mfAw8PD2+NVw9lJUz8vtXvR7eX68fDw8B7kVcPZU3FGr6kW/d+Ah4eHd4iXN/vzplTe7srD2UmdjIeHh3eWV95k4zZ/7xjoxRlR4oKHh4e3xqsuJY9058V6PnyAh4eHt8HrLaJ3PFR/k4QaeHh4eM/z8it/THLMTAYI8vXg4eHh7fEmxe7ZAalqtBE9EQ8PD2+Ntz1clW/l1bMrGrrCw8PDew2v2jabRw/VYAIPDw/vs7zJRh8tpbf131vw8PDw1ngTQDUtrn4deVAyylrw8PDwOjtwOXKdhxHV8j0PlPHw8PAWeD8BiHOonHywewAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.0"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.0" async></script>
+
+
+
+
+
+<!--不蒜子域名过期 
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+-->
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

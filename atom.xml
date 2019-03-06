@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ultronxr.xyz/"/>
-  <updated>2019-03-02T10:34:25.032Z</updated>
+  <updated>2019-03-06T08:47:42.676Z</updated>
   <id>https://ultronxr.xyz/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>以当前时间为名新建文件夹并复制文件到其中的bat脚本</title>
+    <link href="https://ultronxr.xyz/2019/03/06/Current-time-for-filename-and-xcopy-in-bat/"/>
+    <id>https://ultronxr.xyz/2019/03/06/Current-time-for-filename-and-xcopy-in-bat/</id>
+    <published>2019-03-06T07:58:20.000Z</published>
+    <updated>2019-03-06T08:47:42.676Z</updated>
+    
+    <content type="html"><![CDATA[<p>用到了bat脚本中的md命令和xcopy命令。</p><a id="more"></a><h1 id="一、代码和部分注释"><a href="#一、代码和部分注释" class="headerlink" title="一、代码和部分注释"></a>一、代码和部分注释</h1><p>注意bat脚本文件需要使用<code>ANSI</code>编码，不要使用UTF8编码，否则包含中文的文件路径会出错！</p><p><code>%date%</code>和<code>%time%</code>两个变量是bat中的系统变量；前者输出当前日期，格式为<code>2019/03/06</code>所示，后者输出当前时间，格式为<code>16:13:23.21</code>（时:分:秒.毫秒）所示，但是如果小时的位置小于10，格式为<code>6:13:23.21</code>（小时的十位变为空格，而不是0）所示。</p><p>所以把每一个所需的值截取出来，重新组装即可。</p><p>然后是<code>md</code>命令，用于新建文件夹；</p><p><code>xcopy</code>用于拷贝文件或文件夹，<code>/E</code>参数作用是<code>复制目录和子目录，包括空目录</code>，<code>/H</code>参数的作用是<code>也复制隐藏文件和系统文件</code>，<code>/V</code>参数作用是<code>验证每个新文件的大小</code>。</p><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> "year=<span class="variable">%date:~0,4%</span>"</span><br><span class="line"><span class="built_in">set</span> "month=<span class="variable">%date:~5,2%</span>"</span><br><span class="line"><span class="built_in">set</span> "day=<span class="variable">%date:~8,2%</span>"</span><br><span class="line"><span class="built_in">set</span> "hour_ten=<span class="variable">%time:~0,1%</span>"</span><br><span class="line"><span class="built_in">set</span> "hour_one=<span class="variable">%time:~1,1%</span>"</span><br><span class="line"><span class="built_in">set</span> "minute=<span class="variable">%time:~3,2%</span>"</span><br><span class="line"><span class="built_in">set</span> "second=<span class="variable">%time:~6,2%</span>"</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> "<span class="variable">%hour_ten%</span>" == " " (</span><br><span class="line">    <span class="built_in">set</span> "current_time=<span class="variable">%year%</span>-<span class="variable">%month%</span>-<span class="variable">%day%</span>--<span class="number">0</span><span class="variable">%hour_one%</span>-<span class="variable">%minute%</span>-<span class="variable">%second%</span>"</span><br><span class="line">) <span class="keyword">else</span> ( </span><br><span class="line">    <span class="built_in">set</span> "current_time=<span class="variable">%year%</span>-<span class="variable">%month%</span>-<span class="variable">%day%</span>--<span class="variable">%hour_ten%</span><span class="variable">%hour_one%</span>-<span class="variable">%minute%</span>-<span class="variable">%second%</span>"</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="built_in">md</span> "D:\测试目标文件夹<span class="number">2</span>\<span class="variable">%current_time%</span>"</span><br><span class="line"><span class="built_in">xcopy</span> /E /H /V  "D:\测试源文件夹<span class="number">1</span>\spring_test" "D:\测试目标文件夹<span class="number">2</span>\<span class="variable">%current_time%</span>\spring_test\"</span><br><span class="line"><span class="built_in">xcopy</span> /E /H /V  "D:\测试源文件夹<span class="number">1</span>\OMServer_model" "D:\测试目标文件夹<span class="number">2</span>\<span class="variable">%current_time%</span>\OMServer_model\"</span><br><span class="line"></span><br><span class="line"><span class="built_in">pause</span></span><br></pre></td></tr></table></figure><p>运行这个bat脚本会输出所复制的所有源文件和文件夹，以及最终复制了多少个文件。如果文件夹名或文件名冲突，会提示是否覆盖。</p><p>复制完成后cmd会显示结果如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">......</span><br><span class="line">......</span><br><span class="line">D:\测试源文件夹1\OMServer_model\target\OMServer_module\WEB-INF\lib\xpp3_min-1.1.4c.jar</span><br><span class="line">D:\测试源文件夹1\OMServer_model\target\OMServer_module\WEB-INF\lib\xstream-1.4.11.1.jar</span><br><span class="line">D:\测试源文件夹1\OMServer_model\target\test-classes\ApiTest\ApiTest.html</span><br><span class="line">D:\测试源文件夹1\OMServer_model\target\test-classes\xml\Status.class</span><br><span class="line">D:\测试源文件夹1\OMServer_model\target\test-classes\XMLTest\Bean.class</span><br><span class="line">D:\测试源文件夹1\OMServer_model\target\test-classes\XMLTest\test.xml</span><br><span class="line">D:\测试源文件夹1\OMServer_model\target\test-classes\XMLTest\XStreamTest.class</span><br><span class="line">D:\测试源文件夹1\OMServer_model\target\war\OMServer_module.war</span><br><span class="line">复制了 1050 个文件</span><br><span class="line">请按任意键继续. . .</span><br></pre></td></tr></table></figure><p><br></p><p><br> <br></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;用到了bat脚本中的md命令和xcopy命令。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="bat" scheme="https://ultronxr.xyz/categories/bat/"/>
+    
+    
+      <category term="bat" scheme="https://ultronxr.xyz/tags/bat/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>javaweb中的Websocket和Websocket连接池</title>
+    <link href="https://ultronxr.xyz/2019/03/02/Websocket-and-websocketpool-in-javaweb/"/>
+    <id>https://ultronxr.xyz/2019/03/02/Websocket-and-websocketpool-in-javaweb/</id>
+    <published>2019-03-02T10:40:56.000Z</published>
+    <updated>2019-03-02T10:41:47.099Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+      
+    
+    </summary>
+    
+      <category term="javaweb" scheme="https://ultronxr.xyz/categories/javaweb/"/>
+    
+    
+      <category term="java" scheme="https://ultronxr.xyz/tags/java/"/>
+    
+      <category term="javaweb" scheme="https://ultronxr.xyz/tags/javaweb/"/>
+    
+      <category term="websocket" scheme="https://ultronxr.xyz/tags/websocket/"/>
+    
+  </entry>
   
   <entry>
     <title>DataTable的ajax用法</title>
@@ -251,9 +303,9 @@
       <category term="Ubuntu16.04LTS安装/配置全家桶" scheme="https://ultronxr.xyz/categories/Ubuntu16-04LTS%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE%E5%85%A8%E5%AE%B6%E6%A1%B6/"/>
     
     
-      <category term="ubuntu" scheme="https://ultronxr.xyz/tags/ubuntu/"/>
-    
       <category term="mysql" scheme="https://ultronxr.xyz/tags/mysql/"/>
+    
+      <category term="ubuntu" scheme="https://ultronxr.xyz/tags/ubuntu/"/>
     
       <category term="navicat" scheme="https://ultronxr.xyz/tags/navicat/"/>
     
@@ -277,9 +329,9 @@
       <category term="Ubuntu16.04LTS安装/配置全家桶" scheme="https://ultronxr.xyz/categories/Ubuntu16-04LTS%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE%E5%85%A8%E5%AE%B6%E6%A1%B6/"/>
     
     
-      <category term="ubuntu" scheme="https://ultronxr.xyz/tags/ubuntu/"/>
-    
       <category term="mysql" scheme="https://ultronxr.xyz/tags/mysql/"/>
+    
+      <category term="ubuntu" scheme="https://ultronxr.xyz/tags/ubuntu/"/>
     
   </entry>
   
@@ -301,9 +353,9 @@
       <category term="Ubuntu16.04LTS安装/配置全家桶" scheme="https://ultronxr.xyz/categories/Ubuntu16-04LTS%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE%E5%85%A8%E5%AE%B6%E6%A1%B6/"/>
     
     
-      <category term="apt" scheme="https://ultronxr.xyz/tags/apt/"/>
-    
       <category term="ubuntu" scheme="https://ultronxr.xyz/tags/ubuntu/"/>
+    
+      <category term="apt" scheme="https://ultronxr.xyz/tags/apt/"/>
     
   </entry>
   
@@ -325,9 +377,9 @@
       <category term="Ubuntu16.04LTS安装/配置全家桶" scheme="https://ultronxr.xyz/categories/Ubuntu16-04LTS%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE%E5%85%A8%E5%AE%B6%E6%A1%B6/"/>
     
     
-      <category term="ubuntu" scheme="https://ultronxr.xyz/tags/ubuntu/"/>
-    
       <category term="mysql" scheme="https://ultronxr.xyz/tags/mysql/"/>
+    
+      <category term="ubuntu" scheme="https://ultronxr.xyz/tags/ubuntu/"/>
     
   </entry>
   
@@ -450,58 +502,6 @@
       <category term="java" scheme="https://ultronxr.xyz/tags/java/"/>
     
       <category term="problems" scheme="https://ultronxr.xyz/tags/problems/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>IDEA中编译器与项目的java版本不同导致编译失败的解决办法</title>
-    <link href="https://ultronxr.xyz/2018/10/01/Compiling-failure-due-to-the-differences-between-project-and-java-complier/"/>
-    <id>https://ultronxr.xyz/2018/10/01/Compiling-failure-due-to-the-differences-between-project-and-java-complier/</id>
-    <published>2018-09-30T16:00:00.000Z</published>
-    <updated>2018-12-22T10:49:55.161Z</updated>
-    
-    <content type="html"><![CDATA[<p>IDEA中编译器与项目的java版本不同导致编译失败的解决办法</p><a id="more"></a><h1 id="一、错误征兆"><a href="#一、错误征兆" class="headerlink" title="一、错误征兆"></a>一、错误征兆</h1><p><br></p><p>IDEA中编译项目有时会出现以下几种报错情况，基本上是因为编译器和项目的java版本不匹配：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Override is not allowed when implementing interface method</span><br><span class="line">//Override不能用</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Error:java: Compilation failed: internal java compiler error </span><br><span class="line">//编译器出错</span><br></pre></td></tr></table></figure><p><br><br></p><h1 id="二、解决办法"><a href="#二、解决办法" class="headerlink" title="二、解决办法"></a>二、解决办法</h1><p><br></p><p>1.先打开项目结构Project Structure对话框，选择Project选项卡，检查Project SDK和Project language level是否匹配，1.8的JDK应该对应于8的language level；</p><p><div><img src="\assets\images\2018-10-01-Compiling failure due to the differences between project and java complier\00.png" align="absmiddle" width="100%" height="100%"></div> <br></p><p>2.切换到Modules选项卡，检查language level是否匹配和上一步中的language level匹配；</p><p><div><img src="\assets\images\2018-10-01-Compiling failure due to the differences between project and java complier\01.png" align="absmiddle" width="100%" height="100%"></div> <br></p><p>3.打开IDEA系统设置对话框，定位到 Build,Execution,Deployment –&gt; Compiler –&gt; Java Compiler 选项卡，修改右侧的Module中的Target bytecode version，使其匹配当前的JDK版本；</p><p><div><img src="\assets\images\2018-10-01-Compiling failure due to the differences between project and java complier\02.png" align="absmiddle" width="100%" height="100%"></div> <br></p><p>4.因为我这里用的是1.8的JDK，所以其他的language level都是设置成8的，其他版本的JDK应该设置成相对应的数值。</p><p><br> <br></p><h1 id="三、参考资料"><a href="#三、参考资料" class="headerlink" title="三、参考资料"></a>三、参考资料</h1><p><br></p><p>1.<a href="https://blog.csdn.net/shenya2/article/details/50460447" target="_blank" rel="noopener">idea @Override is not allowed when implementing interface method解决办法</a></p><p>2.<a href="https://blog.csdn.net/jdjdndhj/article/details/70256989" target="_blank" rel="noopener">Error:java: Compilation failed: internal java compiler error 解决办法</a></p><p><br> <br> <br> <br></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;IDEA中编译器与项目的java版本不同导致编译失败的解决办法&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="IDEA" scheme="https://ultronxr.xyz/categories/IDEA/"/>
-    
-    
-      <category term="java" scheme="https://ultronxr.xyz/tags/java/"/>
-    
-      <category term="IDEA" scheme="https://ultronxr.xyz/tags/IDEA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用IDEA创建maven web项目</title>
-    <link href="https://ultronxr.xyz/2018/10/01/Create-maven-web-project-using-IDEA/"/>
-    <id>https://ultronxr.xyz/2018/10/01/Create-maven-web-project-using-IDEA/</id>
-    <published>2018-09-30T16:00:00.000Z</published>
-    <updated>2018-12-22T10:49:51.604Z</updated>
-    
-    <content type="html"><![CDATA[<p>使用IDEA创建maven web项目</p><a id="more"></a><h1 id="一、新建项目"><a href="#一、新建项目" class="headerlink" title="一、新建项目"></a>一、新建项目</h1><p><br></p><p>1.在刚打开的IDEA页面点击 Create New Project 按钮 或者 在项目界面点击菜单中的 File–New–Project 选项；</p><p>2.在弹出的新建项目对话框中选择左边的Maven选项，在右侧列表中勾上Create from archetype复选框，选择maven-archetype-webapp选项，点击Next按钮进入下一步；</p><p><div><img src="\assets\images\2018-10-01-Create maven web project using IDEA\00.png" align="absmiddle" width="100%" height="100%"></div> <br></p><p>3.填写GroupId和ArtifactId，第一个是组织名称，第二个是项目标识名，两者意义的详细介绍自行百度，第三个Version 1.0-SNAPSHOT代表项目是测试版本，不是稳定版本，点击Next按钮进入下一步；</p><p><div><img src="\assets\images\2018-10-01-Create maven web project using IDEA\01.png" align="absmiddle" width="100%" height="100%"></div> <br></p><p>4.配置maven页面，可以使用IDEA自带的，也可以选择自己安装的maven。我这里是自己安装的maven，第一个Maven home directory选择maven的安装路径，第二个User settings file打上Override的勾，然后选择maven安装路径中conf文件夹下的settings.xml配置文件，其他的不用改，点击Next按钮进入下一步；</p><p><div><img src="\assets\images\2018-10-01-Create maven web project using IDEA\02.png" align="absmiddle" width="100%" height="100%"></div> <br></p><p>5.这里就改一下项目所在的路径就可以了，基本不变，点击Finish即可；</p><p><div><img src="\assets\images\2018-10-01-Create maven web project using IDEA\03.png" align="absmiddle" width="100%" height="100%"></div> <br></p><p><br></p><h1 id="二、配置项目"><a href="#二、配置项目" class="headerlink" title="二、配置项目"></a>二、配置项目</h1><p><br></p><p>1.新建的项目的文件树如下：</p><p><div><img src="\assets\images\2018-10-01-Create maven web project using IDEA\04.png" align="absmiddle" width="50%" height="50%"></div> <br></p><p>2.在main文件夹内新建两个并列的文件夹，一个是java，一个是resources。建好后点击菜单栏右上角的项目结构按钮，选择左边的Modules选项卡，在右边把java文件夹标记为Sources，把resources文件夹标记为Resources；</p><p><div><img src="\assets\images\2018-10-01-Create maven web project using IDEA\05.png" align="absmiddle" width="100%" height="100%"></div> <br></p><p><div><img src="\assets\images\2018-10-01-Create maven web project using IDEA\06.png" align="absmiddle" width="100%" height="100%"></div> <br></p><p>3.点击Apply后切换到Facets选项卡，点击右边的加号，选择Web，在弹出来的对话框中选择你的项目，点击OK；</p><p><div><img src="\assets\images\2018-10-01-Create maven web project using IDEA\07.png" align="absmiddle" width="100%" height="100%"></div> <br></p><p><div><img src="\assets\images\2018-10-01-Create maven web project using IDEA\08.png" align="absmiddle" width="100%" height="100%"></div> <br></p><p>4.点击OK后会自动跳转到Modules选项卡，切回到Facets选项卡，选中刚刚新建的Web，在右侧Deployment Description中，选中内容点击小铅笔图标，修改Path为当前项目的web.xml文件路径；</p><p><div><img src="\assets\images\2018-10-01-Create maven web project using IDEA\09.png" align="absmiddle" width="100%" height="100%"></div> <br></p><p><div><img src="\assets\images\2018-10-01-Create maven web project using IDEA\10.png" align="absmiddle" width="60%" height="60%"></div> <br></p><p><div><img src="\assets\images\2018-10-01-Create maven web project using IDEA\11.png" align="absmiddle" width="100%" height="100%"></div> <br></p><p>5.然后修改Web Resource Directories，选中内容点击小铅笔图标修改为当前项目的webapp目录，修改好后点击Apply；</p><p><div><img src="\assets\images\2018-10-01-Create maven web project using IDEA\12.png" align="absmiddle" width="100%" height="100%"></div> <br></p><p><div><img src="\assets\images\2018-10-01-Create maven web project using IDEA\13.png" align="absmiddle" width="60%" height="60%"></div> <br></p><p>6.切换到Artifacts选项卡，点击右边的加号，选择Web Application: Exploded，选择From Modules，在弹出来的对话框中选择当前项目，点击OK，完成后如下图；</p><p><div><img src="\assets\images\2018-10-01-Create maven web project using IDEA\14.png" align="absmiddle" width="100%" height="100%"></div> <br></p><p><div><img src="\assets\images\2018-10-01-Create maven web project using IDEA\15.png" align="absmiddle" width="60%" height="60%"></div> <br></p><p><div><img src="\assets\images\2018-10-01-Create maven web project using IDEA\16.png" align="absmiddle" width="100%" height="100%"></div> <br></p><p>7.点击Apply应用修改，点击OK关闭窗口，点击菜单栏右上方一个小锤子右边的Add Configuration按钮，在弹出来的对话框里点击加号，依次选择Tomcat Server – Local；</p><p><div><img src="\assets\images\2018-10-01-Create maven web project using IDEA\17.png" align="absmiddle" width="100%" height="100%"></div> <br></p><p>8.在右侧选择Deployment选项卡，点击右侧的加号，选择Artifact，完成后修改Application context为项目名（也可以是别的名称，这个是用来指定url中根目录下具体路径的）；</p><p><div><img src="\assets\images\2018-10-01-Create maven web project using IDEA\18.png" align="absmiddle" width="100%" height="100%"></div> <br></p><p><div><img src="\assets\images\2018-10-01-Create maven web project using IDEA\19.png" align="absmiddle" width="100%" height="100%"></div> <br></p><p>9.切换到Server选项卡，自上往下依次修改：</p><p>Name 随便写</p><p>Application server 选一个tomcat，如何配置tomcat略</p><p>Open browser中的After launch前面的勾勾上就会在运行项目时自动打开浏览器，浏览器选择Chrome</p><p>On ‘Update’ action 和 On frame deactivation两个选项都改成 Update classes and resources，这样修改代码就会自动更新到tomcat里而不用重启服务器</p><p>下面的HTTP端口按照自己的配置因人而异</p><p><div><img src="\assets\images\2018-10-01-Create maven web project using IDEA\20.png" align="absmiddle" width="100%" height="100%"></div> <br></p><p>10.点击Apply和OK后，点击右上方的运行按钮，就是一个向右的小三角，如果等待一会后浏览器打开跳转到了项目页面，显示了Hello World（index.jsp中的内容），说明配置成功。点击IDEA右上方红色的小方块停止运行。</p><p><div><img src="\assets\images\2018-10-01-Create maven web project using IDEA\21.png" align="absmiddle" width="50%" height="50%"></div> <br></p><p><div><img src="\assets\images\2018-10-01-Create maven web project using IDEA\22.png" align="absmiddle" width="100%" height="100%"></div> <br></p><p><div><img src="\assets\images\2018-10-01-Create maven web project using IDEA\23.png" align="absmiddle" width="50%" height="50%"></div> <br></p><p><br><br></p><h1 id="三、导出项目成war包"><a href="#三、导出项目成war包" class="headerlink" title="三、导出项目成war包"></a>三、导出项目成war包</h1><p><br></p><p>1.打开Project Structure对话框，切换到Artifacts选项卡，点击加号新建，选择Application Web: Archive，如果配置了前面的Application Web: exploded的话，这里会有 ‘For 你的项目名称’  的选项，直接点击这个，Output Directory可以修改成别的文件夹，点击Apply和OK退出；</p><p><div><img src="\assets\images\2018-10-01-Create maven web project using IDEA\24.png" align="absmiddle" width="100%" height="100%"></div> <br></p><p>2.点击菜单栏里的Build按钮，选择Build Artifacts选项，在弹出来的选项中选择后缀为 :war 的选项（没有exploded 的选项），点击Build就会生成war包了。</p><p><div><img src="\assets\images\2018-10-01-Create maven web project using IDEA\25.png" align="absmiddle" width="60%" height="60%"></div> <br></p><p><div><img src="\assets\images\2018-10-01-Create maven web project using IDEA\26.png" align="absmiddle" width="60%" height="60%"></div> <br></p><p><div><img src="\assets\images\2018-10-01-Create maven web project using IDEA\27.png" align="absmiddle" width="60%" height="60%"></div> <br></p><p><br><br></p><h1 id="四、参考资料"><a href="#四、参考资料" class="headerlink" title="四、参考资料"></a>四、参考资料</h1><p><br></p><p>1.<a href="https://blog.csdn.net/weixin_38410429/article/details/71773667" target="_blank" rel="noopener">idea2017创建maven web项目</a></p><p>2.<a href="https://www.cnblogs.com/1314wamm/p/7475771.html" target="_blank" rel="noopener">IDEA中创建maven web项目的详细部署</a></p><p>3.<a href="https://blog.csdn.net/u011291072/article/details/53232115" target="_blank" rel="noopener">idea将项目导出为war包</a></p><p><br> <br> <br> <br></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;使用IDEA创建maven web项目&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="javaweb" scheme="https://ultronxr.xyz/categories/javaweb/"/>
-    
-    
-      <category term="java" scheme="https://ultronxr.xyz/tags/java/"/>
-    
-      <category term="IDEA" scheme="https://ultronxr.xyz/tags/IDEA/"/>
-    
-      <category term="javaweb" scheme="https://ultronxr.xyz/tags/javaweb/"/>
-    
-      <category term="maven" scheme="https://ultronxr.xyz/tags/maven/"/>
     
   </entry>
   
