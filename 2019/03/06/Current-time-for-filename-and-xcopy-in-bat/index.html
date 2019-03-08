@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="Ultronxr&#39;s Blog">
 <meta property="og:description" content="用到了bat脚本中的md命令和xcopy命令。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-06T08:47:42.676Z">
+<meta property="og:updated_time" content="2019-03-06T09:03:05.999Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="以当前时间为名新建文件夹并复制文件到其中的bat脚本">
 <meta name="twitter:description" content="用到了bat脚本中的md命令和xcopy命令。">
@@ -196,7 +196,7 @@
 <p><code>%date%</code>和<code>%time%</code>两个变量是bat中的系统变量；前者输出当前日期，格式为<code>2019/03/06</code>所示，后者输出当前时间，格式为<code>16:13:23.21</code>（时:分:秒.毫秒）所示，但是如果小时的位置小于10，格式为<code>6:13:23.21</code>（小时的十位变为空格，而不是0）所示。</p>
 <p>所以把每一个所需的值截取出来，重新组装即可。</p>
 <p>然后是<code>md</code>命令，用于新建文件夹；</p>
-<p><code>xcopy</code>用于拷贝文件或文件夹，<code>/E</code>参数作用是<code>复制目录和子目录，包括空目录</code>，<code>/H</code>参数的作用是<code>也复制隐藏文件和系统文件</code>，<code>/V</code>参数作用是<code>验证每个新文件的大小</code>。</p>
+<p><code>xcopy</code>用于拷贝文件或文件夹，<code>/E</code>参数作用是<code>复制目录和子目录，包括空目录</code>，<code>/H</code>参数的作用是<code>也复制隐藏文件和系统文件</code>，<code>/V</code>参数作用是<code>验证每个新文件的大小</code>。注意文件夹的路径书写格式，以及反斜杠写法（源文件夹路径最后不要加反斜杠，或者写成<code>\*.*</code>）。</p>
 <figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> "year=<span class="variable">%date:~0,4%</span>"</span><br><span class="line"><span class="built_in">set</span> "month=<span class="variable">%date:~5,2%</span>"</span><br><span class="line"><span class="built_in">set</span> "day=<span class="variable">%date:~8,2%</span>"</span><br><span class="line"><span class="built_in">set</span> "hour_ten=<span class="variable">%time:~0,1%</span>"</span><br><span class="line"><span class="built_in">set</span> "hour_one=<span class="variable">%time:~1,1%</span>"</span><br><span class="line"><span class="built_in">set</span> "minute=<span class="variable">%time:~3,2%</span>"</span><br><span class="line"><span class="built_in">set</span> "second=<span class="variable">%time:~6,2%</span>"</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> "<span class="variable">%hour_ten%</span>" == " " (</span><br><span class="line">    <span class="built_in">set</span> "current_time=<span class="variable">%year%</span>-<span class="variable">%month%</span>-<span class="variable">%day%</span>--<span class="number">0</span><span class="variable">%hour_one%</span>-<span class="variable">%minute%</span>-<span class="variable">%second%</span>"</span><br><span class="line">) <span class="keyword">else</span> ( </span><br><span class="line">    <span class="built_in">set</span> "current_time=<span class="variable">%year%</span>-<span class="variable">%month%</span>-<span class="variable">%day%</span>--<span class="variable">%hour_ten%</span><span class="variable">%hour_one%</span>-<span class="variable">%minute%</span>-<span class="variable">%second%</span>"</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="built_in">md</span> "D:\测试目标文件夹<span class="number">2</span>\<span class="variable">%current_time%</span>"</span><br><span class="line"><span class="built_in">xcopy</span> /E /H /V  "D:\测试源文件夹<span class="number">1</span>\spring_test" "D:\测试目标文件夹<span class="number">2</span>\<span class="variable">%current_time%</span>\spring_test\"</span><br><span class="line"><span class="built_in">xcopy</span> /E /H /V  "D:\测试源文件夹<span class="number">1</span>\OMServer_model" "D:\测试目标文件夹<span class="number">2</span>\<span class="variable">%current_time%</span>\OMServer_model\"</span><br><span class="line"></span><br><span class="line"><span class="built_in">pause</span></span><br></pre></td></tr></table></figure>
 <p>运行这个bat脚本会输出所复制的所有源文件和文件夹，以及最终复制了多少个文件。如果文件夹名或文件名冲突，会提示是否覆盖。</p>
 <p>复制完成后cmd会显示结果如下：</p>
@@ -210,7 +210,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-03-06T08:47:42.676Z" itemprop="dateUpdated">2019-03-06 16:47:42</time>
+    最后更新时间：<time datetime="2019-03-06T09:03:05.999Z" itemprop="dateUpdated">2019-03-06 17:03:05</time>
 </span><br>
 
 
