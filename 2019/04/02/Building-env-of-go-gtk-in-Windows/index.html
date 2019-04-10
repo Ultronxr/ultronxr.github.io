@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://ultronxr.xyz/assets/images-new/2019-04-02-Building-env-of-go-gtk-in-Windows/08.png">
 <meta property="og:image" content="https://ultronxr.xyz/assets/images-new/2019-04-02-Building-env-of-go-gtk-in-Windows/09.png">
 <meta property="og:image" content="https://ultronxr.xyz/assets/images-new/2019-04-02-Building-env-of-go-gtk-in-Windows/11.png">
-<meta property="og:updated_time" content="2019-04-02T13:22:02.750Z">
+<meta property="og:updated_time" content="2019-04-10T07:39:05.299Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows环境下搭建go-gtk的方法以及过程中一些问题的解决办法">
 <meta name="twitter:description" content="最近打算做一个桌面应用程序，然后也打算学一波go语言，所以就借此机会用go写一个带界面的程序。我是用了go-gtk，这里记录一下环境搭建的过程，以及搭建时候踩的四个坑（有坑的地方我着重标出来了）。">
@@ -241,6 +241,8 @@
 <p><br></p>
 <h2 id="2-3-安装gtk和相关工具"><a href="#2-3-安装gtk和相关工具" class="headerlink" title="2.3 安装gtk和相关工具"></a>2.3 安装gtk和相关工具</h2><p>安装gtk3：</p>
 <p>MSYS2命令行输入<code>pacman -S mingw-w64-x86_64-gtk3</code>回车，提示是否进行安装，输入<code>y</code>回车。</p>
+<p>安装gtk2：</p>
+<p>MSYS2命令行输入<code>pacman -S mingw-w64-x86_64-gtk2</code>回车，提示是否进行安装，输入<code>y</code>回车。</p>
 <p>安装Glade：</p>
 <p>MSYS2命令行输入<code>pacman -S mingw-w64-x86_64-glade</code>回车，提示是否进行安装，输入<code>y</code>回车。</p>
 <p>安装Devhelp：</p>
@@ -303,6 +305,8 @@
 </li>
 <li><p><a href="https://github.com/mattn/go-gtk/issues/307" target="_blank" rel="noopener">go-gtk/issues/307</a></p>
 </li>
+<li><p><a href="http://ftp.gnome.org/pub/GNOME/binaries/win32/glade/" target="_blank" rel="noopener"><strong>windows版的glade安装包下载地址</strong></a></p>
+</li>
 </ol>
 <p><br> <br></p>
 
@@ -312,7 +316,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-04-02T13:22:02.750Z" itemprop="dateUpdated">2019-04-02 21:22:02</time>
+    最后更新时间：<time datetime="2019-04-10T07:39:05.299Z" itemprop="dateUpdated">2019-04-10 15:39:05</time>
 </span><br>
 
 
