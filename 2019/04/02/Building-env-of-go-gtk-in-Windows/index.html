@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://ultronxr.xyz/assets/images-new/2019-04-02-Building-env-of-go-gtk-in-Windows/08.png">
 <meta property="og:image" content="https://ultronxr.xyz/assets/images-new/2019-04-02-Building-env-of-go-gtk-in-Windows/09.png">
 <meta property="og:image" content="https://ultronxr.xyz/assets/images-new/2019-04-02-Building-env-of-go-gtk-in-Windows/11.png">
-<meta property="og:updated_time" content="2019-04-10T07:47:06.172Z">
+<meta property="og:updated_time" content="2019-04-11T10:23:55.698Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows环境下搭建go-gtk的方法以及过程中一些问题的解决办法">
 <meta name="twitter:description" content="最近打算做一个桌面应用程序，然后也打算学一波go语言，所以就借此机会用go写一个带界面的程序。我是用了go-gtk，这里记录一下环境搭建的过程，以及搭建时候踩的四个坑（有坑的地方我着重标出来了）。">
@@ -249,6 +249,7 @@
 <p>MSYS2命令行输入<code>pacman -S mingw-w64-x86_64-devhelp</code>回车，提示是否进行安装，输入<code>y</code>回车。</p>
 <p>安装build tools：</p>
 <p>MSYS2命令行输入<code>pacman -S mingw-w64-x86_64-toolchain base-devel</code>回车，提示选择安装哪个库，直接回车，选择全部安装。</p>
+<p>安装完成后清理缓存，使用<code>pacman -Scc</code>命令删除。</p>
 <p><br></p>
 <h2 id="2-4-添加msys64环境变量"><a href="#2-4-添加msys64环境变量" class="headerlink" title="2.4 添加msys64环境变量"></a>2.4 添加msys64环境变量</h2><p>打开环境变量，在系统变量栏的<code>PATH</code>变量中新增两个值，分别是<code>C:\msys64\mingw64\bin</code>和<code>C:\msys64\usr\bin</code>。</p>
 <p>两个注意点：</p>
@@ -316,7 +317,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-04-10T07:47:06.172Z" itemprop="dateUpdated">2019-04-10 15:47:06</time>
+    最后更新时间：<time datetime="2019-04-11T10:23:55.698Z" itemprop="dateUpdated">2019-04-11 18:23:55</time>
 </span><br>
 
 

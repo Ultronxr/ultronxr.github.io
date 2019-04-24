@@ -21,12 +21,16 @@
 
 # 日志
 
-1. 2018.08.08 基于jekyll创建个人博客，并部署在github.io上。
+1. 2018.08.08 基于jekyll创建个人博客，并部署在github page `https://ultronxr.github.io`上。
 
-2. 2018.12.20 博客迁移至Hexo。
+2. 2018.12.20 博客框架改成Hexo。
 
-3. 2018.12.21 添加解析域名：https://ultronxr.xyz 。
+3. 2018.12.21 添加域名：`ultronxr.xyz`，CNAME解析至`ultronxr.github.io`。
 
-4. 2019.02.28 域名 ultronxr.xyz 备案完成，备案号：浙ICP备19007617号-1 。
+4. 2019.02.28 域名 ultronxr.xyz 备案完成，备案号：`浙ICP备19007617号-1`。
+
+5. 2019.04.24 博客部署在自己的阿里云tomcat服务器上；同时域名解析修改，A解析至`120.79.37.194`。（github page仍有更新部署，但是没有域名解析，需要直接访问`https://ultronxr.github.io`）
+
 
 <br/><br/>
+
