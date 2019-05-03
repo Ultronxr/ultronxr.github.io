@@ -13,7 +13,7 @@
     
     
     
-    <title>Windows环境下搭建go-gtk的方法以及过程中一些问题的解决办法 | Ultronxr&#39;s Blog | Ultronxr&#39;s Blog</title>
+    <title>Windows环境下搭建go-gtk的方法以及过程中一些问题的解决办法 | Ultronxr&#39;s Blog | 本博客部署于 &lt;a href=&#34;http://ultronxr.xyz/&#34; style=&#34;color:#ffffff&#34;&gt;http://ultronxr.xyz/&lt;/a&gt; 和 &lt;a href=&#34;https://ultronxr.github.io/&#34; style=&#34;color:#ffffff&#34;&gt;https://ultronxr.github.io/&lt;/a&gt;</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
@@ -24,25 +24,25 @@
 <meta name="keywords" content="go,gtk,go-gtk">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Windows环境下搭建go-gtk的方法以及过程中一些问题的解决办法">
-<meta property="og:url" content="https://ultronxr.xyz/2019/04/02/Building-env-of-go-gtk-in-Windows/index.html">
+<meta property="og:url" content="http://ultronxr.xyz/2019/04/02/Building-env-of-go-gtk-in-Windows/index.html">
 <meta property="og:site_name" content="Ultronxr&#39;s Blog">
 <meta property="og:description" content="最近打算做一个桌面应用程序，然后也打算学一波go语言，所以就借此机会用go写一个带界面的程序。我是用了go-gtk，这里记录一下环境搭建的过程，以及搭建时候踩的四个坑（有坑的地方我着重标出来了）。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://ultronxr.xyz/assets/images-new/2019-04-02-Building-env-of-go-gtk-in-Windows/01.png">
-<meta property="og:image" content="https://ultronxr.xyz/assets/images-new/2019-04-02-Building-env-of-go-gtk-in-Windows/02.png">
-<meta property="og:image" content="https://ultronxr.xyz/assets/images-new/2019-04-02-Building-env-of-go-gtk-in-Windows/03.png">
-<meta property="og:image" content="https://ultronxr.xyz/assets/images-new/2019-04-02-Building-env-of-go-gtk-in-Windows/04.png">
-<meta property="og:image" content="https://ultronxr.xyz/assets/images-new/2019-04-02-Building-env-of-go-gtk-in-Windows/05.png">
-<meta property="og:image" content="https://ultronxr.xyz/assets/images-new/2019-04-02-Building-env-of-go-gtk-in-Windows/06.png">
-<meta property="og:image" content="https://ultronxr.xyz/assets/images-new/2019-04-02-Building-env-of-go-gtk-in-Windows/07.png">
-<meta property="og:image" content="https://ultronxr.xyz/assets/images-new/2019-04-02-Building-env-of-go-gtk-in-Windows/08.png">
-<meta property="og:image" content="https://ultronxr.xyz/assets/images-new/2019-04-02-Building-env-of-go-gtk-in-Windows/09.png">
-<meta property="og:image" content="https://ultronxr.xyz/assets/images-new/2019-04-02-Building-env-of-go-gtk-in-Windows/11.png">
+<meta property="og:image" content="http://ultronxr.xyz/assets/images-new/2019-04-02-Building-env-of-go-gtk-in-Windows/01.png">
+<meta property="og:image" content="http://ultronxr.xyz/assets/images-new/2019-04-02-Building-env-of-go-gtk-in-Windows/02.png">
+<meta property="og:image" content="http://ultronxr.xyz/assets/images-new/2019-04-02-Building-env-of-go-gtk-in-Windows/03.png">
+<meta property="og:image" content="http://ultronxr.xyz/assets/images-new/2019-04-02-Building-env-of-go-gtk-in-Windows/04.png">
+<meta property="og:image" content="http://ultronxr.xyz/assets/images-new/2019-04-02-Building-env-of-go-gtk-in-Windows/05.png">
+<meta property="og:image" content="http://ultronxr.xyz/assets/images-new/2019-04-02-Building-env-of-go-gtk-in-Windows/06.png">
+<meta property="og:image" content="http://ultronxr.xyz/assets/images-new/2019-04-02-Building-env-of-go-gtk-in-Windows/07.png">
+<meta property="og:image" content="http://ultronxr.xyz/assets/images-new/2019-04-02-Building-env-of-go-gtk-in-Windows/08.png">
+<meta property="og:image" content="http://ultronxr.xyz/assets/images-new/2019-04-02-Building-env-of-go-gtk-in-Windows/09.png">
+<meta property="og:image" content="http://ultronxr.xyz/assets/images-new/2019-04-02-Building-env-of-go-gtk-in-Windows/11.png">
 <meta property="og:updated_time" content="2019-04-11T10:23:55.698Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows环境下搭建go-gtk的方法以及过程中一些问题的解决办法">
 <meta name="twitter:description" content="最近打算做一个桌面应用程序，然后也打算学一波go语言，所以就借此机会用go写一个带界面的程序。我是用了go-gtk，这里记录一下环境搭建的过程，以及搭建时候踩的四个坑（有坑的地方我着重标出来了）。">
-<meta name="twitter:image" content="https://ultronxr.xyz/assets/images-new/2019-04-02-Building-env-of-go-gtk-in-Windows/01.png">
+<meta name="twitter:image" content="http://ultronxr.xyz/assets/images-new/2019-04-02-Building-env-of-go-gtk-in-Windows/01.png">
     
         <link rel="alternate" type="application/atom+xml" title="Ultronxr&#39;s Blog" href="/atom.xml">
     
@@ -326,7 +326,7 @@
         
     </div>
     <footer>
-        <a href="https://ultronxr.xyz">
+        <a href="http://ultronxr.xyz">
             <img src="/img/logo.png" alt="ultronxr">
             ultronxr
         </a>
@@ -352,7 +352,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ultronxr.xyz/2019/04/02/Building-env-of-go-gtk-in-Windows/&title=《Windows环境下搭建go-gtk的方法以及过程中一些问题的解决办法》 — Ultronxr's Blog&pic=https://ultronxr.xyz/img/logo.png" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ultronxr.xyz/2019/04/02/Building-env-of-go-gtk-in-Windows/&title=《Windows环境下搭建go-gtk的方法以及过程中一些问题的解决办法》 — Ultronxr's Blog&pic=http://ultronxr.xyz/img/logo.png" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -362,22 +362,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ultronxr.xyz/2019/04/02/Building-env-of-go-gtk-in-Windows/&title=《Windows环境下搭建go-gtk的方法以及过程中一些问题的解决办法》 — Ultronxr's Blog&source=最近打算做一个桌面应用程序，然后也打算学一波go语言，所以就借此机会用go写一个带界面的程序。我是用了go-gtk，这里记录一下环境搭建的过程，以及搭建时..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ultronxr.xyz/2019/04/02/Building-env-of-go-gtk-in-Windows/&title=《Windows环境下搭建go-gtk的方法以及过程中一些问题的解决办法》 — Ultronxr's Blog&source=最近打算做一个桌面应用程序，然后也打算学一波go语言，所以就借此机会用go写一个带界面的程序。我是用了go-gtk，这里记录一下环境搭建的过程，以及搭建时..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ultronxr.xyz/2019/04/02/Building-env-of-go-gtk-in-Windows/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ultronxr.xyz/2019/04/02/Building-env-of-go-gtk-in-Windows/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Windows环境下搭建go-gtk的方法以及过程中一些问题的解决办法》 — Ultronxr's Blog&url=https://ultronxr.xyz/2019/04/02/Building-env-of-go-gtk-in-Windows/&via=https://ultronxr.xyz" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Windows环境下搭建go-gtk的方法以及过程中一些问题的解决办法》 — Ultronxr's Blog&url=http://ultronxr.xyz/2019/04/02/Building-env-of-go-gtk-in-Windows/&via=http://ultronxr.xyz" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ultronxr.xyz/2019/04/02/Building-env-of-go-gtk-in-Windows/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ultronxr.xyz/2019/04/02/Building-env-of-go-gtk-in-Windows/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -530,7 +530,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ultronxr.xyz/2019/04/02/Building-env-of-go-gtk-in-Windows/&title=《Windows环境下搭建go-gtk的方法以及过程中一些问题的解决办法》 — Ultronxr's Blog&pic=https://ultronxr.xyz/img/logo.png" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ultronxr.xyz/2019/04/02/Building-env-of-go-gtk-in-Windows/&title=《Windows环境下搭建go-gtk的方法以及过程中一些问题的解决办法》 — Ultronxr's Blog&pic=http://ultronxr.xyz/img/logo.png" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -540,22 +540,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ultronxr.xyz/2019/04/02/Building-env-of-go-gtk-in-Windows/&title=《Windows环境下搭建go-gtk的方法以及过程中一些问题的解决办法》 — Ultronxr's Blog&source=最近打算做一个桌面应用程序，然后也打算学一波go语言，所以就借此机会用go写一个带界面的程序。我是用了go-gtk，这里记录一下环境搭建的过程，以及搭建时..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ultronxr.xyz/2019/04/02/Building-env-of-go-gtk-in-Windows/&title=《Windows环境下搭建go-gtk的方法以及过程中一些问题的解决办法》 — Ultronxr's Blog&source=最近打算做一个桌面应用程序，然后也打算学一波go语言，所以就借此机会用go写一个带界面的程序。我是用了go-gtk，这里记录一下环境搭建的过程，以及搭建时..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ultronxr.xyz/2019/04/02/Building-env-of-go-gtk-in-Windows/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ultronxr.xyz/2019/04/02/Building-env-of-go-gtk-in-Windows/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Windows环境下搭建go-gtk的方法以及过程中一些问题的解决办法》 — Ultronxr's Blog&url=https://ultronxr.xyz/2019/04/02/Building-env-of-go-gtk-in-Windows/&via=https://ultronxr.xyz" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Windows环境下搭建go-gtk的方法以及过程中一些问题的解决办法》 — Ultronxr's Blog&url=http://ultronxr.xyz/2019/04/02/Building-env-of-go-gtk-in-Windows/&via=http://ultronxr.xyz" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ultronxr.xyz/2019/04/02/Building-env-of-go-gtk-in-Windows/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ultronxr.xyz/2019/04/02/Building-env-of-go-gtk-in-Windows/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -566,7 +566,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACxUlEQVR42u3aS25jMQwEwNz/0hlgVgEytrtJyckA9VZG4s8rGRDlJj8+4uvz7/X18de/PHrm9+fnV/LOxy48PDy80a0//5jZ4xn1+bLm94yHh4d3m9cWg0ePZ6Ui38/ze8bDw8P7Dbz81vMFap+Ph4eH93/xnn9AcoyeHazx8PDwficvOcImt5gv3Kmw41jWgoeHh9ftunUD7GcfX+/v4eHh4Y266m2RyEOHs0MGD+8WDw8P7wIviWKTxlW+EPkBfR+O4OHh4b2Tl4ezs60/OS7PStQ/3g0PDw/vAi//qd9u9O37t7xikAsPDw/vAq897ObNsDy2mA1vJV8AHh4e3ine7MPy7ThfjlPlpEgv8PDw8NZjAW0lKYLUeCE2gwJFrcPDw8Nb8DYbdBsNbJpq+UK8mIzAw8PDW/PaKCE/Xrd/bxtjxVLi4eHhXePNGlqz4YB9eFEsJR4eHt4F3qwBdqMLlxenpITg4eHh3eC1bzcrG/lWnocXdT6Nh4eHd4iXvODFITUoHnnJScLc9jEeHh7eDd6mZZUvQbtXt68tYgg8PDy8Na8tDO1hupj/WmCO1T08PDy8p3fVbvGzYaw86k3+WxzK8fDw8N7CywPWGSwf8Epe++ILwMPDw7vAuxEu5C2ufDShDS9efId4eHh4C16+Qe8HBfKSMLuGQ1d4eHh4I95mu0/C3/Zgnb/Diy8ADw8P7wIv3z/zY/dsYGsfIj9cLDw8PLyjvCQYzaOBNmJ4vrj78QI8PDy89/A2bapZ0+vUMf1FPo2Hh4d3iLcKScvmVhtSJMMEpyJgPDw8vJbXFoNT0UPeYJtFw3h4eHi3ee2t34gwNjWtboDh4eHhvYU3Y8zKz2ysoRi9wsPDw/shXtvoystJHlIMJyPw8PDw1ryzgWx+mJ4FxEVxwsPDw7vAm/3UT0ibOKNdsmP9PTw8PLxn1x/9WdpPOuDpIAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACr0lEQVR42u3awW4bMQwEUP//T7fnolh3hpQcF3g+GU68q6cAK2bI1yt+/QpeT996+uTp/d93fPqdYy88PDy8o0t/f7P3i3jCJ9d/v1nFRuPh4eFd4yWXSx7iN5aerOHxczw8PLyv4bVHQvJYT6piPDw8vP+R15bFxVKCJAEPDw/ve3hJWZzD2rJ4H4UcyFrw8PDwul5V1EX6nvdX+nt4eHh4hwYCkiZWMkCwb6HVq8XDw8O7wDsVCiSw/dnVrhMPDw/vNm/WsG9D29nxkAwZPK4BDw8P7yhv06zKl5uU5v94uI82FA8PD+8Gry5PA17e6MrHufItLqh4eHh4a16LSUrt2cDBqYEtPDw8vHu8/IHb8s6OLLTtMTw8PLzbvPxCbSk8i3Hb46EupvHw8PAWvLa9tM85ZluZR8l4eHh493g5Jh8jaMPWdmyrGGjAw8PDu8bLm1VJBNwGtbNAJLkvHh4e3g3eLE5NgtSkGbZpsJ0Ni/Hw8PByXtvoSkrefZn+/mrF6AMeHh7eNd6sgM6Pjbxhth9B+OOaeHh4eBd4s3K5HcNqj40cHI0g4OHh4X2QNxt+aoOMtrXWtsrw8PDwzvLyR/NsuGo2MpWEwlETDg8PD+8jvLOl8CbgyGOLx+vj4eHhXeDNyujZzdoGW3JgJGNeeHh4eJ/h5TfejE/lQwP5xg3/Pnh4eHgLXtvcakevNoNcyYbi4eHhfZ6XHwztUmbDB7PIGA8PD+8e79RA1WaDZiFIFKDg4eHhXeCdbf9vWln5ITQE4OHh4R3l7Q+DHNn+dBZJFIU1Hh4e3oKX36Y9GPLQ4dRphoeHh/dtvFkRPDsw2ig5Sqnx8PDwPs7Lv3WqUM5L/9d+QXh4eHgxry18ZwV3O4hwoDGGh4eHd4HX/nu/CWF/NqTAw8PDW/N+A6NMNcpNA0pQAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 
@@ -620,7 +620,7 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
     var OriginTitile = document.title, titleTime;
     document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
-            document.title = '';
+            document.title = 'Ultronxr's Blog';
             clearTimeout(titleTime);
         } else {
             document.title = '';

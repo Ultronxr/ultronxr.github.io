@@ -2,12 +2,12 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Ultronxr&#39;s Blog</title>
   <icon>https://www.gravatar.com/avatar/ced1b7e1aa7027e6541678539ecf9154</icon>
-  <subtitle>Ultronxr&#39;s Blog</subtitle>
+  <subtitle>本博客部署于 &lt;a href=&quot;http://ultronxr.xyz/&quot; style=&quot;color:#ffffff&quot;&gt;http://ultronxr.xyz/&lt;/a&gt; 和 &lt;a href=&quot;https://ultronxr.github.io/&quot; style=&quot;color:#ffffff&quot;&gt;https://ultronxr.github.io/&lt;/a&gt;</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://ultronxr.xyz/"/>
+  <link href="http://ultronxr.xyz/"/>
   <updated>2019-05-03T14:51:48.207Z</updated>
-  <id>https://ultronxr.xyz/</id>
+  <id>http://ultronxr.xyz/</id>
   
   <author>
     <name>ultronxr</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>一个自己写的HTML的TODO清单样例</title>
-    <link href="https://ultronxr.xyz/2019/05/03/A-html-TODO-List-Demo-wrote-by-myself/"/>
-    <id>https://ultronxr.xyz/2019/05/03/A-html-TODO-List-Demo-wrote-by-myself/</id>
+    <link href="http://ultronxr.xyz/2019/05/03/A-html-TODO-List-Demo-wrote-by-myself/"/>
+    <id>http://ultronxr.xyz/2019/05/03/A-html-TODO-List-Demo-wrote-by-myself/</id>
     <published>2019-05-03T14:27:53.000Z</published>
     <updated>2019-05-03T14:51:48.207Z</updated>
     
@@ -31,21 +31,21 @@
     
     </summary>
     
-      <category term="html" scheme="https://ultronxr.xyz/categories/html/"/>
+      <category term="html" scheme="http://ultronxr.xyz/categories/html/"/>
     
     
-      <category term="js" scheme="https://ultronxr.xyz/tags/js/"/>
+      <category term="js" scheme="http://ultronxr.xyz/tags/js/"/>
     
-      <category term="html" scheme="https://ultronxr.xyz/tags/html/"/>
+      <category term="html" scheme="http://ultronxr.xyz/tags/html/"/>
     
-      <category term="css" scheme="https://ultronxr.xyz/tags/css/"/>
+      <category term="css" scheme="http://ultronxr.xyz/tags/css/"/>
     
   </entry>
   
   <entry>
     <title>Windows环境下搭建go-gtk的方法以及过程中一些问题的解决办法</title>
-    <link href="https://ultronxr.xyz/2019/04/02/Building-env-of-go-gtk-in-Windows/"/>
-    <id>https://ultronxr.xyz/2019/04/02/Building-env-of-go-gtk-in-Windows/</id>
+    <link href="http://ultronxr.xyz/2019/04/02/Building-env-of-go-gtk-in-Windows/"/>
+    <id>http://ultronxr.xyz/2019/04/02/Building-env-of-go-gtk-in-Windows/</id>
     <published>2019-04-02T08:57:27.000Z</published>
     <updated>2019-04-11T10:23:55.698Z</updated>
     
@@ -57,21 +57,21 @@
     
     </summary>
     
-      <category term="go" scheme="https://ultronxr.xyz/categories/go/"/>
+      <category term="go" scheme="http://ultronxr.xyz/categories/go/"/>
     
     
-      <category term="go" scheme="https://ultronxr.xyz/tags/go/"/>
+      <category term="go" scheme="http://ultronxr.xyz/tags/go/"/>
     
-      <category term="gtk" scheme="https://ultronxr.xyz/tags/gtk/"/>
+      <category term="gtk" scheme="http://ultronxr.xyz/tags/gtk/"/>
     
-      <category term="go-gtk" scheme="https://ultronxr.xyz/tags/go-gtk/"/>
+      <category term="go-gtk" scheme="http://ultronxr.xyz/tags/go-gtk/"/>
     
   </entry>
   
   <entry>
     <title>以当前时间为名新建文件夹并复制文件到其中的bat脚本</title>
-    <link href="https://ultronxr.xyz/2019/03/06/Current-time-for-filename-and-xcopy-in-bat/"/>
-    <id>https://ultronxr.xyz/2019/03/06/Current-time-for-filename-and-xcopy-in-bat/</id>
+    <link href="http://ultronxr.xyz/2019/03/06/Current-time-for-filename-and-xcopy-in-bat/"/>
+    <id>http://ultronxr.xyz/2019/03/06/Current-time-for-filename-and-xcopy-in-bat/</id>
     <published>2019-03-06T07:58:20.000Z</published>
     <updated>2019-03-06T09:03:05.999Z</updated>
     
@@ -83,17 +83,17 @@
     
     </summary>
     
-      <category term="bat" scheme="https://ultronxr.xyz/categories/bat/"/>
+      <category term="bat" scheme="http://ultronxr.xyz/categories/bat/"/>
     
     
-      <category term="bat" scheme="https://ultronxr.xyz/tags/bat/"/>
+      <category term="bat" scheme="http://ultronxr.xyz/tags/bat/"/>
     
   </entry>
   
   <entry>
     <title>javaweb中的Websocket和Websocket连接池</title>
-    <link href="https://ultronxr.xyz/2019/03/02/Websocket-and-websocketpool-in-javaweb/"/>
-    <id>https://ultronxr.xyz/2019/03/02/Websocket-and-websocketpool-in-javaweb/</id>
+    <link href="http://ultronxr.xyz/2019/03/02/Websocket-and-websocketpool-in-javaweb/"/>
+    <id>http://ultronxr.xyz/2019/03/02/Websocket-and-websocketpool-in-javaweb/</id>
     <published>2019-03-02T10:40:56.000Z</published>
     <updated>2019-03-08T06:14:01.548Z</updated>
     
@@ -105,21 +105,21 @@
     
     </summary>
     
-      <category term="javaweb" scheme="https://ultronxr.xyz/categories/javaweb/"/>
+      <category term="javaweb" scheme="http://ultronxr.xyz/categories/javaweb/"/>
     
     
-      <category term="java" scheme="https://ultronxr.xyz/tags/java/"/>
+      <category term="java" scheme="http://ultronxr.xyz/tags/java/"/>
     
-      <category term="javaweb" scheme="https://ultronxr.xyz/tags/javaweb/"/>
+      <category term="javaweb" scheme="http://ultronxr.xyz/tags/javaweb/"/>
     
-      <category term="websocket" scheme="https://ultronxr.xyz/tags/websocket/"/>
+      <category term="websocket" scheme="http://ultronxr.xyz/tags/websocket/"/>
     
   </entry>
   
   <entry>
     <title>DataTable的ajax用法</title>
-    <link href="https://ultronxr.xyz/2019/03/02/Ajax-usage-of-Datatable/"/>
-    <id>https://ultronxr.xyz/2019/03/02/Ajax-usage-of-Datatable/</id>
+    <link href="http://ultronxr.xyz/2019/03/02/Ajax-usage-of-Datatable/"/>
+    <id>http://ultronxr.xyz/2019/03/02/Ajax-usage-of-Datatable/</id>
     <published>2019-03-02T08:20:32.000Z</published>
     <updated>2019-03-02T10:34:25.032Z</updated>
     
@@ -131,25 +131,25 @@
     
     </summary>
     
-      <category term="javaweb" scheme="https://ultronxr.xyz/categories/javaweb/"/>
+      <category term="javaweb" scheme="http://ultronxr.xyz/categories/javaweb/"/>
     
     
-      <category term="java" scheme="https://ultronxr.xyz/tags/java/"/>
+      <category term="java" scheme="http://ultronxr.xyz/tags/java/"/>
     
-      <category term="javaweb" scheme="https://ultronxr.xyz/tags/javaweb/"/>
+      <category term="javaweb" scheme="http://ultronxr.xyz/tags/javaweb/"/>
     
-      <category term="datatable" scheme="https://ultronxr.xyz/tags/datatable/"/>
+      <category term="datatable" scheme="http://ultronxr.xyz/tags/datatable/"/>
     
-      <category term="js" scheme="https://ultronxr.xyz/tags/js/"/>
+      <category term="js" scheme="http://ultronxr.xyz/tags/js/"/>
     
-      <category term="jsp" scheme="https://ultronxr.xyz/tags/jsp/"/>
+      <category term="jsp" scheme="http://ultronxr.xyz/tags/jsp/"/>
     
   </entry>
   
   <entry>
     <title>Ubuntu 16.04 LTS 完整安装docker和docker-compose以及常用命令</title>
-    <link href="https://ultronxr.xyz/2019/03/01/Docker-with-compose-installation-in-Ubuntu/"/>
-    <id>https://ultronxr.xyz/2019/03/01/Docker-with-compose-installation-in-Ubuntu/</id>
+    <link href="http://ultronxr.xyz/2019/03/01/Docker-with-compose-installation-in-Ubuntu/"/>
+    <id>http://ultronxr.xyz/2019/03/01/Docker-with-compose-installation-in-Ubuntu/</id>
     <published>2019-03-01T08:59:09.000Z</published>
     <updated>2019-03-01T10:06:06.716Z</updated>
     
@@ -161,19 +161,19 @@
     
     </summary>
     
-      <category term="docker" scheme="https://ultronxr.xyz/categories/docker/"/>
+      <category term="docker" scheme="http://ultronxr.xyz/categories/docker/"/>
     
     
-      <category term="docker" scheme="https://ultronxr.xyz/tags/docker/"/>
+      <category term="docker" scheme="http://ultronxr.xyz/tags/docker/"/>
     
-      <category term="ubuntu" scheme="https://ultronxr.xyz/tags/ubuntu/"/>
+      <category term="ubuntu" scheme="http://ultronxr.xyz/tags/ubuntu/"/>
     
   </entry>
   
   <entry>
     <title>使用docker中的Netcloud镜像搭建你的个人网盘</title>
-    <link href="https://ultronxr.xyz/2019/03/01/Build-your-personal-netdisk-using-the-Netcloud-image-in-docker/"/>
-    <id>https://ultronxr.xyz/2019/03/01/Build-your-personal-netdisk-using-the-Netcloud-image-in-docker/</id>
+    <link href="http://ultronxr.xyz/2019/03/01/Build-your-personal-netdisk-using-the-Netcloud-image-in-docker/"/>
+    <id>http://ultronxr.xyz/2019/03/01/Build-your-personal-netdisk-using-the-Netcloud-image-in-docker/</id>
     <published>2019-03-01T08:52:56.000Z</published>
     <updated>2019-03-01T10:53:25.473Z</updated>
     
@@ -185,21 +185,21 @@
     
     </summary>
     
-      <category term="docker" scheme="https://ultronxr.xyz/categories/docker/"/>
+      <category term="docker" scheme="http://ultronxr.xyz/categories/docker/"/>
     
     
-      <category term="docker" scheme="https://ultronxr.xyz/tags/docker/"/>
+      <category term="docker" scheme="http://ultronxr.xyz/tags/docker/"/>
     
-      <category term="ubuntu" scheme="https://ultronxr.xyz/tags/ubuntu/"/>
+      <category term="ubuntu" scheme="http://ultronxr.xyz/tags/ubuntu/"/>
     
-      <category term="netdisk" scheme="https://ultronxr.xyz/tags/netdisk/"/>
+      <category term="netdisk" scheme="http://ultronxr.xyz/tags/netdisk/"/>
     
   </entry>
   
   <entry>
     <title>Java项目的Utils包中一些常用的通用静态函数</title>
-    <link href="https://ultronxr.xyz/2019/02/22/Functions-commonly-used-in-Java-Utils-packages/"/>
-    <id>https://ultronxr.xyz/2019/02/22/Functions-commonly-used-in-Java-Utils-packages/</id>
+    <link href="http://ultronxr.xyz/2019/02/22/Functions-commonly-used-in-Java-Utils-packages/"/>
+    <id>http://ultronxr.xyz/2019/02/22/Functions-commonly-used-in-Java-Utils-packages/</id>
     <published>2019-02-22T12:42:22.000Z</published>
     <updated>2019-02-22T13:27:20.980Z</updated>
     
@@ -211,17 +211,17 @@
     
     </summary>
     
-      <category term="java" scheme="https://ultronxr.xyz/categories/java/"/>
+      <category term="java" scheme="http://ultronxr.xyz/categories/java/"/>
     
     
-      <category term="java" scheme="https://ultronxr.xyz/tags/java/"/>
+      <category term="java" scheme="http://ultronxr.xyz/tags/java/"/>
     
   </entry>
   
   <entry>
     <title>Win10的睡眠和休眠</title>
-    <link href="https://ultronxr.xyz/2019/01/30/Win10-sleep-and-hibernation/"/>
-    <id>https://ultronxr.xyz/2019/01/30/Win10-sleep-and-hibernation/</id>
+    <link href="http://ultronxr.xyz/2019/01/30/Win10-sleep-and-hibernation/"/>
+    <id>http://ultronxr.xyz/2019/01/30/Win10-sleep-and-hibernation/</id>
     <published>2019-01-30T01:54:14.000Z</published>
     <updated>2019-01-31T13:47:37.789Z</updated>
     
@@ -233,19 +233,19 @@
     
     </summary>
     
-      <category term="强迫症的Win10整顿计划" scheme="https://ultronxr.xyz/categories/%E5%BC%BA%E8%BF%AB%E7%97%87%E7%9A%84Win10%E6%95%B4%E9%A1%BF%E8%AE%A1%E5%88%92/"/>
+      <category term="强迫症的Win10整顿计划" scheme="http://ultronxr.xyz/categories/%E5%BC%BA%E8%BF%AB%E7%97%87%E7%9A%84Win10%E6%95%B4%E9%A1%BF%E8%AE%A1%E5%88%92/"/>
     
     
-      <category term="win10" scheme="https://ultronxr.xyz/tags/win10/"/>
+      <category term="win10" scheme="http://ultronxr.xyz/tags/win10/"/>
     
-      <category term="windows" scheme="https://ultronxr.xyz/tags/windows/"/>
+      <category term="windows" scheme="http://ultronxr.xyz/tags/windows/"/>
     
   </entry>
   
   <entry>
     <title>SSD接口</title>
-    <link href="https://ultronxr.xyz/2019/01/29/Different-SSD-Interface/"/>
-    <id>https://ultronxr.xyz/2019/01/29/Different-SSD-Interface/</id>
+    <link href="http://ultronxr.xyz/2019/01/29/Different-SSD-Interface/"/>
+    <id>http://ultronxr.xyz/2019/01/29/Different-SSD-Interface/</id>
     <published>2019-01-29T11:32:50.000Z</published>
     <updated>2019-02-28T05:57:04.907Z</updated>
     
@@ -257,17 +257,17 @@
     
     </summary>
     
-      <category term="硬件知识" scheme="https://ultronxr.xyz/categories/%E7%A1%AC%E4%BB%B6%E7%9F%A5%E8%AF%86/"/>
+      <category term="硬件知识" scheme="http://ultronxr.xyz/categories/%E7%A1%AC%E4%BB%B6%E7%9F%A5%E8%AF%86/"/>
     
     
-      <category term="SSD" scheme="https://ultronxr.xyz/tags/SSD/"/>
+      <category term="SSD" scheme="http://ultronxr.xyz/tags/SSD/"/>
     
   </entry>
   
   <entry>
     <title>使用XStream处理XML文档/数据</title>
-    <link href="https://ultronxr.xyz/2019/01/24/Process-XML-text-using-XStream/"/>
-    <id>https://ultronxr.xyz/2019/01/24/Process-XML-text-using-XStream/</id>
+    <link href="http://ultronxr.xyz/2019/01/24/Process-XML-text-using-XStream/"/>
+    <id>http://ultronxr.xyz/2019/01/24/Process-XML-text-using-XStream/</id>
     <published>2019-01-24T08:17:08.000Z</published>
     <updated>2019-01-24T14:30:19.331Z</updated>
     
@@ -279,19 +279,19 @@
     
     </summary>
     
-      <category term="java" scheme="https://ultronxr.xyz/categories/java/"/>
+      <category term="java" scheme="http://ultronxr.xyz/categories/java/"/>
     
     
-      <category term="java" scheme="https://ultronxr.xyz/tags/java/"/>
+      <category term="java" scheme="http://ultronxr.xyz/tags/java/"/>
     
-      <category term="xml" scheme="https://ultronxr.xyz/tags/xml/"/>
+      <category term="xml" scheme="http://ultronxr.xyz/tags/xml/"/>
     
   </entry>
   
   <entry>
     <title>直接打印Java对象的内存地址</title>
-    <link href="https://ultronxr.xyz/2019/01/20/Print-address-of-object-in-java/"/>
-    <id>https://ultronxr.xyz/2019/01/20/Print-address-of-object-in-java/</id>
+    <link href="http://ultronxr.xyz/2019/01/20/Print-address-of-object-in-java/"/>
+    <id>http://ultronxr.xyz/2019/01/20/Print-address-of-object-in-java/</id>
     <published>2019-01-20T07:31:11.000Z</published>
     <updated>2019-01-24T08:20:16.509Z</updated>
     
@@ -304,17 +304,17 @@
     
     </summary>
     
-      <category term="java" scheme="https://ultronxr.xyz/categories/java/"/>
+      <category term="java" scheme="http://ultronxr.xyz/categories/java/"/>
     
     
-      <category term="java" scheme="https://ultronxr.xyz/tags/java/"/>
+      <category term="java" scheme="http://ultronxr.xyz/tags/java/"/>
     
   </entry>
   
   <entry>
     <title>Java中 parseInt 和 valueOf 两种方法的比较</title>
-    <link href="https://ultronxr.xyz/2019/01/19/The-Comparison-of-parseInt-and-valueOf-in-java/"/>
-    <id>https://ultronxr.xyz/2019/01/19/The-Comparison-of-parseInt-and-valueOf-in-java/</id>
+    <link href="http://ultronxr.xyz/2019/01/19/The-Comparison-of-parseInt-and-valueOf-in-java/"/>
+    <id>http://ultronxr.xyz/2019/01/19/The-Comparison-of-parseInt-and-valueOf-in-java/</id>
     <published>2019-01-19T09:06:57.000Z</published>
     <updated>2019-01-24T08:19:42.842Z</updated>
     
@@ -326,17 +326,17 @@
     
     </summary>
     
-      <category term="java" scheme="https://ultronxr.xyz/categories/java/"/>
+      <category term="java" scheme="http://ultronxr.xyz/categories/java/"/>
     
     
-      <category term="java" scheme="https://ultronxr.xyz/tags/java/"/>
+      <category term="java" scheme="http://ultronxr.xyz/tags/java/"/>
     
   </entry>
   
   <entry>
     <title>使用 Navicat 的SSH连接远程服务器上的MySQL</title>
-    <link href="https://ultronxr.xyz/2019/01/04/Connect-to-mysql-on-server-using-navicat/"/>
-    <id>https://ultronxr.xyz/2019/01/04/Connect-to-mysql-on-server-using-navicat/</id>
+    <link href="http://ultronxr.xyz/2019/01/04/Connect-to-mysql-on-server-using-navicat/"/>
+    <id>http://ultronxr.xyz/2019/01/04/Connect-to-mysql-on-server-using-navicat/</id>
     <published>2019-01-04T15:20:26.000Z</published>
     <updated>2019-01-04T16:19:01.795Z</updated>
     
@@ -348,21 +348,21 @@
     
     </summary>
     
-      <category term="Ubuntu16.04LTS安装/配置全家桶" scheme="https://ultronxr.xyz/categories/Ubuntu16-04LTS%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE%E5%85%A8%E5%AE%B6%E6%A1%B6/"/>
+      <category term="Ubuntu16.04LTS安装/配置全家桶" scheme="http://ultronxr.xyz/categories/Ubuntu16-04LTS%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE%E5%85%A8%E5%AE%B6%E6%A1%B6/"/>
     
     
-      <category term="ubuntu" scheme="https://ultronxr.xyz/tags/ubuntu/"/>
+      <category term="ubuntu" scheme="http://ultronxr.xyz/tags/ubuntu/"/>
     
-      <category term="mysql" scheme="https://ultronxr.xyz/tags/mysql/"/>
+      <category term="mysql" scheme="http://ultronxr.xyz/tags/mysql/"/>
     
-      <category term="navicat" scheme="https://ultronxr.xyz/tags/navicat/"/>
+      <category term="navicat" scheme="http://ultronxr.xyz/tags/navicat/"/>
     
   </entry>
   
   <entry>
     <title>设置Ubuntu服务器上的MySQL可以使用远程连接</title>
-    <link href="https://ultronxr.xyz/2019/01/02/Let-mysql-on-Ubuntu-use-remote-connections/"/>
-    <id>https://ultronxr.xyz/2019/01/02/Let-mysql-on-Ubuntu-use-remote-connections/</id>
+    <link href="http://ultronxr.xyz/2019/01/02/Let-mysql-on-Ubuntu-use-remote-connections/"/>
+    <id>http://ultronxr.xyz/2019/01/02/Let-mysql-on-Ubuntu-use-remote-connections/</id>
     <published>2019-01-02T08:13:43.000Z</published>
     <updated>2019-01-02T08:57:55.541Z</updated>
     
@@ -374,19 +374,19 @@
     
     </summary>
     
-      <category term="Ubuntu16.04LTS安装/配置全家桶" scheme="https://ultronxr.xyz/categories/Ubuntu16-04LTS%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE%E5%85%A8%E5%AE%B6%E6%A1%B6/"/>
+      <category term="Ubuntu16.04LTS安装/配置全家桶" scheme="http://ultronxr.xyz/categories/Ubuntu16-04LTS%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE%E5%85%A8%E5%AE%B6%E6%A1%B6/"/>
     
     
-      <category term="ubuntu" scheme="https://ultronxr.xyz/tags/ubuntu/"/>
+      <category term="ubuntu" scheme="http://ultronxr.xyz/tags/ubuntu/"/>
     
-      <category term="mysql" scheme="https://ultronxr.xyz/tags/mysql/"/>
+      <category term="mysql" scheme="http://ultronxr.xyz/tags/mysql/"/>
     
   </entry>
   
   <entry>
     <title>Ubuntu 16.04 LTS 的apt换源</title>
-    <link href="https://ultronxr.xyz/2018/12/25/Change-default-apt-source-to-ali-source-in-ubuntu16-04LTS/"/>
-    <id>https://ultronxr.xyz/2018/12/25/Change-default-apt-source-to-ali-source-in-ubuntu16-04LTS/</id>
+    <link href="http://ultronxr.xyz/2018/12/25/Change-default-apt-source-to-ali-source-in-ubuntu16-04LTS/"/>
+    <id>http://ultronxr.xyz/2018/12/25/Change-default-apt-source-to-ali-source-in-ubuntu16-04LTS/</id>
     <published>2018-12-25T02:46:41.000Z</published>
     <updated>2018-12-25T05:34:44.553Z</updated>
     
@@ -398,19 +398,19 @@
     
     </summary>
     
-      <category term="Ubuntu16.04LTS安装/配置全家桶" scheme="https://ultronxr.xyz/categories/Ubuntu16-04LTS%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE%E5%85%A8%E5%AE%B6%E6%A1%B6/"/>
+      <category term="Ubuntu16.04LTS安装/配置全家桶" scheme="http://ultronxr.xyz/categories/Ubuntu16-04LTS%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE%E5%85%A8%E5%AE%B6%E6%A1%B6/"/>
     
     
-      <category term="apt" scheme="https://ultronxr.xyz/tags/apt/"/>
+      <category term="apt" scheme="http://ultronxr.xyz/tags/apt/"/>
     
-      <category term="ubuntu" scheme="https://ultronxr.xyz/tags/ubuntu/"/>
+      <category term="ubuntu" scheme="http://ultronxr.xyz/tags/ubuntu/"/>
     
   </entry>
   
   <entry>
     <title>Ubuntu 16.04 LTS 简易安装mysql</title>
-    <link href="https://ultronxr.xyz/2018/12/25/Installation-of-mysql-in-ubuntu16-04LTS/"/>
-    <id>https://ultronxr.xyz/2018/12/25/Installation-of-mysql-in-ubuntu16-04LTS/</id>
+    <link href="http://ultronxr.xyz/2018/12/25/Installation-of-mysql-in-ubuntu16-04LTS/"/>
+    <id>http://ultronxr.xyz/2018/12/25/Installation-of-mysql-in-ubuntu16-04LTS/</id>
     <published>2018-12-25T02:43:18.000Z</published>
     <updated>2018-12-25T03:33:07.811Z</updated>
     
@@ -422,19 +422,19 @@
     
     </summary>
     
-      <category term="Ubuntu16.04LTS安装/配置全家桶" scheme="https://ultronxr.xyz/categories/Ubuntu16-04LTS%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE%E5%85%A8%E5%AE%B6%E6%A1%B6/"/>
+      <category term="Ubuntu16.04LTS安装/配置全家桶" scheme="http://ultronxr.xyz/categories/Ubuntu16-04LTS%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE%E5%85%A8%E5%AE%B6%E6%A1%B6/"/>
     
     
-      <category term="ubuntu" scheme="https://ultronxr.xyz/tags/ubuntu/"/>
+      <category term="ubuntu" scheme="http://ultronxr.xyz/tags/ubuntu/"/>
     
-      <category term="mysql" scheme="https://ultronxr.xyz/tags/mysql/"/>
+      <category term="mysql" scheme="http://ultronxr.xyz/tags/mysql/"/>
     
   </entry>
   
   <entry>
     <title>Ubuntu 16.04 LTS 下安装Tomcat 8</title>
-    <link href="https://ultronxr.xyz/2018/12/25/Installation-of-tomcat8-in-ubuntu16-04LTS/"/>
-    <id>https://ultronxr.xyz/2018/12/25/Installation-of-tomcat8-in-ubuntu16-04LTS/</id>
+    <link href="http://ultronxr.xyz/2018/12/25/Installation-of-tomcat8-in-ubuntu16-04LTS/"/>
+    <id>http://ultronxr.xyz/2018/12/25/Installation-of-tomcat8-in-ubuntu16-04LTS/</id>
     <published>2018-12-25T02:43:09.000Z</published>
     <updated>2018-12-25T06:17:53.965Z</updated>
     
@@ -446,19 +446,19 @@
     
     </summary>
     
-      <category term="Ubuntu16.04LTS安装/配置全家桶" scheme="https://ultronxr.xyz/categories/Ubuntu16-04LTS%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE%E5%85%A8%E5%AE%B6%E6%A1%B6/"/>
+      <category term="Ubuntu16.04LTS安装/配置全家桶" scheme="http://ultronxr.xyz/categories/Ubuntu16-04LTS%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE%E5%85%A8%E5%AE%B6%E6%A1%B6/"/>
     
     
-      <category term="tomcat" scheme="https://ultronxr.xyz/tags/tomcat/"/>
+      <category term="tomcat" scheme="http://ultronxr.xyz/tags/tomcat/"/>
     
-      <category term="ubuntu" scheme="https://ultronxr.xyz/tags/ubuntu/"/>
+      <category term="ubuntu" scheme="http://ultronxr.xyz/tags/ubuntu/"/>
     
   </entry>
   
   <entry>
     <title>Ubuntu 16.04 LTS 下安装JDK1.8和JRE</title>
-    <link href="https://ultronxr.xyz/2018/12/25/Setting-up-of-jdk1-8-in-ubuntu16-04LTS/"/>
-    <id>https://ultronxr.xyz/2018/12/25/Setting-up-of-jdk1-8-in-ubuntu16-04LTS/</id>
+    <link href="http://ultronxr.xyz/2018/12/25/Setting-up-of-jdk1-8-in-ubuntu16-04LTS/"/>
+    <id>http://ultronxr.xyz/2018/12/25/Setting-up-of-jdk1-8-in-ubuntu16-04LTS/</id>
     <published>2018-12-25T02:42:42.000Z</published>
     <updated>2018-12-25T05:39:52.437Z</updated>
     
@@ -470,21 +470,21 @@
     
     </summary>
     
-      <category term="Ubuntu16.04LTS安装/配置全家桶" scheme="https://ultronxr.xyz/categories/Ubuntu16-04LTS%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE%E5%85%A8%E5%AE%B6%E6%A1%B6/"/>
+      <category term="Ubuntu16.04LTS安装/配置全家桶" scheme="http://ultronxr.xyz/categories/Ubuntu16-04LTS%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE%E5%85%A8%E5%AE%B6%E6%A1%B6/"/>
     
     
-      <category term="jdk" scheme="https://ultronxr.xyz/tags/jdk/"/>
+      <category term="jdk" scheme="http://ultronxr.xyz/tags/jdk/"/>
     
-      <category term="ubuntu" scheme="https://ultronxr.xyz/tags/ubuntu/"/>
+      <category term="ubuntu" scheme="http://ultronxr.xyz/tags/ubuntu/"/>
     
-      <category term="jre" scheme="https://ultronxr.xyz/tags/jre/"/>
+      <category term="jre" scheme="http://ultronxr.xyz/tags/jre/"/>
     
   </entry>
   
   <entry>
     <title>word和pdf的比较——为什么正式场合更多使用pdf</title>
-    <link href="https://ultronxr.xyz/2018/12/25/Comparison-of-pdf-and-word/"/>
-    <id>https://ultronxr.xyz/2018/12/25/Comparison-of-pdf-and-word/</id>
+    <link href="http://ultronxr.xyz/2018/12/25/Comparison-of-pdf-and-word/"/>
+    <id>http://ultronxr.xyz/2018/12/25/Comparison-of-pdf-and-word/</id>
     <published>2018-12-24T16:03:46.000Z</published>
     <updated>2019-01-02T09:04:07.485Z</updated>
     
@@ -496,12 +496,12 @@
     
     </summary>
     
-      <category term="技术杂谈" scheme="https://ultronxr.xyz/categories/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/"/>
+      <category term="技术杂谈" scheme="http://ultronxr.xyz/categories/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/"/>
     
     
-      <category term="word" scheme="https://ultronxr.xyz/tags/word/"/>
+      <category term="word" scheme="http://ultronxr.xyz/tags/word/"/>
     
-      <category term="pdf" scheme="https://ultronxr.xyz/tags/pdf/"/>
+      <category term="pdf" scheme="http://ultronxr.xyz/tags/pdf/"/>
     
   </entry>
   
